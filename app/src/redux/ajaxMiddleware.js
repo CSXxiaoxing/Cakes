@@ -15,14 +15,14 @@ export function ajaxMiddleware(middlewareAPI) {
                 type: a,
             });
 
-            if(url){
-                http[method](url).then(response => {
-                    middlewareAPI.dispatch({
-                        type: 'Requested',
-                        dataset: response
-                    });
-                })
-            }
+            // if(url){
+            //     http[method](url).then(response => {
+            //         middlewareAPI.dispatch({
+            //             type: 'Requested',
+            //             dataset: response
+            //         });
+            //     })
+            // }
         }
     }
 }

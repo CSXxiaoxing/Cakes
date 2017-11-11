@@ -1,3 +1,67 @@
-.box{
-    font-size: 120px;
+body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.fl{
+    float:left;
+}
+html,body{
+    font-style: '微软雅黑';
+    height:100%;
+}
+#app{
+    height:100%;
+    display:flex;
+    .box{
+        flex:1;
+        font-size: 0.5rem;
+        display:flex;
+        display: flex;
+        flex-direction:column;
+        .head{
+            flex:6%;
+            display:flex;
+            ul{
+                flex:1;
+                display:flex;
+                flex-direction:row;
+                li{
+                    flex:1;
+                    float:left;
+                    text-align: center;
+                    a{
+                        display:block;
+                        i{
+                            display:block;
+                            color:#4A2B1A;
+                            font-size: 0.4rem;
+                        }
+                    }
+                }
+            }
+        }
+        .content{
+            flex:90%;
+        }
+        .footer{
+            flex:10%;
+            display:flex;
+            ul{
+                flex:1;
+                display:flex;
+                flex-direction:row;
+                li{
+                    flex:1;
+                    float:left;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
