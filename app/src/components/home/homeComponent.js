@@ -1,7 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router'
+
 
 import SpinnerComponent from '../spinner/spinner';
+import datagridComponent from '../datagrid/datagridComponent';
 import * as homeAction from './homeAction';
 import './home.scss';
 
@@ -12,10 +15,17 @@ class homeComponent extends React.Component{
 
     render(){
         return (
-            <div class="box">
-                <div class="head">head</div>
-                <div class="content">content</div>
-                <div class="footer">footer</div>
+            <div className="boxx">
+                <div>head</div>
+                <div>content</div>
+
+                <div>
+                    <datagridComponent />
+                    {this.props.children}
+                </div>
+                <div>footer</div>
+                <Link to="/grid">grid</Link><br/>
+                <Link to="/aaa">grid</Link>
             </div>
         )
     }
