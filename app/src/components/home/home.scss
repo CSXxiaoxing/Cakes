@@ -58,7 +58,6 @@ html,body{
                     width:90%;
                     margin:0 0.2rem;
                     li{
-                        display:inline-block;
                         box-sizing:border-box;
                         width:23%;
                         padding:0.1rem 0.05rem;
@@ -310,6 +309,7 @@ html,body{
                         color:#B6B6B6;
                         display: block;
                         font-size: 0.3rem;
+                        font-weight: bold;
                         span{
                             color:#B0B0B0;
                             display: block;
@@ -317,9 +317,9 @@ html,body{
                         }
                     }
                 }
-                li:nth-child(3){
+                li:nth-child(2n){
                     a{
-                        font-size: 0.3rem;
+                        
                     }
                 }
                 .iconActive{
