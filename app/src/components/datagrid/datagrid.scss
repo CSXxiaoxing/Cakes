@@ -7,7 +7,7 @@ body{
     width: 100%;
 }
 .dataPage{
-    display: flex;
+    // display: flex;
     flex-direction: column;
     font-size: 40px;
     width: 100%;
@@ -16,6 +16,8 @@ body{
     display: none;
     }
     nav{
+        // position: absolute;
+        // left: 0;top: 0;
         height: 5%;
         overflow-y: hidden;
         ul{
@@ -35,6 +37,7 @@ body{
             height: 100%;
         }
         border-bottom: 1px solid #111;
+        
     }
     main{
         flex:1;
