@@ -3,10 +3,12 @@
 
 #过滤单个文件
 gulpfile.js
+项目需求.docx
 
 #过滤文件夹
 doc/
 node_modules/
+
 
 
 .DS_Store
