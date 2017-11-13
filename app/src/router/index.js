@@ -4,9 +4,9 @@ import homeComponent from '../components/home/homeComponent'
 import personalComponent from '../components/personal/personalComponent'
 
 export default (
-    <div>
-        <Route path="/" component={homeComponent}></Route>
-        <Route path="/personal" component={personalComponent}></Route>
-    </div>
+        <Route path="/" component={homeComponent}>
+            <Route path="/personal" component={personalComponent}></Route>
+        </Route>
+        
     
 )
