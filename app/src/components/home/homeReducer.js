@@ -11,5 +11,6 @@ export default function StudentReducer(state = {}, action){
         default:
             reState.loading = false;
     }
+    console.log(reState, action);
     return reState ;
 }

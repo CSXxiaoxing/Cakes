@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
-import datagridComponent from '../datagrid/datagridComponent';
 import * as homeAction from './homeAction';
 import CarouselComponent from '../carousel/carousel';
 import contentComponent from './contentComponent';
@@ -76,7 +74,7 @@ class homeComponent extends React.Component{
                 <div className="footer">
                     <ul>
                         <li><Link to="/"><Icon type="home" /><span>首页</span></Link></li>
-                        <li><Link to="/datagrid"><Icon type="appstore-o" /><span>分类</span></Link></li>
+                        <li><Link to="/personal"><Icon type="appstore-o" /><span>分类</span></Link></li>
                         <li><Link><Icon type="shopping-cart" /><span>购物车</span></Link></li>
                         <li><Link><Icon type="user"  /><span>我</span></Link></li>
                     </ul>
