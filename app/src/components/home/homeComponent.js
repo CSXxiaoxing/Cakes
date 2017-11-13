@@ -12,10 +12,10 @@ class homeComponent extends React.Component{
 
     render(){
         return (
-            <div class="box">
-                <div class="head">head</div>
-                <div class="content">content</div>
-                <div class="footer">footer</div>
+            <div className="box">
+                <div className="head">head</div>
+                <div className="content">content</div>
+                <div className="footer">footer</div>
             </div>
         )
     }
