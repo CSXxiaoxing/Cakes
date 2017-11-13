@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel} from 'antd';
+import './carousel.scss'
 class CarouselComponent extends React.Component{
     render(){
         return (
