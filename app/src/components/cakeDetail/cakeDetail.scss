@@ -98,6 +98,7 @@ ul,li{
         				display: inline-block;
         				height: 100%;
         				float: left;
+        				font-size: 30px;
         				line-height: 80px;
         				margin-left: 10px;
         			}
@@ -113,6 +114,7 @@ ul,li{
 	        			height: 70px;
 	        			font-size: 33px;
 	        			line-height: 70px;
+	        			
 	        			.select{
 	        				position: relative;
 	        				padding-left: 20px;
@@ -134,7 +136,9 @@ ul,li{
         			li{
         				width: 50%;
         				height: 55px;
-        				float: left;
+        				float: left;        				
+	        			font-size: 33px;
+	        			
         				span{
         					margin-left: 15px;
         				}
@@ -142,8 +146,9 @@ ul,li{
         		}
         		.sweet{
         			margin: 10px 20px;
+        			font-size: 30px;
         			img{
-        				width: 24px;
+        				width: 40px;
         				margin: 0px 10px;
         				span{
         					margin: 0px 5px;
@@ -158,6 +163,7 @@ ul,li{
         	padding: 10px 24px;
         	background-color: #FFFFFF;
         	margin: 20px 0px;
+        	font-size: 30px;
         }
         .detailsPic{
         	img{
@@ -172,7 +178,7 @@ ul,li{
         .details-suspension-content{
         	position: absolute;
         	left: 0px;
-        	top: 0px;
+        	top: 0spx;
         	width: 100%;
         	height: 0px;
 //      	height: 355px;
@@ -198,17 +204,22 @@ ul,li{
 		        		}
 		        	}
 		        	img{
-		        		width: 320px;
+		        		width: 300px;
 		        		float: left;
 		        	}
 		        	.details-ul{
 		        		margin-left: 20px;
 		        		float: left;
+		        		font-size: 30px;
 		        	}
 		        	
         		}
         		.detail-spec-title{
 		        	margin: 10px 0px;
+		        	font-size: 30px;
+		        }
+		        .bang{
+		        	font-size: 30px;
 		        }
 		        .header{
 		        	li{

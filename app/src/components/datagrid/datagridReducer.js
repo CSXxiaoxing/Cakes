@@ -12,5 +12,4 @@ export default function StudentReducer(state = {}, action){
             reState.loading = false;
     }
     return reState ;
-   
 }

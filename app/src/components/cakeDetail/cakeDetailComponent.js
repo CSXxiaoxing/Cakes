@@ -7,6 +7,9 @@ import './cakeDetail.scss';
 import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
 	componentDidMount(){
+//		$('.footer').hide();
+//		$('.header').hide();
+		console.log($('.footer'))
 		var $tab = $('.tab');
 		var $content = $('.tab-content');
 		var $tabItem = $tab.find('.bang li');
