@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿#过滤压缩包
 *.zip
 
@@ -27,3 +28,10 @@ yarn-error.log
 ﻿#过滤node_modules文件夹
 node_modules/
 
+=======
+﻿#过滤node_modules文件夹
+node_modules/
+
+#过滤zip文件
+*.zip
+>>>>>>> a54904bf6fce46aa1c611599075d3d7adec6b285
