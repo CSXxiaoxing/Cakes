@@ -1,9 +1,12 @@
 import React from 'react';
+
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
 
 import './personal.scss'
 import personalAction from './personalAction.js'
+
+
 class personalComponent extends React.Component{
     render(){
         return (
@@ -43,5 +46,5 @@ const mapStateToProps = function(state){
     }
 }
 
-// export default personalComponent
-export default connect(mapStateToProps, personalAction)(personalComponent)
+
+export default personalComponent

@@ -1,7 +1,8 @@
 export function Init(){
     return {
         types: ['BeforeRequest', 'Requested', 'RequestError'],
-        url: 'http://localhost:88/home'
+        url: 'http://localhost:666/select',
+        method : "post"
     }
 }
 
