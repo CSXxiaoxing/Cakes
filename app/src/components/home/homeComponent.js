@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import SpinnerComponent from '../spinner/spinner';
 import * as homeAction from './homeAction';
 import './home.scss';
@@ -12,10 +12,13 @@ class homeComponent extends React.Component{
 
     render(){
         return (
-            <div class="box">
-                <div class="head">head</div>
-                <div class="content">content</div>
-                <div class="footer">footer</div>
+            <div className="box">
+                <div className="head">head</div>
+                <div className="content">content</div>
+                <div className="footer">
+                <Link to="/personal">personal</Link>
+                <Link to="/home">home</Link>
+                </div>
             </div>
         )
     }

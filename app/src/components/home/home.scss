@@ -1,3 +1,42 @@
+body,html{height:100%;}
+ 
+body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
+    margin: 0;
+    padding: 0;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+a{text-decoration:none;}
+
+.clearfix:after{
+    overflow:hidden;
+    content:"";
+    height: 0;
+    display:block;
+    clear:both;
+    visibility:hidden;
+    zoom:1;
+}
+
+
+#app{height:100%;}
+
 .box{
-    font-size: 120px;
+    height:100%;
+    font-size: .4rem;
+    display:flex;
+    flex-direction:column;
+    .head{
+        height:1.5rem;
+    }
+    .footer{
+        height:1.5rem;
+    }
+    .content{
+        flex:1;
+    }
 }

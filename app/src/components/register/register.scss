@@ -1,0 +1,55 @@
+.content{
+    .l-loginbox{
+        position:relative;
+        padding:.5rem;
+        label{
+            position:relative;
+            .yes{
+                display:none;
+                position:absolute;
+                // display:block;
+                width:.4rem;
+                height:.4rem;
+                right:.2rem;
+                top:.1rem;
+                // background:url(./img/pass.png)
+                img{
+                    display:block;
+                    width:.4rem;
+                    height:.4rem;
+                }
+            }
+            .code{
+                position:absolute;
+                right:.2rem;
+                top:0rem;
+                background:#ccc;
+                padding:.1rem .2rem;
+            }
+        }
+        input{
+            font-size:.35rem;
+            width:100%;
+            height:1rem;
+            border:none;
+            border-bottom: .01rem solid #D5D5D5;
+            outline: none;
+            color: #442818;
+        }
+        button{
+             width:100%;
+            height:1.2rem;
+            background-color: #442818;
+            color:#fff;
+            font-size:.4rem;
+            margin-top:1rem;
+        }
+        .errmsg{
+            display:block;
+            position: absolute;
+            bottom:2rem;
+            color:#FF714D;
+            font-size:.35rem;
+        }
+    }
+}
