@@ -65,6 +65,8 @@ class datagridComponent extends React.Component{
                 }
                 var top = $('#xq').outerHeight();
                 span.style.top = String(top) + 'px';
+                var xq_height = $('.header').outerHeight();
+                $('#xq').css({'position': 'fixed' , 'z-index' : '99' , 'top' : xq_height})
                 event.stopPropagation();
             });
          
@@ -91,7 +93,7 @@ class datagridComponent extends React.Component{
                             this.props.dataset.map(function(obj, index){
                                 obj.gSpec = obj.gSpec.slice(0,2)
                                 return (
-                                <Link to="/" key={index + 'a'} className="datapageA">
+                                <Link to="{obj.id}" key={index + 'a'} className="datapageA">
                                 <dl key={index}>
                                     <dt><img src={obj.gPicture} alt="Cake" /></dt>
                                     <dd><p>{obj.gNameEN}</p></dd>

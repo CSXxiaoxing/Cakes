@@ -7,7 +7,7 @@ body{
     width: 100%;
 }
 .dataPage{
-    // display: flex;
+    display: flex;
     flex-direction: column;
     font-size: 40px;
     width: 100%;
@@ -16,10 +16,11 @@ body{
     display: none;
     }
     nav{
-        // position: absolute;
-        // left: 0;top: 0;
+        background: #fff;
         height: 5%;
         overflow-y: hidden;
+        z-index: 99;
+
         ul{
             width: 150%;
             height: 100%;
@@ -41,7 +42,7 @@ body{
     }
     main{
         flex:1;
-        overflow-x: hidden;
+        // overflow-x: hidden;
         article{
             height-min: 200%;
             display: flex;

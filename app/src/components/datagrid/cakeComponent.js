@@ -15,6 +15,8 @@ const mapStateToProps = function(state){
 class datagridComponent extends React.Component{
     componentWillReceiveProps(){
         console.log(this.props.params.name)
+        var xq_height = $('.header').outerHeight();
+        $('#xq').css({'position': 'fixed' , 'z-index' : '99' , 'top' : xq_height})
     }
     render(){
                 return (
