@@ -26,7 +26,6 @@ class homeComponent extends React.Component{
             });
         $('.header ul li').eq(0).click(function(){
             var text;
-
             $('.cover').css({display:'block'});
             $('.list li').click(function(){
                 $(this).addClass('coverActive').siblings().removeClass('coverActive');
@@ -48,14 +47,7 @@ class homeComponent extends React.Component{
                 <div className="content">
                     <div>{this.props.children}</div>
                 </div>
-                <div className="footer">
-                    <ul>
-                        <li><Link to="/"><Icon type="home" /><span>首页</span></Link></li>
-                        <li><Link to="/personal"><Icon type="appstore-o" /><span>分类</span></Link></li>
-                        <li><Link><Icon type="shopping-cart" /><span>购物车</span></Link></li>
-                        <li><Link><Icon type="user"  /><span>我</span></Link></li>
-                    </ul>
-                </div>
+                <FooterComponent/>
             </div>
         )
     }
