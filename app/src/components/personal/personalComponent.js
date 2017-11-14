@@ -1,15 +1,48 @@
 import React from 'react';
-import {connect} from 'react-redux';
+
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import {connect} from 'react-redux';
+
+import './personal.scss'
+import personalAction from './personalAction.js'
+
 
 class personalComponent extends React.Component{
     render(){
         return (
             <div className="box">
-            <h1>6666</h1>
+                <div className="head">head</div>
+                <div className="content">
+                    <div className="l-router clearfix">
+                    <Link to="/login" onClick={this.active} className='l-active'>账号密码登录</Link>
+                    <Link to="/register">注册</Link>
+                    </div>
+                    <div className='l-loginbox'>
+                        <input type="text"placeholder="用户名/邮箱地址"/>
+                        <input type="password" placeholder="填写密码"/>
+                        <button>登录</button>
+                    </div>
+                    <div className="l-remember">
+                        <label ><input type="checkbox"/>记住账号</label>
+                      
+                    </div>
+                </div>
+                <div className="footer">
+                    <Link to="/login">personal</Link>
+                    <Link to="/home">home</Link>
+                </div>
             </div>
         )
+    }
+    active(e){
+        console.log($(e.target))
+        $(e.target).addClass('l-acitve').siblings().removeClass('l-active')
+    }
+}
+const mapStateToProps = function(state){
+    return {
+        loading: state.student.loading,
+        dataset: state.student.dataset || {}
     }
 }
 

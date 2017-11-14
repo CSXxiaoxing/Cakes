@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as cakeDatailAction from './cakeDetailAction';
+import DetailComponent from '../tinyComponents/DetailComponent.js';
 import './cakeDetail.scss';
 import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
@@ -20,7 +22,9 @@ class cakeDatailComponent extends React.Component{
     render(){
         return (
             <div className="p_box">
-                <div className="p_head">head</div>
+                <div className="p_head">
+                    <DetailComponent/>
+                </div>
                 <div className="p_content">
                 	<div className="containerPic">
                 		<img src="src/img/container.jpg"/>
