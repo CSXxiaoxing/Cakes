@@ -21,7 +21,7 @@ class contentComponent extends React.Component{
                     <h1>cake.榜单</h1>
                     <div className="billcarousel">
                         <ul>
-                            <li><Link><img src="./src/img/cake1.jpg" /></Link></li>
+                            <li><Link to="/cakeDatail"><img src="./src/img/cake1.jpg" /></Link></li>
                             <li><Link><img src="./src/img/cake2.jpg" /></Link></li>
                             <li><Link><img src="./src/img/cake3.jpg" /></Link></li>
                         </ul>
