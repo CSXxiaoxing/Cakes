@@ -1,0 +1,99 @@
+// html::-webkit-scrollbar,
+// body::-webkit-scrollbar{
+//     width:0;
+//     height:0;
+// }\uh
+body{
+    width: 100%;
+}
+.dataPage{
+    // display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    width: 100%;
+    nav::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+    }
+    nav{
+        // position: absolute;
+        // left: 0;top: 0;
+        height: 5%;
+        overflow-y: hidden;
+        ul{
+            width: 150%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        li{
+            flex: auto;
+            height: 100%;
+        }
+        a{
+            margin: 0 60px;
+            color: #555;
+            display: inline-block;
+            height: 100%;
+        }
+        border-bottom: 1px solid #111;
+        
+    }
+    main{
+        flex:1;
+        overflow-x: hidden;
+        article{
+            height-min: 200%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 2%;
+            .datapageA{
+                width: 48%;
+                dl{
+                    margin: 5% 0;
+                    dt{
+                        overflow: hidden;
+                        img{width: 120%; margin-left: -60px;}
+                    }
+                    dd{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 60px;
+                        font-size: 40px;
+                        p{
+                            color: #888;
+                            display: inline-block;
+                            overflow: hidden; /*自动隐藏文字*/
+                            text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+                            white-space: nowrap;/*强制不换行*/
+                            width: 20em;/*不允许出现半汉字截断*/
+                        }
+                        i{
+                            display: inline-block;
+                            color: #555;
+                            margin-right: 20px;
+                            font-size: 60px;
+                        }
+                    }
+                    dd:nth-of-type(1),dd:nth-of-type(2){
+                        p{
+                            color: #111;
+                        }
+                    }
+                    dd:nth-of-type(4),dd:nth-of-type(1){
+                        p{
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    .pageXQ{
+        border-bottom: 5px solid #000;
+        // border-radius: 40%;
+    }
+}
