@@ -6,6 +6,9 @@ import SpinnerComponent from '../spinner/spinner';
 import * as homeAction from './homeAction';
 import CarouselComponent from '../carousel/carousel';
 import contentComponent from './contentComponent';
+import CoverComponent from '../tinyComponents/CoverComponent';
+import HeaderComponent from '../tinyComponents/HeaderComponent';
+import FooterComponent from '../tinyComponents/FooterComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './home.scss';
 
@@ -40,34 +43,8 @@ class homeComponent extends React.Component{
         console.log(this.props.children)
         return (
             <div className="box">
-                <div className="cover">
-                    <div className="citylist">
-                        <div className="headline">
-                            <h3>选择城市</h3>
-                        </div>
-                        <ul className="list">
-                            <li><span>√</span><span>上海</span></li>
-                            <li><span>√</span><span>北京</span></li>
-                            <li><span>√</span><span>天津</span></li>
-                            <li><span>√</span><span>杭州</span></li>
-                            <li><span>√</span><span>苏州</span></li>
-                            <li><span>√</span><span>广州</span></li>
-                            <li><span>√</span><span>深圳</span></li>
-                            <li><span>√</span><span>南宁</span></li>
-                        </ul>
-                        <div className="hint">*切换城市将清空购物车</div>
-                        <div className="btn">
-                            <button>确定</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="header">
-                    <ul>
-                    <li><Link><Icon type="environment" /><span className="city">广州</span></Link></li>
-                        <li><Link><Icon type="star" /></Link></li>
-                        <li><Link><Icon type="message" /><i>10</i></Link></li>
-                    </ul>
-                </div>
+                <CoverComponent/>
+                <HeaderComponent/>
                 <div className="content">
                     <div>{this.props.children}</div>
                 </div>

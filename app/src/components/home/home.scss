@@ -22,7 +22,7 @@ html,body{
     .box{
         flex:1;
         overflow:hidden;
-        font-size: 0.2rem;
+        font-size: 0.4rem;
         display:flex;
         display: flex;
         flex-direction:column;
@@ -50,35 +50,36 @@ html,body{
                 .headline{
                     height:20%;
                     h3{
-                        padding:0.2rem 0.28rem;
+                        padding:0.4rem 0.4rem;
                     }
                 }
                 ul{
-                    flex:1;
+                    height:50%;
                     width:90%;
-                    margin:0 0.2rem;
+                    margin-left:0.6rem;
                     li{
-                        box-sizing:border-box;
                         width:23%;
-                        padding:0.1rem 0.05rem;
+                        padding:0.15rem;
                         float:left;
                         text-align: center;
-                        margin-top:0.3rem;
+                        margin-top:0.6rem;
                         position:relative;
+                        border:0.05rem solid #fff;
                         span:first-child{
                             display:none;
                             position:absolute;
                             left:0;
                             top:0;
-                            font-size:0.15rem;
+                            font-size:0.3rem;
                             background-color:#4A2B1A;
                             color:#fff;
+
                         }
                     }
                     
                     .coverActive{
-                        border:0.02rem solid #4A2B1A;
-                        padding:0.04rem 0;
+                        box-sizing:border-box;
+                        border:0.05rem solid #4A2B1A;
                         span:first-child{
                             display:block;
                         }
@@ -89,6 +90,7 @@ html,body{
                         }
                 }
                 .hint{
+
                     color:red;
                 }
                 .btn{
@@ -97,7 +99,7 @@ html,body{
                     button{
                         width:30%;
                         height:60%;
-                        margin-top:0.2rem;
+                        margin-top:0.4rem;
                         background-color:#000;
                         color:#fff;
                     }
@@ -115,18 +117,19 @@ html,body{
                     flex:1;
                     float:left;
                     a{  
-                        margin:0.08rem;              
+                        margin:0.08rem;
+                        margin-top:0.2rem;              
                         text-align: center;
                         display:block;
                         position:relative;
                         i{
                             display:block;
                             color:#4A2B1A;
-                            font-size: 0.3rem;
+                            font-size: 0.6rem;
                         }
                         span{
                             position:absolute;
-                            right:-0.4rem;
+                            right:-0.8rem;
                             top:0;
                             color:#000; 
                         }
@@ -145,13 +148,13 @@ html,body{
                             display:block;
                             position:absolute;
                             top:-0.1rem;
-                            right:-0.03rem;
+                            right:-0.1rem;
                             background-color:red;
                             border-radius:100%;
-                            width:0.2rem;
-                            height:0.2rem;
-                            line-height: 0.2rem;
-                            font-size: 0.15rem;
+                            width:0.4rem;
+                            height:0.4rem;
+                            line-height: 0.4rem;
+                            font-size: 0.3rem;
                             color:#fff;
                             text-align: center;
                         }
@@ -181,8 +184,8 @@ html,body{
                         a{
                             display:block;
                             img{
-                                height:1rem;
-                                height:1rem;
+                                height:2rem;
+                                height:2rem;
                             }
                             span{
                                 display:block;
@@ -208,12 +211,12 @@ html,body{
                 .billcarousel{
                     overflow:auto;
                     ul{
-                        width:12rem;
+                        width:20rem;
                         height:3rem;
                         li{
                             float:left;
                             img{
-                                width:3.5rem;
+                                width:6rem;
                             }
                         }
                     }
@@ -233,8 +236,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:1rem;
-                                    height:1rem;
+                                    height:2rem;
+                                    height:2rem;
                                 }
                                 span{
                                     display:block;
@@ -258,7 +261,7 @@ html,body{
                     flex:1;
                     a{
                         img{
-                            height:3rem;
+                            height:6rem;
                             width:100%;
                         }
                     }
@@ -279,8 +282,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:1rem;
-                                    height:1rem;
+                                    height:2rem;
+                                    height:2rem;
                                 }
                                 span{
                                     display:block;
@@ -308,12 +311,13 @@ html,body{
                     a{  
                         color:#B6B6B6;
                         display: block;
-                        font-size: 0.3rem;
-                        font-weight: bold;
+                        font-size: 0.66rem;
+                        font-weight: 500;
+                        text-decoration:none;
                         span{
                             color:#B0B0B0;
                             display: block;
-                            font-size: 0.16rem;
+                            font-size: 0.32rem;
                         }
                     }
                 }
