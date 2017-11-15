@@ -1,20 +1,32 @@
 import React from 'react';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
+import {connect} from 'react-redux';
+import * as homeAction from './homeAction';
 import CarouselComponent from '../tinyComponents/carousel.js';
 class contentComponent extends React.Component{
     componentDidMount(){
-        console.log(66)
+        this.props.Init();
     }
     render(){
+
+        // console.log(this.props.dataset[1])
+
         return (
             <div>
                 <CarouselComponent/>
                 <div className="classify">
                     <ul>
-                        <li><Link><img src="./src/img/cake1.jpg" /><span>蛋糕</span></Link></li>
-                        <li><Link><img src="./src/img/cake2.jpg" /><span>冰淇淋</span></Link></li>
-                        <li><Link><img src="./src/img/cake3.jpg" /><span>小切块</span></Link></li>
-                        <li><Link><img src="./src/img/cake4.jpg" /><span>定制</span></Link></li>
+                        {
+                            this.props.dataset.map(function(obj,idx){
+                                    return (
+                                        <li key={idx+'b'}><Link><img src={obj.gPicture} /><span>冰淇淋</span></Link></li>
+                                        )
+                                
+                            })
+                        }
+                        
+                        
+                        
                     </ul>
                 </div>
                 <div className="billboard">
@@ -51,5 +63,12 @@ class contentComponent extends React.Component{
         )
     }
 }
+const mapStateToProps = function(state){
+    var dataset  =  JSON.parse(state.home.dataset || '[]')
+    return {
+        loading: state.home.loading,
+        dataset: dataset[1] || []
+    }
+}
 
-export default contentComponent
+export default connect(mapStateToProps, homeAction)(contentComponent)

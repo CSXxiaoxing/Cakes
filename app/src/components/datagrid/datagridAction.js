@@ -1,7 +1,7 @@
 export function Init(cakeType){
     var URL = {
         'cake' : '蛋糕',
-        'small' : '蛋糕',
+        'small' : '蛋糕  ',
         'ice' : '蛋糕',
         'flower' : '蛋糕',
         'gift' : '蛋糕',
