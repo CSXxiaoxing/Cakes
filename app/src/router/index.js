@@ -17,6 +17,7 @@ import contentComponent from '../components/home/contentComponent';
 import cartComponent from '../components/cart/cartComponent';
 
 
+
 export default (
         <div>
     	    <Route path="/t" component={homeComponent}>
