@@ -25,15 +25,6 @@ export function ajaxMiddleware(middlewareAPI) {
                     })                    
                 })
             }
-//          if(url){
-//              http[method](url,action.data).then(response => {
-//                  middlewareAPI.dispatch({
-//                      type: b,
-//                      dataset: JSON.parse(response)
-//
-//                  });
-//              })
-//          }
         }
     }
 }

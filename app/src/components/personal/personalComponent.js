@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
+import LoginComponent from '../tinyComponents/LoginComponent.js';
 
 import './personal.scss'
 import personalAction from './personalAction.js'
@@ -11,7 +12,7 @@ class personalComponent extends React.Component{
     render(){
         return (
             <div className="box">
-                <div className="head">head</div>
+                <div className="head"><LoginComponent/></div>
                 <div className="content">
                     <div className="l-router clearfix">
                     <Link to="/login" onClick={this.active} className='l-active'>账号密码登录</Link>
@@ -28,8 +29,6 @@ class personalComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    <Link to="/login">personal</Link>
-                    <Link to="/home">home</Link>
                 </div>
             </div>
         )

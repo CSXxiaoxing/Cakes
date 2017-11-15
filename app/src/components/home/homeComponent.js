@@ -4,7 +4,6 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as homeAction from './homeAction';
-import CarouselComponent from '../carousel/carousel';
 import contentComponent from './contentComponent';
 import CoverComponent from '../tinyComponents/CoverComponent';
 import HeaderComponent from '../tinyComponents/HeaderComponent';
@@ -23,6 +22,7 @@ class homeComponent extends React.Component{
             $.getJSON(url, function(data) {
                 var city = data.Isp.slice(3, -4);
                 $('.city').text(`${city}`)
+                console.log(data)
             });
         $('.header ul li').eq(0).click(function(){
             var text;
@@ -39,7 +39,6 @@ class homeComponent extends React.Component{
     }
 
     render(){
-        console.log(this.props.children)
         return (
             <div className="box">
                 <CoverComponent/>
