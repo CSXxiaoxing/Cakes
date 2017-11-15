@@ -14,6 +14,7 @@
 		}
 		$conn->set_charset('utf8');
 		return $conn;
+		
 	}
 	//英德测试
 //	function connect(){
