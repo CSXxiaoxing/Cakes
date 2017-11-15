@@ -18,7 +18,6 @@ class cakeDatailComponent extends React.Component{
         // 高亮显示第一个tab
         $tabItem.first().addClass('active');
         var  $suspension = $('.details-suspension-content');
-//    	$suspension.hide();
 	}
     render(){
         return (
@@ -169,14 +168,12 @@ class cakeDatailComponent extends React.Component{
     }
     close(e){
     	var  $suspension = $('.details-suspension-content');
-//  	$suspension.hide();
 		$suspension.animate({top:0,height:0});
     }
     select(e){
     	var  $suspension = $('.details-suspension-content');
     	
-		$suspension.animate({top:-355,height:355});
-//	  	$suspension.show();
+		$suspension.animate({top:'-5.775rem',height:'5.775rem'});
     }
     
 }
