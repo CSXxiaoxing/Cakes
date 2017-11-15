@@ -1,41 +1,57 @@
+
 import React from 'react';
-import { Link } from 'react-router';
 import {connect} from 'react-redux';
+import { Link } from 'react-router'
+import { Icon } from 'antd';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as datagridAction from './datagridAction';
 
 const mapStateToProps = function(state){
+    // console.log(JSON.parse(state.datagrid.dataset))
+    // console.log(JSON.parse(state.datagrid.dataset || '[]'))
+    var cakeData = JSON.parse(state.datagrid.dataset || '[]')
+    // console.log(cakeData[0])
     return {
-        loading: state.home.loading,
-        dataset: state.home.dataset || []
+        loading: state.datagrid.loading,
+        dataset: cakeData[0] || []
     }
 }
-
 class datagridComponent extends React.Component{
-    componentWillReceiveProps(){
-        console.log(this.props.params.name)
-        var xq_height = $('.header').outerHeight();
-        $('#xq').css({'position': 'fixed' , 'z-index' : '99' , 'top' : xq_height})
+    state = {path: ''}
+    componentDidMount(){
+
+    }
+    componentWillReceiveProps(propsType){
+        // console.log(this.state.path)
+        if(this.props.params.name != this.state.path){
+            this.setState({path:this.props.params.name})
+            this.props.Init(this.props.params.name);
+        } 
+        
     }
     render(){
                 return (
                 <article>
-                        {
-                            this.props.dataset.map(function(obj, index){
-                                return (
-                                <Link to="/" key={index + 'a'} className="datapageA">
-                                <dl key={index}>
-                                    <dt><img src={obj.src} alt="Cake" /></dt>
-                                    <dd><p>{obj.ename}</p></dd>
-                                    <dd><p>{obj.cname}</p></dd>
-                                    <dd><p>{obj.jianjie}</p></dd>
-                                    <dd><p>￥<span>{obj.price}</span>/<span>{obj.b}</span>傍</p></dd>
-                                </dl>
-                                </Link>
-                                )
-                            })
-                        }
+                    {
+                        this.props.dataset.map(function(obj, index){
+                            obj.gSpec = obj.gSpec.slice(0,2)
+                            var objGID = String("/cakeDatail/"+obj.gId);
+                            return (
+                            <Link to={objGID} key={index + 'a'} className="datapageA">
+                            <dl key={index}>
+                                <dt><img src={obj.gPicture} alt="Cake" /></dt>
+                                <dd><p>{obj.gNameEN}</p></dd>
+                                <dd><p>{obj.gNameZH}</p></dd>
+                                <dd><p>{obj.gDesc}</p></dd>
+                                <dd><p>￥<span>{obj.gPrice}</span>/<span>{
+                                    obj.gSpec
+                                }</span></p><Icon type="shopping-cart" /></dd>
+                            </dl>
+                            </Link>
+                            )
+                        })
+                    }
                 </article>
                 )
             }

@@ -7,7 +7,6 @@ export default function StudentReducer(state = {}, action){
         case 'Requested':
             reState.loading = false;
             reState.dataset = action.dataset;
-            console.log(action)
             break;
         default:
             reState.loading = false;

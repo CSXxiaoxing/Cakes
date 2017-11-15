@@ -10,21 +10,27 @@ import registerComponent from '../components/register/registerComponent'
 // pyd
 import cakeDetailComponent from '../components/cakeDetail/cakeDetailComponent'
 // csx
-// import datagridComponent from '../components/datagrid/datagridComponent.js'
-// import cakeComponent from '../components/datagrid/cakeComponent.js'
+import datagridComponent from '../components/datagrid/datagridComponent.js'
+import cakeComponent from '../components/datagrid/cakeComponent.js'
 // tzj
 import contentComponent from '../components/home/contentComponent';
 
 export default (
-	<div>
+<div>
 	    <Route path="/t" component={homeComponent}>
             <Route path="/" component={contentComponent}></Route>
+            <Route path="/datagrid" component={datagridComponent}>
+                <Route path="cc/:name" component={cakeComponent}></Route>
+            </Route>
         </Route>
-		<Route path="/cakeDatail" component={cakeDetailComponent}>
+		<Route path="/cakeDatail/:id" component={cakeDetailComponent}>
 		</Route>
         <Route path="/login" component={personalComponent}></Route>
         <Route path="/register" component={registerComponent}></Route>
-	</div>
+</div>
+        
 
 )
+
+
 

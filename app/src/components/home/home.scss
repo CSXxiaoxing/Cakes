@@ -55,12 +55,11 @@ html,body{
 }
 #app{
     height:100%;
-    display:flex;
+    // display:flex;
     .box{
-        flex:1;
+        height: 100%;
         overflow:hidden;
         font-size: 0.4rem;
-        display:flex;
         display: flex;
         flex-direction:column;
         .cover{
@@ -144,7 +143,7 @@ html,body{
             }
         }
         .header{
-            flex:6%;
+            height:6%;
             display:flex;
             ul{
                 flex:1;
@@ -200,8 +199,10 @@ html,body{
             }
         }
         .content{
-            height:94%;
+            flex:1;
             overflow-y:auto;
+            overflow-x:hidden;
+
             background-color:#FAFAFA;
             display:flex;
             flex-direction:column;
@@ -335,8 +336,9 @@ html,body{
         .footer{
             background-color:#FAFAFA;
             border-top:1px solid #B6B6B6;
-            flex:10%;
+            height:10%;
             display:flex;
+            z-index:2;
             ul{
                 flex:1;
                 display:flex;
