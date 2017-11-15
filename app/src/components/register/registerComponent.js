@@ -2,8 +2,9 @@ import React from 'react';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
 
-import './register.scss'
-import * as registerAction from './registerAction.js'
+import './register.scss';
+import * as registerAction from './registerAction.js';
+import LoginComponent from '../tinyComponents/LoginComponent.js';
 class registerComponent extends React.Component{
     componentWillReceiveProps(nxetProps){
         console.log(nxetProps);
@@ -34,8 +35,7 @@ class registerComponent extends React.Component{
     render(){
         return (
             <div className="box">
-
-                <div className="head">head</div>
+                <div className="head"><LoginComponent/></div>
                 <div className="content">
                        <div className="l-router clearfix">
                     <Link to="/login" >账号密码登录</Link>
@@ -54,8 +54,7 @@ class registerComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    <Link to="/personal">personal</Link>
-                    <Link to="/home">home</Link>
+                    
                 </div>
             </div>
         )
