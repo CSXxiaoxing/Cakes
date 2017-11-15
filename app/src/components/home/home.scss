@@ -8,37 +8,6 @@ body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
 .fr{
     float:right;
 }
-// a{text-decoration:none;}
-
-// .clearfix:after{
-//     overflow:hidden;
-//     content:"";
-//     height: 0;
-//     display:block;
-//     clear:both;
-//     visibility:hidden;
-//     zoom:1;
-// }
-
-
-// #app{height:100%;}
-
-// .box{
-//     height:100%;
-//     font-size: .4rem;
-//     display:flex;
-//     flex-direction:column;
-//     .head{
-//         height:1.5rem;
-//     }
-//     .footer{
-//         height:1.5rem;
-//     }
-//     .content{
-//         flex:1;
-//     }
-// }
-// =======
 ul,li{
     list-style: none;
 }
@@ -55,12 +24,11 @@ html,body{
 }
 #app{
     height:100%;
-    display:flex;
+    // display:flex;
     .box{
-        flex:1;
+        height: 100%;
         overflow:hidden;
         font-size: 0.4rem;
-        display:flex;
         display: flex;
         flex-direction:column;
         .cover{
@@ -144,7 +112,7 @@ html,body{
             }
         }
         .header{
-            flex:6%;
+            height:6%;
             display:flex;
             ul{
                 flex:1;
@@ -181,6 +149,7 @@ html,body{
                     a{
                         float:right;
                         position:relative;
+                        margin-right: 0.2rem;
                         i:last-child{
                             display:block;
                             position:absolute;
@@ -200,8 +169,10 @@ html,body{
             }
         }
         .content{
-            height:94%;
+            flex:1;
             overflow-y:auto;
+            overflow-x:hidden;
+
             background-color:#FAFAFA;
             display:flex;
             flex-direction:column;
@@ -333,10 +304,10 @@ html,body{
             }
         }
         .footer{
-            background-color:#FAFAFA;
-            border-top:1px solid #B6B6B6;
-            flex:10%;
+            border-top:2px solid #B6B6B6;
+            height:10%;
             display:flex;
+            z-index:2;
             ul{
                 flex:1;
                 display:flex;
@@ -365,9 +336,9 @@ html,body{
                 }
                 .iconActive{
                     a{
-                        color:#4A2B1A;   
+                        color:#000;   
                         span{
-                        color:#4A2B1A;   
+                        color:#000;   
                         }
                     }
                     

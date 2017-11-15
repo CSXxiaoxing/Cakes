@@ -6,8 +6,8 @@
 	function connect(){
 		$severname = 'localhost';
 		$username = 'root';
-		$password = '123456';
-		$dbname = 'cake';
+		$password = '';
+		$dbname = 'gg';
 		$conn = new mysqli($severname,$username,$password,$dbname);
 		if($conn->connect_error){
 		    die('连接失败：' . $conn->connect_error);

@@ -7,7 +7,6 @@ import * as registerAction from './registerAction.js';
 import LoginComponent from '../tinyComponents/LoginComponent.js';
 class registerComponent extends React.Component{
     componentWillReceiveProps(nxetProps){
-        console.log(nxetProps);
         if(nxetProps.dataset.length > 0){
             alert('该帐户已经存在')
         }else{
@@ -22,7 +21,6 @@ class registerComponent extends React.Component{
         // console.log(666)
     }
     componentDidMount(){
-        console.log(this.props.dataset)
         var arr = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
         // 循环获取验证码
         var res = '';

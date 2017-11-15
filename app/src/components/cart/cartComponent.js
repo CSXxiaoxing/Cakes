@@ -45,17 +45,60 @@ class cartComponent extends React.Component{
                         </div>
                         <div className="t_choice">
                             <div className="tableware">
-                                <img src="./src/img/cake3.jpg" alt="" />
+                                <img src="./src/img/tableware.png" alt="" />
                                 <span>含5套餐具</span>
                             </div>
                             <div className="festival">
                                 <ul>
-                                    <li><div><span>节日牌</span></div></li>
+                                    <li><div><span>生日牌</span></div></li>
                                     <li>生日快乐</li>
                                     <li><Link><Icon type="right"/></Link></li>
                                 </ul>
                             </div> 
                         </div>   
+                    </div>
+                    <div className="t_recommend">
+                        <div className="t_linehead">
+                            <h3>· 推荐商品 ·</h3>
+                        </div>
+                        <div className="re_box">
+                            <div className="re_list">
+                                <ul>
+                                    <li>
+                                        <img src="./src/img/cake1.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                    <li>
+                                        <img src="./src/img/cake2.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                    <li>
+                                        <img src="./src/img/cake3.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <img src="./src/img/cake3.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                    <li>
+                                        <img src="./src/img/cake2.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                    <li>
+                                        <img src="./src/img/cake1.jpg" alt="" />
+                                        <div className="goodsname"><span>深艾尔</span></div>
+                                        <div className="t_price"><span>￥268.00/1.0磅</span><Link><Icon type="shopping-cart"/></Link><span></span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="t_footer">

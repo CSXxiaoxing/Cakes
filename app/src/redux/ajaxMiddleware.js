@@ -3,7 +3,7 @@ import http from '../utils/HttpClient';
 export function ajaxMiddleware(middlewareAPI) {
     return function(dispatch){
         return function(action){
-            const {types, method = "post", url, data} = action;
+            const {types, method = "get", url, data} = action;
 
             if (!url || !method) {
                 return dispatch(action)
@@ -14,12 +14,21 @@ export function ajaxMiddleware(middlewareAPI) {
             middlewareAPI.dispatch({
                 type: a,
             });
+            // if(url) {
+            //     return new Promise((resolve, reject) => {
+            //         http[method](url).then(response => {
+            //             middlewareAPI.dispatch({
+            //                 type: 'REQUESTED',
+            //                 dataset: JSON.parse(response)
+            //             });
+            //             resolve(response);
+            //         })                    
+            //     })
+            // }
             if(url){
-                console.log(data)
                 http[method](url,action.data).then(response => {
-                    console.log(response)
                     middlewareAPI.dispatch({
-                        type: 'Requested',
+                        type: b,
                         dataset: response
 
                     });
