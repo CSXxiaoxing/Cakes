@@ -38,6 +38,9 @@ class personalComponent extends React.Component{
         console.log($(e.target))
         $(e.target).addClass('l-acitve').siblings().removeClass('l-active')
     }
+    find(e){
+    	
+    }
 }
 const mapStateToProps = function(state){
     return {

@@ -20,7 +20,7 @@ export default (
 	    <Route path="/t" component={homeComponent}>
             <Route path="/" component={contentComponent}></Route>
         </Route>
-		<Route path="/cakeDatail" component={cakeDetailComponent}>
+		<Route path="/cakeDatail/:id" component={cakeDetailComponent}>
 		</Route>
         <Route path="/login" component={personalComponent}></Route>
         <Route path="/register" component={registerComponent}></Route>
