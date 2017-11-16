@@ -1,6 +1,9 @@
-export function Init(){
+export function init(api,sql){
     return {
-        types: ['BeforeRequest', 'Requested', 'RequestError'],
-        url: 'http://localhost:88/getClassDish'
+        types: ['pe-BeforeRequest', 'pe-Requested', 'RequestError'],
+        url: api,
+        data:{
+            select:sql
+        }
     }
 }

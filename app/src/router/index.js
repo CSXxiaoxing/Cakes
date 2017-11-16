@@ -6,9 +6,9 @@ import serviceComponent from '../components/service/serviceComponent';
 import homeComponent from '../components/home/homeComponent'
 
 //ljj
-import personalComponent from '../components/personal/personalComponent';
+import loginComponent from '../components/login/loginComponent';
 import registerComponent from '../components/register/registerComponent'
-
+import personalComponent from '../components/personal/personalComponent'
 // pyd
 import cakeDetailComponent from '../components/cakeDetail/cakeDetailComponent'
 // csx
@@ -17,7 +17,6 @@ import cakeComponent from '../components/datagrid/cakeComponent.js'
 // tzj
 import contentComponent from '../components/home/contentComponent';
 import cartComponent from '../components/cart/cartComponent';
-
 
 
 export default (
@@ -30,8 +29,9 @@ export default (
             </Route>
     		<Route path="/cakeDatail/:id" component={cakeDetailComponent}>
     		</Route>
-            <Route path="/login" component={personalComponent}></Route>
+            <Route path="/login" component={loginComponent}></Route>
             <Route path="/register" component={registerComponent}></Route>
+            <Route path="/personal" component={personalComponent}></Route>
             <Route path="/cart" component={cartComponent}></Route>
             <Route path="/service" component={serviceComponent}></Route>
         </div>

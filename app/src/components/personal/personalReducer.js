@@ -1,10 +1,15 @@
-/* 
-* @Author: Marte
-* @Date:   2017-11-11 17:07:31
-* @Last Modified by:   Marte
-* @Last Modified time: 2017-11-14 09:52:31
-*/
-
-$(document).ready(function(){
-    
-});
+export default function personalReducer(state = {}, action){
+    var reState = JSON.parse(JSON.stringify(state));
+    switch(action.type){
+        case 'pe-BeforeRequest':
+            reState.loading = true;
+            break;
+        case 'pe-Requested':
+            reState.loading = false;
+            reState.dataset = action.Dataset
+            break;
+        default:
+            reState.loading = false;
+    }
+    return reState ;
+}
