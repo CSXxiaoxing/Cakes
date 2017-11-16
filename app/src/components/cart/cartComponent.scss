@@ -61,6 +61,9 @@
                     flex:1;
                     li{
                         float:left;
+                        img{
+                        	width: 4rem;
+                        }
                     }
                     li:nth-child(2){
                         dl{

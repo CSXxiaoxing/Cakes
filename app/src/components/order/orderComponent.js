@@ -40,7 +40,7 @@ class orderComponent extends React.Component{
 	                	<ul>
 	                	{
 	                		data.map(function(item,idx){	                			
-	                			var router = String(`/cakeDatail/${item.gId.slice(1)}`);
+	                			var router = String(`/cakeDatail/${item.gId}`);
 	                			return(
 	                				<li className="clear" key={'li' + idx}>
 			                			<img src={item.gPicture}/>
