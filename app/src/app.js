@@ -5,6 +5,7 @@ import configStore from './redux/configStore';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import router from './router/index';
 import $ from 'jquery';
+
 const store = configStore();
 
 ReactDOM.render(

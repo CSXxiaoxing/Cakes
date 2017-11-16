@@ -4,14 +4,21 @@ export default function StudentReducer(state = {}, action){
         case 'BeforeRequest':
             reState.loading = true;
             break;
-        case 'Requested':
+        case 'p-Requested':
             reState.loading = false;
-            reState.dataset = action.dataset;
+            reState.dataset = action.dataset[0][0];
             break;
+        case 'p_car':
+            reState.loading = false;
+            reState.p_car = action.dataset[0];
+            break;
+        case 'p_addcar':
+            reState.loading = false;
+            reState.p_addcar = action.dataset[0];
+            break;            
         default:
             reState.loading = false;
     }
-    console.log(reState, action);
     return reState ;
    
 }

@@ -2,49 +2,88 @@ import React from 'react';
 
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
+import {Icon} from 'antd';
 
 import './personal.scss'
-import personalAction from './personalAction.js'
-
+import * as personalAction from './personalAction'
 
 class personalComponent extends React.Component{
+    componentDidMount(){
+        var cookies = document.cookie;
+            if(cookies.length>0){
+                cookies = cookies.split('; ');
+                cookies.forEach(function(cookie){
+                    var temp = cookie.split('=');
+                    if(temp[0] === 'token'){
+                        console.log(temp[1])
+                        const sql = `select * from user_list where token = '${temp[1]}'`
+                        this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+                        console.log(res[0])
+                        $('.phone').text(res[0][0].username)
+                        })
+                    }
+                }.bind(this))
+            }
+    }
     render(){
         return (
             <div className="box">
-                <div className="head">head</div>
-                <div className="content">
-                    <div className="l-router clearfix">
-                    <Link to="/login" onClick={this.active} className='l-active'>账号密码登录</Link>
-                    <Link to="/register">注册</Link>
-                    </div>
-                    <div className='l-loginbox'>
-                        <input type="text"placeholder="用户名/邮箱地址"/>
-                        <input type="password" placeholder="填写密码"/>
-                        <button>登录</button>
-                    </div>
-                    <div className="l-remember">
-                        <label ><input type="checkbox"/>记住账号</label>
-                      
-                    </div>
+                <div className="l-head">
                 </div>
-                <div className="footer">
-                    <Link to="/login">personal</Link>
-                    <Link to="/home">home</Link>
+                <div className="l-content">
+                    <div className="l-info">
+                        <Icon type="apple" className='apple' />
+                        <span className="phone"></span>
+                        <Icon type="qrcode" className='qrcode' />
+                    </div>
+                    <div className="other">
+                        <div className="youhui">
+                            <span className='heavy'>0张</span>
+                            <span>优惠券</span>
+                        </div>
+                          <div className="yue">
+                            <span className='heavy'>0.00</span>
+                            <span>余额</span>
+                        </div>
+                    </div>
+                    <div className="line"></div>
+                    <div className="order">
+                        <ul>
+                            <li><Icon type="check-squa"/>我的订单</li>
+                            <li><Icon type="check-squa"/>地址管理</li>
+                            <li><Icon type="check-squa"/>优惠券</li>
+                            <li><Icon type="check-squa"/>余额充值</li>
+                            <li><Icon type="check-squa"/>21客会</li>
+                        </ul>
+                    </div>
+                    <div className="line"></div>
+                    <div className="order type">
+                    <ul>
+                        <li>用户反馈</li>
+                        <li>用户协议</li>
+                        <li>版本</li>
+                        <li>关于</li>
+                    </ul>
+                    </div>
+                    <div className="line"></div>
+                    <div className="tel">
+                        <ul>
+                            <li>客服电话 400 650 2121</li>
+                            <li><Icon type="phone" className="Phone"/></li>
+                        </ul>
+                    </div>
+                    <div className="bigline"></div>
                 </div>
+                <div className="l-footer"> </div>
             </div>
         )
     }
-    active(e){
-        console.log($(e.target))
-        $(e.target).addClass('l-acitve').siblings().removeClass('l-active')
-    }
+
 }
 const mapStateToProps = function(state){
     return {
-        loading: state.student.loading,
-        dataset: state.student.dataset || {}
+        data: state.personal.dataset || {}
     }
 }
 
-
-export default personalComponent
+export default connect(mapStateToProps, personalAction)(personalComponent)
