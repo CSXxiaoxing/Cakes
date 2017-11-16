@@ -1,9 +1,6 @@
 import React from 'react';
 import './spinner.scss';
-// <div id="bottomLoading">
-//     <Icon type="loading" />
-//     <p>正在刷新...</p>
-// </div>
+
 
 export default class SpinnerComponent extends React.Component{
     render(){

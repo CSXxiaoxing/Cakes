@@ -1,8 +1,26 @@
 import {Router, Route, Link, hashHistory, IndexRoute, browserHistory} from 'react-router';
 
 export function Init(cakeType){
+
+    // 路径
+
+    var DATAselect = cakeType || '蛋糕';
+    console.log(DATAselect)
+    return {
+        types: ['BeforeRequest', 'DategridRequested', 'RequestError'],
+        method : "post",
+        url : 'Datagrid.php',
+        data: {
+            select:  `select * from goods_list where gClass='${DATAselect}'` 
+        }
+    }
+
+}
+
+export function Slide(){
     // 滑动-滑动push->路由
-    var cakeValue = ['/datagrid/cc/cake', '/datagrid/cc/small', '/datagrid/cc/ice', '/datagrid/cc/flower', '/datagrid/cc/gift', '/datagrid/cc/recommend']
+    var cakeValue = ['/datagrid/cc/蛋糕', '/datagrid/cc/小切块', '/datagrid/cc/冰淇淋', '/datagrid/cc/鲜花', '/datagrid/cc/礼品', '/datagrid/cc/店长推荐']
+
     function span_move_fun(){
         // touchmove
      var span = document.getElementById("datagridMain");
@@ -13,6 +31,7 @@ export function Init(cakeType){
      var page_left = 0;
      var page_top = 0;
      var xialaLoading_top =0;
+
      // 按下
      span.addEventListener('touchstart', function(event) {
         // event.preventDefault();
@@ -29,6 +48,7 @@ export function Init(cakeType){
         // console.log(page_top)
              }
         });
+
      // 按住
         span.addEventListener('touchmove', function(event) {
         if (event.targetTouches.length == 1) {
@@ -57,6 +77,7 @@ export function Init(cakeType){
             })
             }
         });
+        
         // 松开
         span.addEventListener('touchend', function(event) {
             var touch = event.changedTouches[0];
@@ -67,13 +88,15 @@ export function Init(cakeType){
                 console.log('右滑')
                 if($('#xq .pageXQ').index() > 0 ){
                     $('#xq .pageXQ').toggleClass('pageXQ').prev().toggleClass('pageXQ')
+                    console.log($('#xq .pageXQ').index())
                     hashHistory.push(cakeValue[$('#xq .pageXQ').index()])
-                    // console.log(hashHistory = cakeValue[3])
                 }
             }else if(parseFloat(pd) > 100 && pdTop<100){
                 console.log('左滑')
                 if($('#xq .pageXQ').index() < $('#xq li').length-1){
                     $('#xq .pageXQ').toggleClass('pageXQ').next().toggleClass('pageXQ')
+                    console.log($('#xq .pageXQ').index())
+                    
                     hashHistory.push(cakeValue[$('#xq .pageXQ').index()])
                 }
 
@@ -87,9 +110,8 @@ export function Init(cakeType){
                 settime()
             }
             function settime(){
-
                 let time = setInterval(function(){
-                    let top = parseInt($('#datagridMain').css('top')) - 4
+                    let top = parseInt($('#datagridMain').css('top')) - 4;
                     if(top>0){
                         $('#datagridMain').css({
                             'top': top
@@ -104,34 +126,24 @@ export function Init(cakeType){
                 },10)
                 
                 $('#bottomLoading').removeAttr("style");
-
             }
-            
-            
-            event.stopPropagation();
+            // 复位
+            span_left = $(span).offset().left;
+            span_top = $(span).offset().top;
+            start_left = $(span).offset().left;
+            start_top = $(span).offset().top;
+            page_left = 0;
+            page_top = 0;
+            xialaLoading_top =0;
+            // event.stopPropagation();
         });
+
     }
     span_move_fun()
 
-    // 路径
-    var URL = {
-        'cake' : '蛋糕',
-        'small' : '蛋糕',
-        'ice' : '蛋糕',
-        'flower' : '蛋糕',
-        'gift' : '蛋糕',
-        'recommend' : '蛋糕'
-    };
-    var DATAselect = URL.cakeType || '蛋糕';
     return {
-        types: ['BeforeRequest', 'DategridRequested', 'RequestError'],
-        method : "post",
-        url : 'Datagrid.php',
-        data: {
-            select:  `select * from goods_list where gClass='${DATAselect}'` 
-        }
+        type: 'q'
     }
-
 }
 
 export function Edit(){

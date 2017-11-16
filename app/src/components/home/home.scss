@@ -8,37 +8,6 @@ body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
 .fr{
     float:right;
 }
-// a{text-decoration:none;}
-
-// .clearfix:after{
-//     overflow:hidden;
-//     content:"";
-//     height: 0;
-//     display:block;
-//     clear:both;
-//     visibility:hidden;
-//     zoom:1;
-// }
-
-
-// #app{height:100%;}
-
-// .box{
-//     height:100%;
-//     font-size: .4rem;
-//     display:flex;
-//     flex-direction:column;
-//     .head{
-//         height:1.5rem;
-//     }
-//     .footer{
-//         height:1.5rem;
-//     }
-//     .content{
-//         flex:1;
-//     }
-// }
-// =======
 ul,li{
     list-style: none;
 }
@@ -180,6 +149,7 @@ html,body{
                     a{
                         float:right;
                         position:relative;
+                        margin-right: 0.2rem;
                         i:last-child{
                             display:block;
                             position:absolute;
@@ -334,8 +304,7 @@ html,body{
             }
         }
         .footer{
-            background-color:#FAFAFA;
-            border-top:1px solid #B6B6B6;
+            border-top:2px solid #B6B6B6;
             height:10%;
             display:flex;
             z-index:2;
@@ -367,9 +336,9 @@ html,body{
                 }
                 .iconActive{
                     a{
-                        color:#4A2B1A;   
+                        color:#000;   
                         span{
-                        color:#4A2B1A;   
+                        color:#000;   
                         }
                     }
                     

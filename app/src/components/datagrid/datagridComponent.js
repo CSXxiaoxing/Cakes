@@ -13,19 +13,11 @@ var datagrid_SetinitID = 0;
 var dataset = '';
 var D_i = 0;
 
-const mapStateToProps = function(state){
-    dataset  =  JSON.parse(state.datagrid.dataset || '[]')
-    // console.log(dataset[0])
-    return {
-        loading: state.datagrid.loading,
-        dataset: dataset[0] || []
-    }
-}
-
 class datagridComponent extends React.Component{
     componentDidMount(){
 
         this.props.Init();
+        this.props.Slide();
 
         datagrid_SetinitID = 0;
         // 懒加载
@@ -40,11 +32,10 @@ class datagridComponent extends React.Component{
                         datagrid_SetList = datagrid_SetList+6;
                         D_i = 1;
                     }
-
                 }
                 if(scrollTop/(contentH -viewH) >= 0.95){ //到达底部95%时,加载新内容 
                     $(window).triggerHandler('myshuju')
-                }  
+                }
         })
         // 懒加载生成DOM
         $(window).bind("myshuju", function(){
@@ -77,6 +68,8 @@ class datagridComponent extends React.Component{
             })
             D_i = 0;
         });
+
+        
         
     }
 
@@ -88,29 +81,31 @@ class datagridComponent extends React.Component{
     }
 
     render(){
-        return (
-            <div className="dataPage">
-                <div id="XQQ"></div>
-                <nav id="xq">
-                    <ul onClick={this.change}>
-                        <li className="pageXQ"><Link to="/datagrid/cc/cake" >蛋糕</Link></li>
-                        <li><Link to="/datagrid/cc/small">小切块</Link></li>
-                        <li><Link to="/datagrid/cc/ice">冰淇淋</Link></li>
-                        <li><Link to="/datagrid/cc/flower">鲜花</Link></li>
-                        <li><Link to="/datagrid/cc/gift">礼品</Link></li>
-                        <li><Link to="/datagrid/cc/recommend">店长推荐</Link></li>
-                    </ul>
-                </nav>
-                <div id="bottomLoading">
-                    <Icon type="loading" />
-                    <p>正在刷新...</p>
-                </div>
-                <SpinnerComponent loading={this.props.loading}></SpinnerComponent>
-
-                <main id="datagridMain">
-                    <article>
-                        {  
-                            this.props.dataset.map(function(obj, index){
+        if(this.props.dataset != undefined){
+            // console.log(this.props.dataset)
+            return (
+                <div className="dataPage">
+                    <div id="XQQ"></div>
+                    <nav id="xq">
+                        <ul onClick={this.change}>
+                            <li className="pageXQ"><Link to="/datagrid/cc/蛋糕" >蛋糕</Link></li>
+                            <li><Link to="/datagrid/cc/小切块">小切块</Link></li>
+                            <li><Link to="/datagrid/cc/冰淇淋">冰淇淋</Link></li>
+                            <li><Link to="/datagrid/cc/鲜花">鲜花</Link></li>
+                            <li><Link to="/datagrid/cc/礼品">礼品</Link></li>
+                            <li><Link to="/datagrid/cc/店长推荐">店长推荐</Link></li>
+                        </ul>
+                    </nav>
+                    <div id="bottomLoading">
+                        <Icon type="loading" />
+                        <p>正在刷新...</p>
+                    </div>
+                    <SpinnerComponent loading={this.props.loading}></SpinnerComponent>
+                    <main id="datagridMain">
+                        {this.props.children}
+                        <article id="dataArticle">
+                            {  
+                                this.props.dataset.map(function(obj, index){
                                 obj.gSpec = obj.gSpec.slice(0,2)
                                 var objGID = String("/cakeDatail/"+obj.gId);
                                 // 初始化渲染
@@ -132,14 +127,24 @@ class datagridComponent extends React.Component{
                                     </Link>
                                 )
                             })
-                        }
-                    </article>
-                </main>
-                
-            </div>
-        )
+                            }
+                        </article>
+                    </main>
+                </div>
+            )
+        } else {
+            return null;
+        }
+        
     }
 }
-
+const mapStateToProps = function(state){
+    // console.log(state.datagrid.dataset);
+    dataset  =  state.datagrid.dataset || []
+    return {
+        loading: state.datagrid.loading,
+        dataset: dataset[0] || []
+    }
+}
 
 export default connect(mapStateToProps, datagridAction)(datagridComponent)

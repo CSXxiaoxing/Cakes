@@ -1,6 +1,6 @@
 export function Init(api,sql){
     return {
-        types: ['BeforeRequest', 'Requested', 'RequestError'],
+        types: ['re-BeforeRequest', 're-Requested', 'RequestError'],
         url: api,
         data:{
             else:sql
@@ -10,10 +10,15 @@ export function Init(api,sql){
 
 export function Select(api,sql){
     return {
-        types: ['BeforeRequest', 'Requested', 'RequestError'],
+        types: ['Re-BeforeRequest', 'Re-Requested', 'RequestError'],
         url: api,
         data:{
             select:sql
         }
+    }
+}
+export function Clear(){
+    return {
+        type:'clear'
     }
 }

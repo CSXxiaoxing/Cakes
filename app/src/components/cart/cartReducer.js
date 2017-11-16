@@ -1,15 +1,16 @@
-export default function personalReducer(state = {}, action){
+export default function StudentReducer(state = {}, action){
     var reState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case 'pe-BeforeRequest':
+        case 'BeforeRequest':
             reState.loading = true;
             break;
-        case 'pe-Requested':
+        case 'Requested':
             reState.loading = false;
-            reState.dataset = action.Dataset
+            reState.dataset = action.dataset;
             break;
         default:
             reState.loading = false;
     }
+    console.log(reState, action);
     return reState ;
 }
