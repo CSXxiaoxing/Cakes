@@ -5,13 +5,11 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import SpinnerComponent from '../spinner/spinner';
 import * as homeAction from './homeAction';
 import contentComponent from './contentComponent';
-<<<<<<< HEAD
-import $ from '../../libs/jquery-3.2.1';
-=======
+
 import CoverComponent from '../tinyComponents/CoverComponent';
 import HeaderComponent from '../tinyComponents/HeaderComponent';
 import FooterComponent from '../tinyComponents/FooterComponent';
->>>>>>> a5b2e9379f56a1c01d8a83cdafe55e6f47b2135f
+
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './home.scss';
 

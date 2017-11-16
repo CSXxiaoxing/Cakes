@@ -5,12 +5,6 @@ import { Icon } from 'antd';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as datagridAction from './datagridAction';
-<<<<<<< HEAD
-import { Link } from 'react-router'
-import { Icon } from 'antd';
-import $ from '../../libs/jquery-3.2.1';
-=======
->>>>>>> a5b2e9379f56a1c01d8a83cdafe55e6f47b2135f
 
 import './datagrid.scss';
 

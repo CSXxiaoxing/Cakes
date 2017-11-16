@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import * as serviceAction from './serviceAction';
-import './service.scss'
-import $ from '../../libs/jquery-3.2.1'
+import './service.scss';
 
 class serviceComponent extends React.Component{
 
@@ -17,18 +16,21 @@ class serviceComponent extends React.Component{
 			console.log(now);
 			var msg = $('#msg').val();
 			console.log(msg);
-
 			$('<div class="msgme"><p>' + now +'</p>'+'<div class="msgshow">'+msg+'</div></div>').appendTo('.msglist');
-			
-
+			$('#msg').val('');
+			$('#msg').focus();
 		});
+		
+		
+
+
 	}
 
     render(){
         return (
             <div className="box">
                 <div className="header">
-                	<div className="left"><Icon type="left" /></div>
+                	<div className="left"><Link to="/"><Icon type="left" /></Link></div>
                 	<div className="center">通讯</div>
                 	<div className="right"><Icon type="aliwangwang-o" /></div>
                 </div>

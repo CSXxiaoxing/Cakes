@@ -18,22 +18,6 @@ import cakeComponent from '../components/datagrid/cakeComponent.js'
 import contentComponent from '../components/home/contentComponent';
 import cartComponent from '../components/cart/cartComponent';
 
-<<<<<<< HEAD
-export default (
-	<div>
-	    <Route path="/t" component={homeComponent}>
-            <Route path="/" component={contentComponent}></Route>
-            <Route path="/personal" component={personalComponent}></Route>
-            <Route path="/datagrid" component={datagridComponent}>
-                <Route path="cc/:name" component={cakeComponent}></Route>
-            </Route>            
-        </Route>
-        <Route path="/service" component={serviceComponent}></Route>
-		<Route path="/cakeDatail" component={cakeDetailComponent}>
-		</Route>
-	</div>
-=======
->>>>>>> a5b2e9379f56a1c01d8a83cdafe55e6f47b2135f
 
 
 export default (
@@ -49,6 +33,7 @@ export default (
             <Route path="/login" component={personalComponent}></Route>
             <Route path="/register" component={registerComponent}></Route>
             <Route path="/cart" component={cartComponent}></Route>
+            <Route path="/service" component={serviceComponent}></Route>
         </div>
 )
 

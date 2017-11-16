@@ -8,7 +8,7 @@ class HeaderComponent extends React.Component{
                 <ul>
                     <li><Link><Icon type="environment" /><span className="city">广州</span></Link></li>
                     <li><Link><Icon type="star" /></Link></li>
-                    <li><Link><Icon type="message" /><i>10</i></Link></li>
+                    <li><Link to="/service"><Icon type="message" /><i>10</i></Link></li>
                 </ul>
             </div>
         )

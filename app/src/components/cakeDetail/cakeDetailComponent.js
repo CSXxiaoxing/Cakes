@@ -7,7 +7,6 @@ import * as cakeDatailAction from './cakeDetailAction';
 import DetailComponent from '../tinyComponents/DetailComponent.js';
 import './cakeDetail.scss';
 import {Icon} from 'antd';
-import $ from '../../libs/jquery-3.2.1';
 class cakeDatailComponent extends React.Component{
 
 	componentDidMount(){
