@@ -9,7 +9,10 @@ a{
     text-decoration: none;
 }
 .fl{
-    float:left;
+    float: left;
+}
+.fr{
+	float: right;
 }
 html,body{
     font-style: '微软雅黑';

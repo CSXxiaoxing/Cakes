@@ -1,39 +1,45 @@
-// import React from 'react';
-// import {connect} from 'react-redux';
-
-// import './service.scss'
-
-// class serviceComponent extends React.Component{
-// 	render(){
-//         return (
-//             <div class="box">
-//                 <h1>service</h1>
-//             </div>
-//         )
-//     }
-// }
-
-// export default serviceComponent
 
 import React from 'react';
 import {connect} from 'react-redux';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import * as serviceAction from './serviceAction';
 import './service.scss'
+import $ from '../../libs/jquery-3.2.1'
 
-class personalComponent extends React.Component{
+class serviceComponent extends React.Component{
+
+	componentDidMount(){
+
+		$(".send").click( function () {
+			var myDate = new Date();
+			var now = myDate.getHours() + ':' + myDate.getMinutes() + ':' + myDate.getSeconds();
+			console.log(now);
+			var msg = $('#msg').val();
+			console.log(msg);
+
+			$('<div class="msgme"><p>' + now +'</p>'+'<div class="msgshow">'+msg+'</div></div>').appendTo('.msglist');
+			
+
+		});
+	}
+
     render(){
         return (
             <div className="box">
-                <div className="header"></div>
+                <div className="header">
+                	<div className="left"><Icon type="left" /></div>
+                	<div className="center">通讯</div>
+                	<div className="right"><Icon type="aliwangwang-o" /></div>
+                </div>
                 <div className="main">
 					<div className="chat">
-						<div className="msg"></div>
+						<div className="msglist"></div>
 						<div className="msgsend">
 							<div className="face"><Icon type="smile-o" /></div>
-							<div className="msgin"><input type="text" id="msg" /></div>
-							<div className="send"><Icon type="plus" /></div>
-							<div className="voice"><Icon type="enter" /></div>
+							<div className="msgin"><input type="text" id="msg"/></div>
+							<div className="add"><Icon type="plus" /></div>
+							<div className="send"><Icon type="enter" /></div>
 						</div>
 					</div>
                 </div>
@@ -44,4 +50,11 @@ class personalComponent extends React.Component{
 }
 
 
-export default personalComponent
+const mapStateToProps = function(state){
+    return {
+        loading: state.home.loading,
+        dataset: state.home.dataset || {}
+    }
+}
+
+export default connect(mapStateToProps, serviceAction)(serviceComponent)

@@ -8,6 +8,7 @@ import datagridComponent from '../datagrid/datagridComponent';
 import * as homeAction from './homeAction';
 import CarouselComponent from '../carousel/carousel';
 import contentComponent from './contentComponent';
+import $ from '../../libs/jquery-3.2.1';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './home.scss';
 

@@ -5,6 +5,7 @@ import SpinnerComponent from '../spinner/spinner';
 import * as cakeDatailAction from './cakeDetailAction';
 import './cakeDetail.scss';
 import {Icon} from 'antd';
+import $ from '../../libs/jquery-3.2.1';
 class cakeDatailComponent extends React.Component{
 	componentDidMount(){
 //		$('.footer').hide();

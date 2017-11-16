@@ -1,16 +1,7 @@
 import React from 'react';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
-<<<<<<< HEAD
-import homeComponent from '../components/home/homeComponent';
+
 import serviceComponent from '../components/service/serviceComponent';
-export default (
-    
-    <div>
-        <Route path="/" component={homeComponent}></Route>
-        <Route path="/service" component={serviceComponent}></Route>
-    </div>
-)
-=======
 
 import homeComponent from '../components/home/homeComponent'
 // pyd
@@ -31,9 +22,9 @@ export default (
                 <Route path="cc/:name" component={cakeComponent}></Route>
             </Route>            
         </Route>
+        <Route path="/service" component={serviceComponent}></Route>
 		<Route path="/cakeDatail" component={cakeDetailComponent}>
 		</Route>
 	</div>
 
 )
->>>>>>> d1e6795c769551ad68638c70de98ba7ad1ca6e03
