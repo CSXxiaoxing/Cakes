@@ -53,7 +53,7 @@ class homeComponent extends React.Component{
 }
 
 const mapStateToProps = function(state){
-    var dataset  =  JSON.parse(state.home.dataset || '[]')
+    var dataset  = state.home.dataset || '[]';
     return {
         loading: state.home.loading,
         dataset: dataset[0] || []

@@ -7,7 +7,7 @@
 		$severname = 'localhost';
 		$username = 'root';
 		$password = '';
-		$dbname = 'gg';
+		$dbname = 'cake';
 		$conn = new mysqli($severname,$username,$password,$dbname);
 		if($conn->connect_error){
 		    die('连接失败：' . $conn->connect_error);

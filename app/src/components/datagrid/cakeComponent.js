@@ -10,7 +10,7 @@ import * as datagridAction from './datagridAction';
 const mapStateToProps = function(state){
     // console.log(JSON.parse(state.datagrid.dataset))
     // console.log(JSON.parse(state.datagrid.dataset || '[]'))
-    var cakeData = JSON.parse(state.datagrid.dataset || '[]')
+    var cakeData = state.datagrid.dataset || '[]'
     // console.log(cakeData[0])
     return {
         loading: state.datagrid.loading,

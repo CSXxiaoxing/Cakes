@@ -4,8 +4,8 @@ export function Init(){
         method : "post",
         url: 'Datagrid.php',
         data: {
-            select:  `select * from goods_list where gTag='人气' ; 
-            select * from goods_list where gTag='新品' ; select * from goods_list where gTag='推荐'` 
+            select:  `select * from goodslist where gTag='人气' ; 
+            select * from goodslist where gTag='新品' ; select * from goodslist where gTag='推荐' ; select * from goodslist where gTag='轮播'` 
         }
     }
 }

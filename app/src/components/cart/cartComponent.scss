@@ -58,8 +58,12 @@
                 display:flex;
                 ul{
                     flex:1;
+                    position:relative;
                     li{
                         float:left;
+                        img{
+                            width:4rem;
+                        }
                     }
                     li:nth-child(2){
                         dl{
@@ -77,6 +81,9 @@
                         }
                     }
                     li:last-child{
+                        position:absolute;
+                        right: 0.3rem;
+                        top: 0;
                         width:20%;
                         height:100%;
                         text-align: center;

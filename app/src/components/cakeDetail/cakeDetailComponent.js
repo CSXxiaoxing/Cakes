@@ -13,12 +13,12 @@ class cakeDatailComponent extends React.Component{
 		this.find();	
 	}
     render(){
-//  	console.log(this.props)
+ 	
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
-
     		const gIntro = data.gIntro.split('&');
     		const gDetalispic = data.gDetalispic.split('&');
+
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
@@ -167,6 +167,7 @@ class cakeDatailComponent extends React.Component{
      }
     }
     tab(e){
+
     	var $tab = $('.tab');
     	var $content = $('.tab-content');
     	var idx = $(e.target).index();
@@ -210,7 +211,7 @@ class cakeDatailComponent extends React.Component{
     }
     find(e){
     	var id = this.props.params.id;
-        const sql = ` select * from goods_list where gId = '${id}'`;
+        const sql = ` select * from goodslist  where gId = '${id}'`;
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
