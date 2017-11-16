@@ -11,10 +11,21 @@ export function Init(){
 
 export function T_add(api,sql){
     return {
-        types: ['BeforeRequest', 'TC-Requested', 'RequestError'],
+        types: ['BeforeRequest', 'TR_Requested', 'RequestError'],
         url: api,
         data:{
             select:sql
+        }
+    }
+}
+
+export function T_Tadd(api,sql){
+    console.log(api,sql)
+    return {
+        types: ['BeforeRequest', 'TK_Requested', 'RequestError'],
+        url: api,
+        data:{
+            else:sql
         }
     }
 }

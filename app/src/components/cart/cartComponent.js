@@ -7,7 +7,6 @@ import * as cartAction from './cartAction';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './cartComponent.scss';
 
-var dataaaa = '';
 var $this;
 class cartComponent extends React.Component{
     componentDidMount(){
@@ -59,6 +58,7 @@ class cartComponent extends React.Component{
         if(this.props.dataset.length){
             return (
                 <div className="t_cart">
+                <SpinnerComponent loading={this.props.loading}/>
                     <div className="t_header">
                         <Link to="/"><Icon type="left"/></Link>
                         <h2><span>购物车</span></h2>
@@ -74,7 +74,7 @@ class cartComponent extends React.Component{
                                         <div className="t_goodslist" key={index + 'kk'}>
                                             <div className="t_gh">
                                                 <ul>
-                                                    <li className="t_gPicture"><img src={obj.gPicture} alt="" /></li>
+                                                    <li><img src={obj.gPicture} alt="" className="t_gPicture"/></li>
                                                     <li>
                                                         <dl>
                                                             <dt className="t_gNameEN">{obj.gNameEN}</dt>
@@ -156,7 +156,7 @@ class cartComponent extends React.Component{
                         <span className="t_total">￥<i>1258.00</i></span>
                             <span>商品</span>
                         </div>
-                        <div className="t_btn" onClick={this.close}>下单</div>
+                        <div className="t_btn" onClick={this.order}>下单</div>
                     </div>
                 </div>
             )
@@ -164,12 +164,33 @@ class cartComponent extends React.Component{
             return(<div></div>)
         }
     }
-    close(){
-        console.log(666)
+    order(){
+        // const insert = `insert into list (id) values ('3')`;
+        //         $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert);
+        // const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum) values ('22','333','444','444','444','4444','66666','6666','6666','2001','22222')`;
+        //         $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert);
+        $this.props.dataset[0].map(function(obj,index){
+            console.log(obj)
+            const insert = `insert into order_list (username,gId,gNameEN,gNameZH,gSpec,gTotal,gWare,gNb,gPicture,gTime,gNum) values ('${obj.username}','${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gSpec}','${obj.gPrice}','${obj.gWare}','${obj.gNb}','${obj.gPicture}','2001/11','1111111')`;
+                $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert);
+
+        })
+        // $('.t_goodslist').each(function(index){
+        //     const username = 13432858111;
+        //     // const gId = $this.props.params.id;
+        //     const gNameEN = $(this).find('.t_gNameEN').text();
+        //     const gNameZH = $(this).find('.t_gNameZH').text();
+        //     const gId = 1;
+        //     const gSpec = $(this).find('.gSpec').text();
+        //     const gPrice = $(this).find('.t_tprice').text();
+        //     const gWare = $(this).find('.t_gWare').text();
+        //     const gNb = $(this).find('.t_num').text() ;
+        //     const gPicture = '.'+$(this).find('.t_gPicture')[0].src.slice(22);
+
+        // })
     }
     add(){
-        console.log($this.props);
-        console.log($('.t_num'))
+        console.log();
         const username = 13432858111;
         // const gId = $this.props.params.id;
         const gNameEN = $('.t_gNameEN').text();
@@ -181,14 +202,14 @@ class cartComponent extends React.Component{
         const gNb = 1 ;
         const gPicture = $this.props.dataset.gPicture;       
         const sql = ` select * from cake_car where (username = '${username}' and gId = gId)`;
-        $this.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
+        $this.props.T_Tadd('http://localhost:888/Datagrid.php',sql).then(res =>{
             if(res[0].length !==0 ){
                 const gNewNb = res[0][0].gNb*1+1;
                 const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
                 $this.props.T_add('http://localhost:888/Datagrid.php',update);
             }
             else if(res[0].length ==0){
-                const insert = `insert into cake_car (username,gId,gNameEN,gNameZH,gSpec,gPrice,gWare,gNb,gPicture) values ('${username}','${gId}','${gNameEN}','${gNameZH}','${gSpec}','${gPrice}','${gWare}','${gNb}','${gPicture}')`;
+                const insert = `insert into cake_car (username,gId,gNameEN,gNameZH,gSpec,gPrice,gWare,gNb,gPicture) values ('${username}','${obj.gId}','${gNameEN}','${gNameZH}','${gSpec}','${gPrice}','${gWare}','${gNb}','${gPicture}')`;
                 $this.props.t_add('http://localhost:888/Datagrid.php',insert);
             }
         });
@@ -223,7 +244,6 @@ class cartComponent extends React.Component{
 
 const mapStateToProps = function(state){
     var dataset  = state.cart.dataset || []
-    dataaaa = dataset;
     return {
         loading: state.cart.loading,
         dataset: dataset || []

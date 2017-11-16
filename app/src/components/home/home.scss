@@ -1,3 +1,17 @@
+
+#bottomLoading{
+    text-align: center;
+    color: #333;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top:0px;
+    z-index: 0;
+    // padding-top: 34px;
+    // margin-bottom: -100%;
+}
+
+
 body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
     margin: 0;
     padding: 0;
