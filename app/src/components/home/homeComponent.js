@@ -9,6 +9,7 @@ import CoverComponent from '../tinyComponents/CoverComponent';
 import HeaderComponent from '../tinyComponents/HeaderComponent';
 import FooterComponent from '../tinyComponents/FooterComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
+import { browserHistory } from 'react-router';
 import './home.scss';
 
 class homeComponent extends React.Component{
@@ -46,9 +47,35 @@ class homeComponent extends React.Component{
                 <div className="content">
                     <div>{this.props.children}</div>
                 </div>
-                <FooterComponent/>
+
+                <div className="footer">
+                    <ul>
+                        <li><Link to="/"><Icon type="home" /><span>首页</span></Link></li>
+                        <li><Link to="/datagrid"><Icon type="appstore-o" /><span>分类</span></Link></li>
+                        <li><Link><Icon type="shopping-cart" /><span>购物车</span></Link></li>
+                        <li ><Link onClick={this.filter}><Icon type="user"/><span>我</span></Link></li>
+                    </ul>
+                </div>
+
             </div>
         )
+    }
+    filter(){
+        var cookies = document.cookie;
+            if(cookies.length>0){
+                cookies = cookies.split('; ');
+                cookies.forEach(function(cookie){
+                    var temp = cookie.split('=');
+                    if(temp[0] == 'token'){
+                                browserHistory.push('/#/personal')
+                                location.reload() 
+                    }
+                }.bind(this))
+            }else{
+                console.log(666)
+                browserHistory.push('/#/login')
+                location.reload() 
+            }
     }
 }
 

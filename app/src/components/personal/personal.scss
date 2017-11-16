@@ -1,13 +1,23 @@
+#app .box .l-massage .qx1{
+    width:50%;
+}
+#app .box .l-massage .qx2{
+    width:50%;
+    float:right;
+    left:3.8rem;
+}
+
 .box{
     height:100%;
     position:relative;
     .l-head{
         height:25%;
         width:100%;
-      
-        background:#ccc;
+        opacity:.5;
+        background:url(../../img/background.jpg) -20px;
         position:absolute;
         top:0;
+        z-index:99;
     }
     .l-content{
         height:90%;
@@ -19,6 +29,14 @@
             background:#fff;
             margin:2rem 1rem 0;
             position:relative;
+            z-index:100;
+            p{
+                position:absolute;
+                left:3.15rem;
+                color:#000;
+                font-size:.35rem;
+                top:.15rem;
+            }
             .apple{
                 border:.01rem solid #fff;
                 position:absolute;
@@ -31,15 +49,18 @@
              .qrcode{
                 position:absolute;
                 right:.3rem;
-                font-size:.7rem;
-                top:.2rem;
+                font-size:.5rem;
+                top:.4rem;
             }
             .phone{
+                position:absolute;
+                top:.25rem;
                 display:block;
                 width:100%;
                 text-align:center;
                 line-height:1.2rem;
                 font-size:.35rem;
+
             }
         }
         .other{
@@ -68,10 +89,10 @@
             }
         }
         .line{
-            border:.16rem solid #ddd;
+            border:.16rem solid #eee;
         }
         .bigline{
-            border:.32rem solid #ddd;
+            border:.32rem solid #eee;
         }
         .order{
             li{
@@ -80,13 +101,16 @@
                 border-bottom:.01rem solid #ccc;
                 margin-left:.8rem;
                 position:relative;
+                color:#000;
                 i{
                     font-size:.5rem;
                     position:absolute;
-                    left:-.4rem;
+                    left:-.7rem;
                     padding:.2rem;
-                    color:#000;
-                    background:#000;
+                    top:.05rem;
+                    color:#ccc;
+                    font-size:.4rem;
+                    // background:#000;
                 }
         
             }
@@ -109,7 +133,7 @@
                     width:20%;
                     padding:.2rem;
                     float:left;
-                    font-size:.3rem;
+                    font-size:.35rem;
                     text-align:center;
                     height:100%;
                     border-left:.01rem solid #ccc;
@@ -124,6 +148,10 @@
                     }
                 }
             }
+        }
+        .quit{
+            padding:.3rem;
+            text-align:center;
         }
     }
 }

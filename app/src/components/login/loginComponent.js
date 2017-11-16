@@ -58,10 +58,11 @@ class loginComponent extends React.Component{
                       
                     </div>
                 </div>
-                <div className="l-cover">
+                 <div className="l-cover">
 
                 </div>
                 <div className="l-massage">
+                    <p>21Cake提醒您</p>
                     <p className='massage'>该账号尚未注册</p>
                     <button onClick={this.hide}>确定</button>
                 </div>
@@ -93,10 +94,16 @@ class loginComponent extends React.Component{
                     this.props.Token('http://localhost:888/token.php',{username,password}).then(res=>{
                         console.log(res[0])
                         // $.cookie('cookieName', 'cookieValue', { expires: 7 })
+                        // var date = new Date();
+                        // date.setDate(date.getDate()+7);
                         document.cookie = 'token ='+res[0]
-                         alert('登录成功')
-                        browserHistory.push('/#/personal')
-                        location.reload() 
+                        $('.l-cover').show()
+                        $('.l-massage').show()
+                        $('.massage').text('登录成功,正在跳转页面')
+                        setTimeout(function(){
+                            location.href = '/#/personal'
+                        }, 1000)
+                      
                     })
                 }
             }
