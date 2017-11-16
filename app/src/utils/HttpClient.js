@@ -37,7 +37,6 @@ const HttpClient = {
                 if (err) {
                     reject(err);
                 } else {
-                    // console.log(res.text)
                     resolve(res.text);
                 }
             });

@@ -1,0 +1,61 @@
+.imgstyle{
+	width:60px;
+	height:60px;
+	display: block;
+}
+.ant-table-tbody > tr > td{
+	height:50px;
+	padding: 0px 8px;
+}
+.ant-table table{
+	text-align: center;
+}
+.ant-table-thead > tr > th{
+	text-align: center;
+}
+.editbtn{
+	display: inline-block;
+	padding: 5px;
+	background-color: #00a854;
+	width:60px;
+	
+}
+.editbtn:hover{
+	color:#fff;
+	background-color: #76d0a3;
+}
+.delbtn{
+	display: inline-block;
+	padding: 5px;
+	background-color: #f04134;
+	width:60px;
+}
+.delbtn:hover{
+	color:#fff;
+	background-color: #f79992;
+}
+.ant-table {
+	border-radius:0px;
+	table{
+		border-radius:0px;
+	}
+}
+.ant-table-pagination{
+	margin-right: 10px;
+}
+.listHeader{
+	background-color:#ffce3d;
+	height:36px;
+	.listName{
+		font-size:14px;
+		font-weight:bolder;
+		color:#333;
+		line-height:36px;
+		padding-left:15px;
+	}
+	.ant-input-search{
+		float:right;
+		margin-top:4px;
+		margin-right:10px;
+	}
+}

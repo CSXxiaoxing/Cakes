@@ -14,5 +14,5 @@ export default combineReducers({
     register,
     login,
     personal,
-    cakeDetail
+    cakeDetail,
 })
