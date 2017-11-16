@@ -5,7 +5,6 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import SpinnerComponent from '../spinner/spinner';
 import datagridComponent from '../datagrid/datagridComponent';
 import * as homeAction from './homeAction';
-import CarouselComponent from '../carousel/carousel';
 import contentComponent from './contentComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './home.scss';

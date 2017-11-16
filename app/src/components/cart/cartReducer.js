@@ -4,12 +4,13 @@ export default function StudentReducer(state = {}, action){
         case 'BeforeRequest':
             reState.loading = true;
             break;
-        case 'DategridRequested':
+        case 'Requested':
             reState.loading = false;
             reState.dataset = action.dataset;
             break;
         default:
             reState.loading = false;
     }
+    console.log(reState, action);
     return reState ;
 }

@@ -3,23 +3,36 @@
 //     width:0;
 //     height:0;
 // }\uh
-body{
-    width: 100%;
+
+html,body{
+
+    font-style: '微软雅黑';
+    height:100%;
+    color:#666;
 }
 .dataPage{
-    // display: flex;
+    
+    display: flex;
     flex-direction: column;
     font-size: 40px;
     width: 100%;
-    nav::-webkit-scrollbar {
+    height: 100%;
+    #XQQ{
+        height: 80px;
+    }
+    nav#xq::-webkit-scrollbar {
     /*隐藏滚轮*/
     display: none;
     }
-    nav{
-        // position: absolute;
-        // left: 0;top: 0;
-        height: 5%;
+    nav#xq{
+        position: fixed;
+        top: 6%;
+        background: #fff;
+        height: 80px;
+        width: 100%;
         overflow-y: hidden;
+        // z-index: 99;
+        border-bottom: 2px solid #111;
         ul{
             width: 150%;
             height: 100%;
@@ -31,17 +44,18 @@ body{
             height: 100%;
         }
         a{
-            margin: 0 60px;
+            font-size: 0.45rem;
+            width: 100%;
+            text-align: center;
             color: #555;
             display: inline-block;
             height: 100%;
-        }
-        border-bottom: 1px solid #111;
-        
+        }   
     }
     main{
-        flex:1;
+        height: 96%;
         overflow-x: hidden;
+
         article{
             height-min: 200%;
             display: flex;
@@ -60,8 +74,8 @@ body{
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
-                        height: 60px;
-                        font-size: 40px;
+                        height: 48px;
+                        font-size: 28px;
                         p{
                             color: #888;
                             display: inline-block;
@@ -93,7 +107,7 @@ body{
         }
     }
     .pageXQ{
-        border-bottom: 5px solid #000;
+        border-bottom: 3px solid #000;
         // border-radius: 40%;
     }
 }

@@ -34,8 +34,63 @@ ul,li{
 	flex-direction:column;
 	.p_head{
 		border-bottom: 0.0133rem solid #ddd;
-		height:1.5rem;
-	}
+        height:6%;
+        display:flex;
+        font-direction:column;
+        ul{
+            flex:1;
+            display:flex;
+            flex-direction:row;
+            li{
+                flex:1;
+                float:left;
+                a{  
+                    margin:0.1rem;
+                    margin-top:0.2rem;              
+                    text-align: center;
+                    display:block;
+                    position:relative;
+                    i{
+                        display:block;
+                        color:#4A2B1A;
+                        font-size: 0.6rem;
+                    }
+                    span{
+                        position:absolute;
+                        right:-0.8rem;
+                        top:0;
+                        color:#000; 
+                    }
+                }
+            }
+            li:first-child{
+                a{
+                    float:left;
+                    margin-right:0.5rem;
+                }
+            }
+            li:last-child{
+                a{
+                    float:right;
+                    position:relative;
+                    i:last-child{
+                        display:block;
+                        position:absolute;
+                        top:-0.1rem;
+                        right:-0.1rem;
+                        background-color:red;
+                        border-radius:100%;
+                        width:0.4rem;
+                        height:0.4rem;
+                        line-height: 0.4rem;
+                        font-size: 0.3rem;
+                        color:#fff;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
 	.p_content{
         flex:1;
         overflow: auto;

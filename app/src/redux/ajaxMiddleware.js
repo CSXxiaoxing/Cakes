@@ -14,6 +14,7 @@ export function ajaxMiddleware(middlewareAPI) {
             middlewareAPI.dispatch({
                 type: a,
             });
+
             // if(url){
             //     http[method](url,action.data).then(response => {
             //         console.log(response)
@@ -31,6 +32,7 @@ export function ajaxMiddleware(middlewareAPI) {
                             type: b,
                             dataset: JSON.parse(response),
                             Dataset:response
+
                         });
                         resolve(JSON.parse(response));
                     })                    

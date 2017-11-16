@@ -1,18 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router'
+import { Icon } from 'antd';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as datagridAction from './datagridAction';
-import { Link } from 'react-router'
-import { Icon } from 'antd';
 
 import './datagrid.scss';
 
 class datagridComponent extends React.Component{
     componentDidMount(){
-        console.log(this)
         this.props.Init();
-
+        // 滑动
         function span_move_fun(){
             // touchmove
          var span = document.getElementById("aaa");
@@ -26,23 +25,22 @@ class datagridComponent extends React.Component{
            // event.preventDefault();
            if (event.targetTouches.length == 1) {
                   var touch = event.targetTouches[0];
-                  span.style.position = "absolute";
+                  // span.style.position = "absolute";
             span_top = $(this).offset().top;
             span_left = $(this).offset().left;
             start_top = touch.pageY
             start_left = touch.pageX
-            console.log(touch)
+
             page_left = touch.pageX
             page_top = touch.pageY
                  }
              });
-
-        // 滑动
+         // 滑动
             span.addEventListener('touchmove', function(event) {
            if (event.targetTouches.length == 1) {
 
             var touch = event.targetTouches[0];
-            span.style.position = "absolute";
+            // span.style.position = "absolute";
            }
           });
             // pageXQ
@@ -63,35 +61,42 @@ class datagridComponent extends React.Component{
                     }
 
                 }
-                var top = $('#xq').outerHeight();
-                span.style.top = String(top) + 'px';
                 event.stopPropagation();
             });
-         
         }
         span_move_fun()
+    }
+    change(e){
+        if(e.target.nodeName.toLocaleLowerCase() == 'a'){
+            $('#xq li').removeClass('pageXQ');
+            $(e.target).parent().addClass('pageXQ');
+
+        }
     }
     render(){
         return (
             <div className="dataPage">
-                <nav id="xq">
-                    <ul>
-                        <li className="pageXQ"><Link to="/datagrid/cc/cake" >蛋糕</Link></li>
-                        <li><Link to="/datagrid/cc/xqk">小切块</Link></li>
-                        <li><Link to="/datagrid/cc/bql">冰淇淋</Link></li>
-                        <li><Link to="/">鲜花</Link></li>
-                        <li><Link to="/">礼品</Link></li>
-                        <li><Link to="/">店长推荐</Link></li>
-                    </ul>
-                </nav>
+                    <div id="XQQ"></div>
+                    <nav id="xq">
+                        <ul onClick={this.change}>
+                            <li className="pageXQ"><Link to="/datagrid/cc/cake" >蛋糕</Link></li>
+                            <li><Link to="/datagrid/cc/small">小切块</Link></li>
+                            <li><Link to="/datagrid/cc/ice">冰淇淋</Link></li>
+                            <li><Link to="/datagrid/cc/flower">鲜花</Link></li>
+                            <li><Link to="/datagrid/cc/gift">礼品</Link></li>
+                            <li><Link to="/datagrid/cc/recommend">店长推荐</Link></li>
+                        </ul>
+                    </nav>
+                
                 <main id="aaa">
                     {this.props.children}
                     <article>
                         {
                             this.props.dataset.map(function(obj, index){
                                 obj.gSpec = obj.gSpec.slice(0,2)
+                                var objGID = String("/cakeDatail/"+obj.gId);
                                 return (
-                                <Link to="/" key={index + 'a'} className="datapageA">
+                                <Link to={objGID} key={index + 'a'} className="datapageA">
                                 <dl key={index}>
                                     <dt><img src={obj.gPicture} alt="Cake" /></dt>
                                     <dd><p>{obj.gNameEN}</p></dd>
@@ -107,33 +112,17 @@ class datagridComponent extends React.Component{
                         }
                     </article>
                 </main>
+                
             </div>
         )
     }
 }
-
 const mapStateToProps = function(state){
-    var test = [{
-        'ename': 'Mango Cream Cake', 
-        'cname': '砖头',
-        'jianjie': '/\纯正黄泥烧制而成/',
-        'price': 198.00,
-        'b': 2.0,
-        'src': './src/img/cake1.jpg'
-    },
-    {
-            'ename': 'Mango Cream Cake', 
-            'cname': '砖头',
-            'jianjie': '/\纯正黄泥烧制而成，整体色系票是互动式acid那次啊u的大我发大王峰/',
-            'price': 198.00,
-            'b': 2.0,
-            'src': './src/img/cake1.jpg'
-        }
-    ]
-    console.log(state.home.dataset)
+    // console.log(state.datagrid.dataset)
+    var dataset  =  JSON.parse(state.datagrid.dataset || '[]')
     return {
-        loading: state.home.loading,
-        dataset: state.home.dataset || []
+        loading: state.datagrid.loading,
+        dataset: dataset[0] || []
         // dataset: test
     }
 }

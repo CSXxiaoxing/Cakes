@@ -1,0 +1,293 @@
+.t_cart{
+    font-size: 0.4rem;
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    .t_header{
+        height:8%;
+        display:flex;
+        flex-direction:row;
+        a{
+            width:10%;
+            font-size:0.9rem;
+            color:#4A2B1A;
+        }
+        h2{
+            flex:1;
+            line-height:100%;
+            text-align: center;
+            span{
+                display: block;
+                padding-top:4.333333%;
+                text-indent:-1rem;
+            }
+        }
+    }
+    .t_content{
+        flex:1;
+        background-color:#F0F0F0;
+        display:flex;
+        flex-direction:column;
+        overflow-y:auto;
+        .t_message{
+            height:10%;
+            background-color:#fff;
+            margin:0.3rem 0;
+            position:relative;
+            p{
+                font-size:0.33rem;
+                width:80%;
+                margin-left:1.5rem;
+                text-align: left;
+                margin-top:0.3rem;
+                color:#684029;
+            }
+            img{
+                position:absolute;
+                top:0;
+                left:0.6rem;
+            }
+        }
+        .t_goodslist{
+            height:40%;
+            background-color:#fff;
+            display:flex;
+            flex-direction:column;
+            .t_gh{
+                height:60%;
+                display:flex;
+                ul{
+                    flex:1;
+                    li{
+                        float:left;
+                    }
+                    li:nth-child(2){
+                        dl{
+                        margin-top:1rem;
+                            dt{
+                                font-weight: bold;
+                                color:#000;
+                            }
+                            dd:nth-child(2){
+                                color:#000;
+                            }
+                            dd:last-child{
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    li:last-child{
+                        width:20%;
+                        height:100%;
+                        text-align: center;
+                        margin-top:27.333%;
+                        button{
+                            height:0.6rem;
+                            width:0.6rem;
+                            float:left;
+                            background-color:#ccc;
+                            border:none;
+                        }
+                        .t_add{
+                            color:#000;
+                            font-weight:bold;
+                            font-size:0.66rem;
+                            line-height:0.4rem;
+                            text-align: center;
+                        }
+                        span{   
+                            display:block;
+                            height:0.6rem;
+                            width:0.6rem;
+                            float:left;
+                        }
+                    }
+                }
+            }
+            .t_choice{
+                flex:1;
+                display:flex;
+                flex-direction:column;
+                .tableware{
+                    height:66%;
+                    img{
+                        margin-top:0.3rem;
+                        margin-left:2rem;
+                        width:1rem;
+                        height:1rem;
+                        float:left;
+                    }
+                    span{
+                        margin-left: 0.88rem;
+                        margin-top: 0.4rem;
+                        float:left;
+                    }
+                }
+                .festival{
+                    flex:1;
+                    display:flex;
+                    ul{
+                        flex:1;
+                        display:flex;
+                        flex-direction:row;
+                        li{
+                            flex:1;
+                            float:left;
+                        }
+                        li:last-child{
+                            a{
+                                float:right;
+                                font-size:0.6rem;
+                                color:#999;
+                                line-height:0.6rem;
+                                text-align: center;
+                                padding-right: 0.6rem;
+                            }
+                            
+                        }
+                        li:nth-child(2){
+                            text-indent:0.5rem;
+                        }
+                        li:first-child{
+                            text-align: right;
+                            div{
+                                background-color:#ccc;
+                                width:45%;
+                                height:80%;
+                                text-align: center;
+                                float:right;
+                                span{
+                                    margin-top: 0.166rem;
+                                    margin-left:0.3rem;
+                                    width:60%;
+                                    display: block;
+                                    font-size:0.233rem;
+                                    background-color:#000;
+                                    color:#fff; 
+                                    text-align: center;
+                                    letter-spacing:0.03rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .t_recommend{
+            height:40%;
+            .t_linehead{
+                height:20%;
+                h3{
+                    padding-top: 0.2rem;
+                    text-align: center;
+                }
+            }
+            .re_box{
+                width:100%;
+                overflow:hidden;
+                ul:first-child{
+                    width:49%;
+                    overflow:hidden;
+                    float:left;
+                    li{
+                        background-color:#fff;
+                        margin-bottom:4%;
+                        height:5rem;
+                        text-align: center;
+                        img{
+                            width:56%;
+                        }
+                        .goodsname{
+                            margin-top:0.4rem;
+                            text-align: left;
+                            span{
+                                margin-left: 0.4rem;
+                            }
+                        }
+                        .t_price{
+                            text-align: left;
+                            position:relative;
+                            span{
+                                margin-left: 0.33rem;
+                            }
+                            a{
+                                position:absolute;
+                                display: block;
+                                right:0;
+                                top:-0.3rem;
+                                font-size:0.8rem;
+                                margin-right:0.3rem;
+                                color:#333;
+                            }
+                        }
+                    }
+                }
+                ul:last-child{
+                    float:right;
+                    width:49%;
+                    overflow:hidden;
+                    li{
+                        background-color:#fff;
+                        margin-bottom:4%;
+                        height:5rem;
+                        text-align: center;
+                        img{
+                            width:56%;
+                        }
+                        .goodsname{
+                            margin-top:0.4rem;
+                            text-align: left;
+                            span{
+                                margin-left: 0.4rem;
+                            }
+                        }
+                        .t_price{
+                            text-align: left;
+                            position:relative;
+                            span{
+                                margin-left: 0.33rem;
+                                font-weight: 500;
+                            }
+                            a{
+                                position:absolute;
+                                display: block;
+                                right:0;
+                                top:-0.3rem;
+                                font-size:0.8rem;
+                                margin-right:0.3rem;
+                                color:#333;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .t_footer{
+        height:8%;
+        display:flex;
+        flex-direction:row;
+        .t_tot{
+            width:76%;
+            display:flex;
+            flex-direction:column;
+            span{
+                display:block;
+                text-align:right;
+                padding-right:0.3rem;
+            }
+            .t_total{
+                color:#000;
+                font-weight:bold;
+            }
+        }
+        .t_btn{
+            flex:1;
+            text-align: center;
+            line-height: 300%;
+            background-color:#000;
+            color:#fff;
+        }
+    }
+}

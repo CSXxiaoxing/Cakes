@@ -2,23 +2,11 @@ import React from 'react';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
 
-import './register.scss'
-import * as registerAction from './registerAction.js'
+import './register.scss';
+import * as registerAction from './registerAction.js';
+import LoginComponent from '../tinyComponents/LoginComponent.js';
 class registerComponent extends React.Component{
-    // componentWillReceiveProps(nextProps){
-    //     console.log(nextProps.dataset);
-    //     if(nextProps.dataset != {}){
-    //         if(JSON.parse(nextProps.dataset)[0].length > 0){
-    //             alert('该帐户已经存在')
-    //         }else{
-    //             this.register()
-    //             alert('注册成功')
-    //         }
-    //     }
-    // }
     componentDidMount(){
-        this.props.Clear();
-        console.log(this.props.dataset)
         var arr = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
         // 循环获取验证码
         var res = '';
@@ -31,8 +19,7 @@ class registerComponent extends React.Component{
     render(){
         return (
             <div className="box">
-
-                <div className="head">head</div>
+                <div className="head"><LoginComponent/></div>
                 <div className="content">
                        <div className="l-router clearfix">
                     <Link to="/login" >账号密码登录</Link>
@@ -51,8 +38,7 @@ class registerComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    <Link to="/personal">personal</Link>
-                    <Link to="/home">home</Link>
+                    
                 </div>
                 <div className="l-cover">
 
