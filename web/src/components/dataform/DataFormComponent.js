@@ -16,11 +16,15 @@ const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const { toString } = Mention;
+var detalisPic = '';
 let editAdd;
 let newData;
+
 class App extends React.Component {
   state = {
       tableName:'',
+      upfilePath:"",
+      upfileDetalis:"",
   }
   constructor(props){
     super(props);
@@ -30,6 +34,7 @@ class App extends React.Component {
     this.setState({tableName:tableName});
     const sql = `select gClass from goods_list group by gClass`;
     this.props.GetClass(sql);
+    this.props.dataset.gDetalisPic ? detalisPic = this.props.dataset.gDetalisPic : detalisPic = '' ;
   }
   componentWillReceiveProps(nextProps){
     const tableName = this.props.location.pathname.slice(1);
@@ -44,7 +49,12 @@ class App extends React.Component {
         let val = ``;
         if(editAdd){
           Object.keys(values).forEach(item =>{
-             return filed += `\`${item}\`='${values[item]}',`;
+            if(item == 'gPicture'){
+              this.state.upfilePath == '' ? values[item] : values[item] = this.state.upfilePath;
+            } else if(item == 'gDetalisPic'){
+              this.state.upfileDetalis == '' ? values[item] : values[item] = detalisPic;
+            }
+            return filed += `\`${item}\`='${values[item]}',`;
           });
           const sql = `update ${newTable} set ${filed.slice(0,-1)} where \`key\`='${values.key}'`;
           this.props.Save(sql);
@@ -69,7 +79,32 @@ class App extends React.Component {
   goback(){
     hashHistory.go(-1);
   }
+  upload(data) {
+    console.log('upload');
+    /* FormData 是表单数据类 */
+    var fd = new FormData();
+    var ajax = new XMLHttpRequest();
+    fd.append("upload", 1);
+    /* 把文件添加到表单里 */
+    if(data == 'main'){
+        fd.append("upfile", this.refs.upfile.files[0]);
+    } else if (data == "detalis") {
+        fd.append("upfile", this.refs.detalis.files[0]);
+    }
+    ajax.open("post", "http://localhost:888/doAction.php", true);
+    ajax.onload = function () {
+        if(data == 'main'){
+            this.setState({upfilePath:ajax.responseText});
+        } else if (data == "detalis") {
+            detalisPic += `,${ajax.responseText}`; 
+            this.setState({upfileDetalis:ajax.responseText});
+        }
+    }.bind(this);
+    ajax.send(fd);
+  }
+
   render() {
+
    const { getFieldDecorator } = this.props.form;
    const formItemLayout = {
      labelCol: { span: 3 },
@@ -95,7 +130,9 @@ class App extends React.Component {
     const title = titleObj[path];
     editAdd = pathObj[path];
     editAdd && !this.props.addStatus ? newData = this.props.dataset : newData = {};
-    console.log(newData);
+    this.state.upfilePath == '' ? newData : newData.gPicture = this.state.upfilePath;
+    this.state.upfileDetalis == '' ? newData : newData.gDetalisPic = detalisPic;
+
     if(this.state.tableName == 'goods_edit' || this.state.tableName == 'goods_add'){
         return (
           <div>
@@ -258,7 +295,48 @@ class App extends React.Component {
                          multiLines
                        />
                   </FormItem>
-                  
+                  <FormItem
+                    {...formItemLayout}
+                    label="商品主图"
+                  >
+                    {getFieldDecorator('gPicture',{
+                      initialValue:newData.gPicture || ''
+                    })(
+                        <div>
+                        <p>
+                            <a  className="file">
+                            上传商品主图
+                            <input type="file"  ref="upfile" className="upfile" onChange={this.upload.bind(this, 'main')}/>
+                            </a>
+                        </p>
+                        {
+                            newData.gPicture ? <img className="imgShow" src={newData.gPicture} /> : null
+                        }
+                        </div>
+                    )}
+                  </FormItem>
+                  <FormItem
+                    {...formItemLayout}
+                    label="商品详情图"
+                  >
+                    {getFieldDecorator('gDetalisPic',{
+                      initialValue:newData.gDetalisPic || ''
+                    })(
+                        <div>
+                        <p>
+                            <a  className="file">
+                            上传商品详情图
+                            <input type="file"  ref="detalis" className="upfile" onChange={this.upload.bind(this, "detalis")}/>
+                            </a>
+                        </p>
+                        {
+                            newData.gDetalisPic ? newData.gDetalisPic.split(',').map(item =>{
+                              return <img className="imgShow" src={item} />
+                            }) : null
+                        }
+                        </div>
+                    )}
+                  </FormItem>
                   <FormItem
                     {...formItemLayout}
                     label="是否上架"
