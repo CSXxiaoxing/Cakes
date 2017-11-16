@@ -8,20 +8,29 @@ export function ajaxMiddleware(middlewareAPI) {
             if (!url || !method) {
                 return dispatch(action)
             }
-        //    if(!types)
+            //   if(!types)
             const [a, b, c] = types;
-
             middlewareAPI.dispatch({
                 type: a,
+                data:data
             });
-
             if(url){
-                http[method](url).then(response => {
-                    middlewareAPI.dispatch({
-                        type: 'Requested',
-                        dataset: response
-                    });
-                })
+                return new Promise((resolve, reject) => {
+                    http[method](url, data).then(response => {
+                        middlewareAPI.dispatch({
+                            type: b,
+                            dataset: response
+                        });
+                        resolve(response);
+                        })                    
+                    })
+
+                // http[method](url, data).then(response => {
+                //     middlewareAPI.dispatch({
+                //         type: b,
+                //         dataset: response
+                //     });
+                // })
             }
         }
     }
