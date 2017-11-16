@@ -5,5 +5,15 @@ export function init(api,sql){
         data:{
             select:sql
         }
+
+    }
+}
+export function Get(api,sql){
+    return {
+        types: ['ge-BeforeRequest', 'ge-Requested', 'RequestError'],
+        url: api,
+        data:{
+            select:sql
+        }
     }
 }

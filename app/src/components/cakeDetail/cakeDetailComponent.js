@@ -31,13 +31,14 @@ class cakeDatailComponent extends React.Component{
         	
         }
 		this.find();	
+        console.log(this)
 	}
     render(){
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
-
     		const gIntro = data.gIntro.split('&');
     		const gDetalispic = data.gDetalispic.split('&');
+
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
@@ -186,6 +187,7 @@ class cakeDatailComponent extends React.Component{
      }
     }
     tab(e){
+
     	var $tab = $('.tab');
     	var $content = $('.tab-content');
     	var idx = $(e.target).index();
@@ -229,7 +231,7 @@ class cakeDatailComponent extends React.Component{
     }
     find(e){
     	var id = this.props.params.id;
-        const sql = ` select * from goods_list where gId = '${id}'`;
+        const sql = ` select * from goods_list  where gId = '${id}'`;
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
@@ -246,7 +248,6 @@ class cakeDatailComponent extends React.Component{
     	const sql = ` select * from cake_car where (username = '${username}' and gId = '${gId}')`;
         this.props.p_car('http://localhost:888/Datagrid.php',sql).then(res =>{
         	if(res[0].length !==0 ){
-//      		console.log(res[0][0].gNb);
         		const gNewNb = res[0][0].gNb*1+1;
         		const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
         		this.props.p_updatecar('http://localhost:888/Datagrid.php',update);

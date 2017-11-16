@@ -139,7 +139,6 @@ class datagridComponent extends React.Component{
     }
 }
 const mapStateToProps = function(state){
-    // console.log(state.datagrid.dataset);
     dataset  =  state.datagrid.dataset || []
     return {
         loading: state.datagrid.loading,
