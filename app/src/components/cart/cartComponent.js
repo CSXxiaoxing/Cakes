@@ -22,7 +22,11 @@ class cartComponent extends React.Component{
             $('.t_num').each(function(idx){
                 var $this = $(this);
                 var num = $this.text();
-                $(this).next().click(function(event) {
+                if($this.text() > 1){
+                    $this.prev().children('i').hide();
+                    $this.prev().children('span').show();
+                }
+                $(this).next().click(function(event){
                     num++;
                     $this.text(num);
                     var price = $this.parent().prev().find(' dl dd span').text();
@@ -80,7 +84,7 @@ class cartComponent extends React.Component{
                                                         </dl>
                                                     </li>
                                                     <li>
-                                                        <button className="t_delete"><Icon type="delete"/><span>-</span></button>
+                                                        <button className="t_delete" onClick={$this.sub}><Icon type="delete"/><span>-</span></button>
                                                         <span className="t_num">{obj.gNb}</span>
                                                         <button className="t_add" onClick={$this.add}><span>+</span></button>
                                                     </li>
@@ -180,6 +184,31 @@ class cartComponent extends React.Component{
         $this.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
             if(res[0].length !==0 ){
                 const gNewNb = res[0][0].gNb*1+1;
+                const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
+                $this.props.T_add('http://localhost:888/Datagrid.php',update);
+            }
+            else if(res[0].length ==0){
+                const insert = `insert into cake_car (username,gId,gNameEN,gNameZH,gSpec,gPrice,gWare,gNb,gPicture) values ('${username}','${gId}','${gNameEN}','${gNameZH}','${gSpec}','${gPrice}','${gWare}','${gNb}','${gPicture}')`;
+                $this.props.t_add('http://localhost:888/Datagrid.php',insert);
+            }
+        });
+    }
+    sub(){
+        console.log($('.t_num'))
+        const username = 13432858111;
+        // const gId = $this.props.params.id;
+        const gNameEN = $('.t_gNameEN').text();
+        const gNameZH = $('.t_gNameZH').text();
+        const gId = 1;
+        const gSpec = $('.gSpec').text();
+        const gPrice = $('.t_tprice').text();
+        const gWare = $('.t_gWare').text();
+        const gNb = 1 ;
+        const gPicture = $this.props.dataset.gPicture;       
+        const sql = ` select * from cake_car where (username = '${username}' and gId = gId)`;
+        $this.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
+            if(res[0].length !==0 ){
+                const gNewNb = res[0][0].gNb*1-1;
                 const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
                 $this.props.T_add('http://localhost:888/Datagrid.php',update);
             }
