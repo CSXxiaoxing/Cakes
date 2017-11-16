@@ -1,21 +1,21 @@
-export default function registerReducer(state = {}, action){
+export default function loginReducer(state = {}, action){
     var reState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case 're-BeforeRequest':
+        case 'lo-BeforeRequest':
             reState.loading = true;
             break;
-        case 're-Requested':
-            reState.loading = false;
-            reState.dataset = action.Dataset;
-            break;
-        case 'Re-BeforeRequest':
-            reState.loading = true;
-            break;
-        case 'Re-Requested':
+        case 'lo-Requested':
             reState.loading = false;
             reState.dataset = action.Dataset
             break;
-        case 'clear':
+        case 'to-BeforeRequest':
+            reState.loading = true;
+            break;
+        case 'to-Requested':
+            reState.loading = false;
+            reState.dataset = action.Dataset
+            break;
+        case 'Clear':
             reState.loading = false;
             reState.dataset = {};
             break;

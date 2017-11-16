@@ -4,9 +4,9 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import homeComponent from '../components/home/homeComponent'
 
 //ljj
-import personalComponent from '../components/personal/personalComponent';
+import loginComponent from '../components/login/loginComponent';
 import registerComponent from '../components/register/registerComponent'
-
+import personalComponent from '../components/personal/personalComponent'
 // pyd
 import cakeDetailComponent from '../components/cakeDetail/cakeDetailComponent'
 // csx
@@ -19,15 +19,15 @@ export default (
 	<div>
 	    <Route path="/t" component={homeComponent}>
             <Route path="/" component={contentComponent}></Route>
-            <Route path="/personal" component={personalComponent}></Route>
             <Route path="/datagrid" component={datagridComponent}>
                 <Route path="cc/:name" component={cakeComponent}></Route>
             </Route>            
+            <Route path="/cakeDatail" component={cakeDetailComponent}>
         </Route>
-        <Route path="/login" component={personalComponent}></Route>
+        </Route>
+        <Route path="/login" component={loginComponent}></Route>
         <Route path="/register" component={registerComponent}></Route>
-		<Route path="/cakeDatail" component={cakeDetailComponent}>
-		</Route>
+        <Route path="/personal" component={personalComponent}></Route>
 	</div>
 
 )
