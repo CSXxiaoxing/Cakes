@@ -1,11 +1,20 @@
-// html::-webkit-scrollbar,
-// body::-webkit-scrollbar{
-//     width:0;
-//     height:0;
-// }\uh
+
+// Loading
+#bottomLoading{
+    text-align: center;
+    color: #333;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top:0px;
+    z-index: 0;
+    // padding-top: 34px;
+    // margin-bottom: -100%;
+}
+
 
 html,body{
-
+    
     font-style: '微软雅黑';
     height:100%;
     color:#666;
@@ -31,7 +40,7 @@ html,body{
         height: 80px;
         width: 100%;
         overflow-y: hidden;
-        // z-index: 99;
+        z-index: 2;
         border-bottom: 2px solid #111;
         ul{
             width: 150%;
@@ -55,7 +64,7 @@ html,body{
     main{
         height: 96%;
         overflow-x: hidden;
-
+        top:0;
         article{
             height-min: 200%;
             display: flex;
