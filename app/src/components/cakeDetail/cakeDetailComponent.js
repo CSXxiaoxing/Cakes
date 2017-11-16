@@ -10,15 +10,35 @@ import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
 
 	componentDidMount(){
+		var cookies = document.cookie;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] === 'token'){
+                    const sql = `select * from user_list where token = '${temp[1]}'`
+                    this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+//                  var usernameC = res[0][0].username;
+                    })
+                }
+            }.bind(this))
+       	}else{
+       		setTimeout(function(){
+       			$('.p_footer .active').css('background','#ddd')
+       			
+       		},500)
+        	
+        	
+        }
 		this.find();	
+        console.log(this)
 	}
     render(){
-//  	console.log(this.props)
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
-
     		const gIntro = data.gIntro.split('&');
     		const gDetalispic = data.gDetalispic.split('&');
+
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
@@ -167,6 +187,7 @@ class cakeDatailComponent extends React.Component{
      }
     }
     tab(e){
+
     	var $tab = $('.tab');
     	var $content = $('.tab-content');
     	var idx = $(e.target).index();
@@ -205,16 +226,17 @@ class cakeDatailComponent extends React.Component{
         $tabItem.first().addClass('active');
     	var  $suspension = $('.details-suspension-content');
     	
-		$suspension.animate({top:-355,height:355});
+		$suspension.animate({top:`-5.5468rem`,height:`5.5468rem`});
 //	  	$suspension.show();
     }
     find(e){
     	var id = this.props.params.id;
-        const sql = ` select * from goods_list where gId = '${id}'`;
+        const sql = ` select * from goods_list  where gId = '${id}'`;
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
-    	const username = 13432858111;
+    	var usernameC = this.props.cake_cookies[0].username
+    	const username = usernameC;
     	const gId = this.props.params.id;
     	const gNameEN = $('.cakeName h3').text();
     	const gNameZH = $('.cakeName p').text();
@@ -226,7 +248,6 @@ class cakeDatailComponent extends React.Component{
     	const sql = ` select * from cake_car where (username = '${username}' and gId = '${gId}')`;
         this.props.p_car('http://localhost:888/Datagrid.php',sql).then(res =>{
         	if(res[0].length !==0 ){
-//      		console.log(res[0][0].gNb);
         		const gNewNb = res[0][0].gNb*1+1;
         		const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
         		this.props.p_updatecar('http://localhost:888/Datagrid.php',update);
@@ -245,7 +266,8 @@ const mapStateToProps = function(state){
     return {
         dataset: state.cakeDetail.dataset || '',
         carDataset: state.cakeDetail.p_car || 'null',
-        carAddDataset: state.cakeDetail.p_addcar || ''
+        carAddDataset: state.cakeDetail.p_addcar || '',
+        cake_cookies: state.cakeDetail.cake_cookies || ''
     }
 }
 

@@ -1,17 +1,32 @@
 import React from 'react';
 import { Carousel} from 'antd';
-import './sass/carousel.scss'
+import './sass/carousel.scss';
+import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
+import {connect} from 'react-redux';
+import * as homeAction from '../home/homeAction.js';
 class CarouselComponent extends React.Component{
     render(){
         return (
             <Carousel autoplay>
-                <div><img src="./src/img/cake1.jpg" /></div>
-                <div><img src="./src/img/cake2.jpg" /></div>
-                <div><img src="./src/img/cake3.jpg" /></div>
-                <div><img src="./src/img/cake4.jpg" /></div>
+                {
+                    this.props.dataset[3].map(function(obj,index){
+                        var objId = String(/cakeDatail/+obj.gId);
+                        return(
+                                <div key={index+'t'}><Link to={objId}><img src={obj.gPicture} /></Link></div>
+                            )
+                    })
+                }
             </Carousel>
         )
     }
 }
 
-export default CarouselComponent
+const mapStateToProps = function(state){
+    var dataset  = state.home.dataset || '[]'
+    return {
+        loading: state.home.loading,
+        dataset: dataset || '[]'
+    }
+}
+
+export default connect(mapStateToProps, homeAction)(CarouselComponent)

@@ -3,9 +3,7 @@ import {Router, Route, Link, hashHistory, IndexRoute, browserHistory} from 'reac
 export function Init(cakeType){
 
     // 路径
-
     var DATAselect = cakeType || '蛋糕';
-    console.log(DATAselect)
     return {
         types: ['BeforeRequest', 'DategridRequested', 'RequestError'],
         method : "post",

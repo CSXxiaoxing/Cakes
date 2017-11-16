@@ -30,6 +30,7 @@
     //     return $conn;
         
     // }
+	
 	//英德测试
 //	function connect(){
 //		$severname = 'localhost';

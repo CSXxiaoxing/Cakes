@@ -15,7 +15,11 @@ export default function StudentReducer(state = {}, action){
         case 'p_addcar':
             reState.loading = false;
             reState.p_addcar = action.dataset[0];
-            break;            
+            break;    
+        case 'p-cakeCookies':
+            reState.loading = false;
+            reState.cake_cookies = action.dataset[0];
+            break;
         default:
             reState.loading = false;
     }

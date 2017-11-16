@@ -38,6 +38,7 @@ class registerComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
+
                 </div>
                 <div className="l-cover">
 
@@ -51,23 +52,35 @@ class registerComponent extends React.Component{
         )
     }
     select(){
-        var username = $('.username').val()
-        const sql = ` select * from user_list where username = '${username}'`
-        this.props.Select('http://localhost:888/Datagrid.php',sql).then(res=>{
-            if(res[0].length > 0){
-                    // alert('该帐户已经存在')
-                $('.l-cover').show()
-                $('.l-massage').show()
-                $('.massage').text('该帐户已经存在')
-            }else{
-                this.register()
-                // alert('注册成功')
-                $('.l-cover').show()
-                $('.l-massage').show()
-                $('.massage').text('注册成功')
-            }
-        })
-        // console.log(this.props.dataset[0].length)
+        console.log($('.username').val())
+        if($('.username').val() != '' &&  $('.password').val() != '' && $('.repeatpsw').val() != '' && $('.incode').val() != ''){
+            console.log(666)
+            var username = $('.username').val()
+            const sql = ` select * from user_list where username = '${username}'`
+            this.props.Select('http://localhost:888/Datagrid.php',sql).then(res=>{
+                if(res[0].length > 0){
+                        // alert('该帐户已经存在')
+                    $('.l-cover').show()
+                    $('.l-massage').show()
+                    $('.massage').text('该帐户已经存在')
+                }else{
+                    this.register()
+                    // alert('注册成功')
+                    $('.l-cover').show()
+                    $('.l-massage').show()
+                    $('.massage').text('注册成功')
+                }
+            })
+            // console.log(this.props.dataset[0].length)
+        }else{
+            $('.l-cover').show()
+            $('.l-massage').show()
+            $('.massage').text('请先完善信息')
+        }
+    }
+    hide(){
+        $('.l-cover').hide();
+        $('.l-massage').hide();
     }
     hide(){
         $('.l-cover').hide();
