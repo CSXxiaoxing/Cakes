@@ -10,10 +10,22 @@ import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
 
 	componentDidMount(){
+		var cookies = document.cookie;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] === 'token'){
+                    const sql = `select * from user_list where token = '${temp[1]}'`
+                    this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+//                  var usernameC = res[0][0].username;
+                    })
+                }
+            }.bind(this))
+       	}
 		this.find();	
 	}
     render(){
-//  	console.log(this.props)
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
 
@@ -214,7 +226,8 @@ class cakeDatailComponent extends React.Component{
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
-    	const username = 13432858111;
+    	var usernameC = this.props.cake_cookies[0].username
+    	const username = usernameC;
     	const gId = this.props.params.id;
     	const gNameEN = $('.cakeName h3').text();
     	const gNameZH = $('.cakeName p').text();
@@ -245,7 +258,8 @@ const mapStateToProps = function(state){
     return {
         dataset: state.cakeDetail.dataset || '',
         carDataset: state.cakeDetail.p_car || 'null',
-        carAddDataset: state.cakeDetail.p_addcar || ''
+        carAddDataset: state.cakeDetail.p_addcar || '',
+        cake_cookies: state.cakeDetail.cake_cookies || ''
     }
 }
 

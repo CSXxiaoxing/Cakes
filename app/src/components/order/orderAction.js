@@ -9,7 +9,16 @@ export function Init(){
 
 export function Find(api,sql){
     return {
-        types: ['BeforeRequest', 'p-Requested', 'RequestError'],
+        types: ['BeforeRequest', 'order-Requested', 'RequestError'],
+        url: api,
+        data:{
+        	select:sql
+        }
+    }
+}
+export function init(api,sql){
+    return {
+        types: ['BeforeRequest', 'order-login', 'RequestError'],
         url: api,
         data:{
         	select:sql

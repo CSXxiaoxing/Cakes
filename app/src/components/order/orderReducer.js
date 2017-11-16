@@ -4,10 +4,14 @@ export default function StudentReducer(state = {}, action){
         case 'BeforeRequest':
             reState.loading = true;
             break;
-        case 'p-Requested':
+        case 'order-Requested':
             reState.loading = false;
-            reState.dataset = action.dataset[0][0];
-            break;        
+            reState.dataset = action.dataset[0];
+            break;  
+        case 'order-login':
+            reState.loading = false;
+            reState.data = action.dataset; 
+            break;
         default:
             reState.loading = false;
     }

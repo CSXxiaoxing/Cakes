@@ -30,10 +30,13 @@ export default (
     		</Route>
             <Route path="/login" component={loginComponent}></Route>
             <Route path="/register" component={registerComponent}></Route>
-            <Route path="/personal" component={personalComponent}></Route>
-            <Route path="/cart" component={cartComponent}></Route>
-            
+            <Route path="/personal" component={personalComponent}>
+            	
+            </Route>
             <Route path="/order" component={orderComponent}></Route>
+            <Route path="/cart" component={cartComponent}></Route>
+          
+            
         </div>
 )
 

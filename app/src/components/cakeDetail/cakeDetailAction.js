@@ -43,3 +43,13 @@ export function Find(api,sql){
         }
     }
 }
+
+export function init(api,sql){
+    return {
+        types: ['BeforeRequest', 'p-cakeCookies', 'RequestError'],
+        url: api,
+        data:{
+        	select:sql
+        }
+    }
+}
