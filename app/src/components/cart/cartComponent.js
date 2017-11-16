@@ -6,10 +6,15 @@ import SpinnerComponent from '../spinner/spinner';
 import * as cartAction from './cartAction';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './cartComponent.scss';
+
+var dataaaa = '';
+var $this;
 class cartComponent extends React.Component{
     componentDidMount(){
+        this.props.Init();
+        console.log(this.props.dataset)
         this.props.Init().then(res=>{
-            var total = 0
+            var total = 0;
             $('.t_tprice').map(function(){
                 total += $(this).text()*$(this).parents('li').next().find('.t_num').text()*1;
             });
@@ -18,7 +23,6 @@ class cartComponent extends React.Component{
                 var $this = $(this);
                 var num = $this.text();
                 $(this).next().click(function(event) {
-                    console.log(this)
                     num++;
                     $this.text(num);
                     var price = $this.parent().prev().find(' dl dd span').text();
@@ -47,7 +51,7 @@ class cartComponent extends React.Component{
         });      
     }
     render(){
-        console.log(this.props.dataset)
+        $this = this;
         if(this.props.dataset.length){
             return (
                 <div className="t_cart">
@@ -66,26 +70,26 @@ class cartComponent extends React.Component{
                                         <div className="t_goodslist" key={index + 'kk'}>
                                             <div className="t_gh">
                                                 <ul>
-                                                    <li><img src={obj.gPicture} alt="" /></li>
+                                                    <li className="t_gPicture"><img src={obj.gPicture} alt="" /></li>
                                                     <li>
                                                         <dl>
-                                                            <dt>{obj.gNameEN}</dt>
-                                                            <dd>{obj.gNameZH}</dd>
-                                                            <dd>{obj.gSpec}</dd>
+                                                            <dt className="t_gNameEN">{obj.gNameEN}</dt>
+                                                            <dd className="t_gNameZH">{obj.gNameZH}</dd>
+                                                            <dd className="t_gSpec">{obj.gSpec}</dd>
                                                             <dd>￥<span className="t_tprice">{obj.gPrice}</span></dd>
                                                         </dl>
                                                     </li>
                                                     <li>
                                                         <button className="t_delete"><Icon type="delete"/><span>-</span></button>
                                                         <span className="t_num">{obj.gNb}</span>
-                                                        <button className="t_add"><span>+</span></button>
+                                                        <button className="t_add" onClick={$this.add}><span>+</span></button>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div className="t_choice">
                                                 <div className="tableware">
                                                     <img src="./src/img/tableware.png" alt="" />
-                                                    <span>{obj.gWare}</span>
+                                                    <span className="t_gWare">{obj.gWare}</span>
                                                 </div>
                                                 <div className="festival">
                                                     <ul>
@@ -159,13 +163,38 @@ class cartComponent extends React.Component{
     close(){
         console.log(666)
     }
-    T_add(){
-        console.log(777)
+    add(){
+        console.log($this.props);
+        console.log($('.t_num'))
+        const username = 13432858111;
+        // const gId = $this.props.params.id;
+        const gNameEN = $('.t_gNameEN').text();
+        const gNameZH = $('.t_gNameZH').text();
+        const gId = 1;
+        const gSpec = $('.gSpec').text();
+        const gPrice = $('.t_tprice').text();
+        const gWare = $('.t_gWare').text();
+        const gNb = 1 ;
+        const gPicture = $this.props.dataset.gPicture;       
+        const sql = ` select * from cake_car where (username = '${username}' and gId = gId)`;
+        $this.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
+            if(res[0].length !==0 ){
+                const gNewNb = res[0][0].gNb*1+1;
+                const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
+                $this.props.T_add('http://localhost:888/Datagrid.php',update);
+            }
+            else if(res[0].length ==0){
+                const insert = `insert into cake_car (username,gId,gNameEN,gNameZH,gSpec,gPrice,gWare,gNb,gPicture) values ('${username}','${gId}','${gNameEN}','${gNameZH}','${gSpec}','${gPrice}','${gWare}','${gNb}','${gPicture}')`;
+                $this.props.t_add('http://localhost:888/Datagrid.php',insert);
+            }
+        });
     }
+    
 }
 
 const mapStateToProps = function(state){
     var dataset  = state.cart.dataset || []
+    dataaaa = dataset;
     return {
         loading: state.cart.loading,
         dataset: dataset || []

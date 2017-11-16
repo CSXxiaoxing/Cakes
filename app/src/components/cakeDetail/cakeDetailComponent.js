@@ -11,6 +11,7 @@ class cakeDatailComponent extends React.Component{
 
 	componentDidMount(){
 		this.find();	
+        console.log(this)
 	}
     render(){
  	
@@ -227,7 +228,6 @@ class cakeDatailComponent extends React.Component{
     	const sql = ` select * from cake_car where (username = '${username}' and gId = '${gId}')`;
         this.props.p_car('http://localhost:888/Datagrid.php',sql).then(res =>{
         	if(res[0].length !==0 ){
-//      		console.log(res[0][0].gNb);
         		const gNewNb = res[0][0].gNb*1+1;
         		const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
         		this.props.p_updatecar('http://localhost:888/Datagrid.php',update);

@@ -6,20 +6,6 @@ import './register.scss';
 import * as registerAction from './registerAction.js';
 import LoginComponent from '../tinyComponents/LoginComponent.js';
 class registerComponent extends React.Component{
-    componentWillReceiveProps(nxetProps){
-        if(nxetProps.dataset.length > 0){
-            alert('该帐户已经存在')
-        }else{
-            this.register
-        }
-        // if(this.props.dataset[0].length > 0){
-            
-        // }else{
-        //     console.log(this)
-        //     this.register
-        // }
-        // console.log(666)
-    }
     componentDidMount(){
         var arr = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
         // 循环获取验证码
@@ -52,60 +38,92 @@ class registerComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    
+                </div>
+                <div className="l-cover">
+
+                </div>
+                <div className="l-massage">
+                    <p>21Cake提醒您</p>
+                    <p className='massage'>该账号尚未注册</p>
+                    <button onClick={this.hide}>确定</button>
                 </div>
             </div>
         )
     }
     select(){
         var username = $('.username').val()
-        const sql = ` select * from userlist where username = '${username}'`
-        this.props.Select('http://localhost:888/Datagrid.php',sql)
+        const sql = ` select * from user_list where username = '${username}'`
+        this.props.Select('http://localhost:888/Datagrid.php',sql).then(res=>{
+            if(res[0].length > 0){
+                    // alert('该帐户已经存在')
+                $('.l-cover').show()
+                $('.l-massage').show()
+                $('.massage').text('该帐户已经存在')
+            }else{
+                this.register()
+                // alert('注册成功')
+                $('.l-cover').show()
+                $('.l-massage').show()
+                $('.massage').text('注册成功')
+            }
+        })
         // console.log(this.props.dataset[0].length)
+    }
+    hide(){
+        $('.l-cover').hide();
+        $('.l-massage').hide();
     }
     register(){
         var username = $('.username').val()
         var password = $('.password').val()
-        const sql = `insert into userlist (username, password) values ('${username}','${password}')`;
+        const sql = `insert into user_list (username, password) values ('${username}','${password}')`;
         this.props.Init('http://localhost:888/Datagrid.php',sql)
         
     }
-    judge(){
-        var username = $('.username').val()
-        if(!/^1[34578]\d{9}$/.test(username)){
-            $('.errmsg').text('手机号码不合法')
-            console.log($('.yes'))
-            return false; 
-        }else{
-            $('.username').siblings().css({'display':'block'})
-            $('.errmsg').text('')
+    judge(e){
+        console.log(e.target.className)
+        if(e.target.className == 'username'){
+            var username = $('.username').val()
+            if(!/^1[34578]\d{9}$/.test(username)){
+                $('.errmsg').text('手机号码不合法')
+                return false; 
+            }else{
+                $('.username').siblings().css({'display':'block'})
+                $('.errmsg').text('')
+            }
         }
-
         var password = $('.password').val()
-        if(!/^(?!(?:\d+|[a-zA-Z]+)$)[\da-zA-Z]{8,}$/.test(password)){
-            $('.errmsg').text('密码格式错误')
-            return false;
-        }else{
-            $('.password').siblings().css({'display':'block'})
-            $('.errmsg').text('')
+        if(e.target.className == 'password'){
+            if(!/^(?!(?:\d+|[a-zA-Z]+)$)[\da-zA-Z]{8,}$/.test(password)){
+                $('.errmsg').text('密码格式错误')
+                return false;
+            }else{
+                $('.password').siblings().css({'display':'block'})
+                $('.errmsg').text('')
+            }
         }
-
         var repeatpsw = $('.repeatpsw').val()
-        if(repeatpsw != password){
-             $('.errmsg').text('两次输入的密码不一致')
-            return false;
-        }else{
-            $('.repeatpsw').siblings().css({'display':'block'})
-            $('.errmsg').text('')
+        if(e.target.className == 'repeatpsw'){
+            if(repeatpsw != password){
+                 $('.errmsg').text('两次输入的密码不一致')
+                return false;
+            }else{
+                $('.repeatpsw').siblings().css({'display':'block'})
+                $('.errmsg').text('')
+            }
         }
+        
 
         var code = $('.code').text()
         var incode = $('.incode').val()
-        if(code != incode){
-            $('.errmsg').text('验证码错误')
-            return false;
-        }else{
-            $('.errmsg').text('')
+        if(e.target.className == 'incode'){
+
+            if(code != incode){
+                $('.errmsg').text('验证码错误')
+                return false;
+            }else{
+                $('.errmsg').text('')
+            }
         }
     }
 
