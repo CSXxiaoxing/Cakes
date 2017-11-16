@@ -1,6 +1,6 @@
 body,html,h3,p,ul,li{
-	margin: 0px;
-	padding: 0px;
+	margin: 0rem;
+	padding: 0rem;
 }
 body,html{
 	width: 100%;
@@ -103,49 +103,49 @@ ul,li{
         }
         .detailsBox{
         	background-color: #fff;
-        	padding: 0 24px;
+        	padding: 0 0.375rem;
         	padding-bottom: 20px;
         	.cakeName{
         		color: #333;
         		h3{
         			font-weight: normal;
-        			font-size: 40px;       			
-        			padding-top: 20px;
+        			font-size: 0.625rem;       			
+        			padding-top: 0.3125rem;
         		}
         		p{
-        			font-size: 30px;
-        			line-height: 50px;
+        			font-size: 0.4687rem;
+        			line-height: 0.7812rem;
         		}
         	}
         	.price{
-        		font-size: 40px;
+        		font-size: 0.625rem;
         		color: #C69C6D;
         	}
         	.detailsExplain{
-        		font-size: 24px;
+        		font-size: 0.375rem;
         		color: #969696;
-        		margin: 10px 0;
+        		margin: 0.1562rem 0;
         	}
         	.detailsType{
         		a{
         			display: inline-block;
         			color: #D5BFA7;
-        			padding: 0px 20px;
-        			border: 1px solid #D5BFA7;
-        			margin-right: 15px;
-        			margin-bottom: 10px;
-        			border-radius: 10px;
-        			font-size: 28px;
-        			line-height: 40px;
+        			padding: 0rem 0.3125rem;
+        			border: 0.0156rem solid #D5BFA7;
+        			margin-right: 0.2343rem;
+        			margin-bottom: 0.1562rem;
+        			border-radius: 0.1562rem;
+        			font-size: 0.4375rem;
+        			line-height: 0.625rem;
         		}
         		
         	}
         	.detailsTaste{
-        		margin: 10px 0px;
+        		margin: 0.1562rem 0rem;
         		li{
         			float: left;
-        			height: 80px;
-        			margin-right: 50px;
+        			height: 1.25rem;
+        			margin-right: 0.7812rem;
         			img{
         				float: left;
         			}
@@ -153,29 +153,29 @@ ul,li{
         				display: inline-block;
         				height: 100%;
         				float: left;
-        				font-size: 30px;
-        				line-height: 80px;
-        				margin-left: 10px;
+        				font-size: 0.4687rem;
+        				line-height: 1.25rem;
+        				margin-left: 0.1562rem;
         			}
         		}
         	}
         	.select-card{
-        		box-shadow: 0 3px 10px 0 rgba(0,0,0,0.10);
+        		box-shadow: 0 0.0468rem 0.1562rem 0 rgba(0,0,0,0.10);
         		
         		.select-specifications{
         			background: rgba(199,178,153,0.20);
-        			margin: 20px 0px;
+        			margin: 0.3125rem 0rem;
 	        		li{
-	        			height: 70px;
-	        			font-size: 33px;
-	        			line-height: 70px;
+	        			height: 1.0937rem;
+	        			font-size: 0.5156rem;
+	        			line-height: 1.0937rem;
 	        			
 	        			.select{
 	        				position: relative;
-	        				padding-left: 20px;
+	        				padding-left: 0.3125rem;
 	        				.right{
 		        				position: absolute;
-		        				right: 10px;
+		        				right: 0.1562rem;
 		        				top: 50%;
 		        				transform: translate(-50%,-50%);
 		        			}
@@ -186,27 +186,27 @@ ul,li{
         	}
         	.details-options-card{
         		ul{
-        			margin:0px 20px;
-        			border-bottom: 1px solid #DDDDDD;
+        			margin:0rem 0.3125rem;
+        			border-bottom: 0.0156rem solid #DDDDDD;
         			li{
         				width: 50%;
-        				height: 55px;
+        				height: 0.8593rem;
         				float: left;        				
-	        			font-size: 33px;
+	        			font-size: 0.4062rem;
 	        			
         				span{
-        					margin-left: 15px;
+        					margin-left: 0.2343rem;
         				}
         			}
         		}
         		.sweet{
-        			margin: 10px 20px;
-        			font-size: 30px;
+        			margin: 0.1562rem 0.3125rem;
+        			font-size: 0.4687rem;
         			img{
-        				width: 40px;
-        				margin: 0px 10px;
+        				width: 0.625rem;
+        				margin: 0rem 0.1562rem;
         				span{
-        					margin: 0px 5px;
+        					margin: 0rem 0.0781rem;
         				}
         			}
         		}
@@ -215,10 +215,10 @@ ul,li{
         }
         
         .describe{
-        	padding: 10px 24px;
+        	padding: 0.1562rem 0.375rem;
         	background-color: #FFFFFF;
-        	margin: 20px 0px;
-        	font-size: 30px;
+        	margin: 0.3125rem 0rem;
+        	font-size: 0.4687rem;
         }
         .detailsPic{
         	img{
@@ -227,67 +227,67 @@ ul,li{
         }
     }
 	.p_footer{
-        height:100px;
-        border: 1px solid #F1F0F0;
+        height:1.5625rem;
+        border: 0.0156rem solid #F1F0F0;
         position: relative;
         .details-suspension-content{
         	position: absolute;
-        	left: 0px;
-        	top: 0spx;
+        	left: 0rem;
+        	top: 0rem;
         	width: 100%;
-        	height: 0px;
+        	height: 0rem;
 //      	height: 355px;
         	background-color: #FFFFFF;
-        	box-shadow: 0px -2px 4px 0px rgba(0,0,0,0.1);        	
+        	box-shadow: 0rem -0.0312rem 0.0625rem 0rem rgba(0,0,0,0.1);        	
         	color: #442818;
         	overflow: hidden;
         	.tab{
-        		padding: 14px 30px 54px 30px;
+        		padding: 0.2187rem 0.4687rem 0.8437rem 0.4687rem;
         		.tab-content{        			
         			.detailsPrice{
-		        		font-size: 35px;
+		        		font-size: 0.5468rem;
 		        		position: relative;
 		        		.close{
-		        			width: 100px;
+		        			width: 1.5625rem;
 		        			height: 100%;
 		        			text-align: center;
-		        			line-height: 50px;
+		        			line-height: 0.7812rem;
 		        			position: absolute;
-		        			right: 0px;
+		        			right: 0rem;
 		        			top: 50%;
 		        			transform: translate(0%,-50%);
 		        		}
 		        	}
 		        	img{
-		        		width: 300px;
+		        		width: 4.6875rem;
 		        		float: left;
 		        	}
 		        	.details-ul{
-		        		margin-left: 20px;
+		        		margin-left: 0.3125rem;
 		        		float: left;
-		        		font-size: 30px;
+		        		font-size: 0.4062rem;
 		        	}
 		        	
         		}
         		.detail-spec-title{
-		        	margin: 10px 0px;
-		        	font-size: 30px;
+		        	margin: 0.1562rem 0rem;
+		        	font-size: 0.4687rem;
 		        }
 		        .bang{
-		        	font-size: 30px;
+		        	font-size: 0.4687rem;
 		        }
 		        .header{
 		        	li{
 		        		width: 23%;
-		        		height: 50px;
+		        		height: 0.7812rem;
 		        		float: left;
 		        		text-align: center;
-		        		line-height: 50px;
+		        		line-height: 0.7812rem;
 		        		margin-left: 2%;
 		        		background-color: #F7F7F7;
 		        		&.active{
 		        			background-color: #FFFFFF;
-		        			border: 1px solid #442818;
+		        			border: 0.0156rem solid #442818;
 		        		}
 		        	}
 		        }
@@ -300,7 +300,7 @@ ul,li{
         	height: 100%;
         	text-align: center;
         	text-decoration: none;
-        	line-height: 100px;
+        	line-height: 1.5625rem;
         	color: #442818;
         	&.active{
         		background-color: #442818;

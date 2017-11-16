@@ -22,7 +22,14 @@ class cakeDatailComponent extends React.Component{
                     })
                 }
             }.bind(this))
-       	}
+       	}else{
+       		setTimeout(function(){
+       			$('.p_footer .active').css('background','#ddd')
+       			
+       		},500)
+        	
+        	
+        }
 		this.find();	
 	}
     render(){
@@ -217,7 +224,7 @@ class cakeDatailComponent extends React.Component{
         $tabItem.first().addClass('active');
     	var  $suspension = $('.details-suspension-content');
     	
-		$suspension.animate({top:-355,height:355});
+		$suspension.animate({top:`-5.5468rem`,height:`5.5468rem`});
 //	  	$suspension.show();
     }
     find(e){
