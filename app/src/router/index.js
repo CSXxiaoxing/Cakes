@@ -9,6 +9,7 @@ import registerComponent from '../components/register/registerComponent'
 
 // pyd
 import cakeDetailComponent from '../components/cakeDetail/cakeDetailComponent'
+import orderComponent from '../components/order/orderComponent';
 // csx
 import datagridComponent from '../components/datagrid/datagridComponent.js'
 import cakeComponent from '../components/datagrid/cakeComponent.js'
@@ -31,6 +32,8 @@ export default (
             <Route path="/login" component={personalComponent}></Route>
             <Route path="/register" component={registerComponent}></Route>
             <Route path="/cart" component={cartComponent}></Route>
+            
+            <Route path="/order" component={orderComponent}></Route>
         </div>
 )
 
