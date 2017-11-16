@@ -6,14 +6,15 @@
 	function connect(){
 		$severname = 'localhost';
 		$username = 'root';
-		$password = '';
-		$dbname = 'gg';
+		$password = '123456';
+		$dbname = 'cake';
 		$conn = new mysqli($severname,$username,$password,$dbname);
 		if($conn->connect_error){
 		    die('连接失败：' . $conn->connect_error);
 		}
 		$conn->set_charset('utf8');
 		return $conn;
+		
 	}
 	//英德测试
 //	function connect(){
