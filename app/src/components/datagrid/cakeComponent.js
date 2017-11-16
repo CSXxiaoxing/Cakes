@@ -33,22 +33,27 @@ class datagridComponent extends React.Component{
     render(){
                 return (
                 <article>
-                    {
+                    {  
                         this.props.dataset.map(function(obj, index){
                             obj.gSpec = obj.gSpec.slice(0,2)
                             var objGID = String("/cakeDatail/"+obj.gId);
+                            // 初始化渲染十条
+                            if(index >= datagrid_SetList){
+                                return false;
+                            }
+                            // 渲染DOM
                             return (
-                            <Link to={objGID} key={index + 'a'} className="datapageA">
-                            <dl key={index}>
-                                <dt><img src={obj.gPicture} alt="Cake" /></dt>
-                                <dd><p>{obj.gNameEN}</p></dd>
-                                <dd><p>{obj.gNameZH}</p></dd>
-                                <dd><p>{obj.gDesc}</p></dd>
-                                <dd><p>￥<span>{obj.gPrice}</span>/<span>{
-                                    obj.gSpec
-                                }</span></p><Icon type="shopping-cart" /></dd>
-                            </dl>
-                            </Link>
+                                <Link to={objGID} key={index + 'a'} className="datapageA">
+                                <dl key={index}>
+                                    <dt><img src={obj.gPicture} alt="Cake" /></dt>
+                                    <dd><p>{obj.gNameEN}</p></dd>
+                                    <dd><p>{obj.gNameZH}</p></dd>
+                                    <dd><p>{obj.gDesc}</p></dd>
+                                    <dd><p>￥<span>{obj.gPrice}</span>/<span>{
+                                        obj.gSpec
+                                    }</span></p><Icon type="shopping-cart" /></dd>
+                                </dl>
+                                </Link>
                             )
                         })
                     }
