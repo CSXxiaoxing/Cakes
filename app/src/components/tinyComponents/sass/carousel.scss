@@ -1,7 +1,7 @@
 .ant-carousel{
     .slick-slide {
       text-align: center;
-      height: 3rem;
+      height: 6rem;
       line-height: 160px;
       background: #364d79;
       overflow: hidden;
@@ -14,18 +14,18 @@
     .slick-dots{
         top:94%!important;
         li{
-            margin-left:0.05rem;    
+            margin-left:0.1rem;    
             button{
-                height:0.15rem;
-                width:0.15rem;
+                height:0.22rem;
+                width:0.22rem;
                 background-color:#999;
             }
         }
         .slick-active{
             button{
-                height:0.15rem!important;
-                width:0.15rem!important;
-                background-color:#4A2B1A!important;
+                height:0.22rem!important;
+                width:0.22rem!important;
+                background-color:#4A2B1A!important; 
             }
         }
     }

@@ -1,7 +1,12 @@
-
 body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
     margin: 0;
     padding: 0;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
 }
 ul,li{
     list-style: none;
@@ -19,11 +24,11 @@ html,body{
 }
 #app{
     height:100%;
-    display:flex;
+    // display:flex;
     .box{
-        flex:1;
+        height: 100%;
         overflow:hidden;
-        font-size: 0.2rem;
+        font-size: 0.4rem;
         display: flex;
         flex-direction:column;
         .cover{
@@ -50,39 +55,47 @@ html,body{
                 .headline{
                     height:20%;
                     h3{
-                        padding:0.2rem 0.28rem;
+                        padding:0.4rem 0.4rem;
                     }
                 }
                 ul{
-                    flex:1;
+                    height:50%;
                     width:90%;
-                    margin:0 0.2rem;
+                    margin-left:0.6rem;
                     li{
                         width:23%;
-                        padding:0.1rem 0.05rem;
+                        padding:0.15rem;
                         float:left;
                         text-align: center;
-                        margin-top:0.3rem;
+                        margin-top:0.6rem;
                         position:relative;
+                        border:0.05rem solid #fff;
                         span:first-child{
                             display:none;
                             position:absolute;
                             left:0;
                             top:0;
-                            font-size:0.15rem;
+                            font-size:0.3rem;
                             background-color:#4A2B1A;
                             color:#fff;
+
                         }
                     }
+                    
                     .coverActive{
-                        border:0.02rem solid #4A2B1A;
-                        padding:0.04rem 0;
+                        box-sizing:border-box;
+                        border:0.05rem solid #4A2B1A;
                         span:first-child{
                             display:block;
                         }
+                        
                     }
+                    li:nth-child(4){
+                        padding:0 none!important;
+                        }
                 }
                 .hint{
+
                     color:red;
                 }
                 .btn{
@@ -91,7 +104,7 @@ html,body{
                     button{
                         width:30%;
                         height:60%;
-                        margin-top:0.2rem;
+                        margin-top:0.4rem;
                         background-color:#000;
                         color:#fff;
                     }
@@ -99,7 +112,7 @@ html,body{
             }
         }
         .header{
-            flex:6%;
+            height:6%;
             display:flex;
             ul{
                 flex:1;
@@ -109,18 +122,19 @@ html,body{
                     flex:1;
                     float:left;
                     a{  
-                        margin:0.08rem;              
+                        margin:0.08rem;
+                        margin-top:0.2rem;              
                         text-align: center;
                         display:block;
                         position:relative;
                         i{
                             display:block;
                             color:#4A2B1A;
-                            font-size: 0.3rem;
+                            font-size: 0.6rem;
                         }
                         span{
                             position:absolute;
-                            right:-0.4rem;
+                            right:-0.8rem;
                             top:0;
                             color:#000; 
                         }
@@ -135,16 +149,18 @@ html,body{
                     a{
                         float:right;
                         position:relative;
+                        margin-right: 0.2rem;
                         i:last-child{
                             display:block;
                             position:absolute;
                             top:-0.1rem;
-                            right:-0.03rem;
+                            right:-0.1rem;
                             background-color:red;
                             border-radius:100%;
-                            width:0.2rem;
-                            height:0.2rem;
-                            font-size: 0.15rem;
+                            width:0.4rem;
+                            height:0.4rem;
+                            line-height: 0.4rem;
+                            font-size: 0.3rem;
                             color:#fff;
                             text-align: center;
                         }
@@ -153,13 +169,13 @@ html,body{
             }
         }
         .content{
-            height:94%;
+            flex:1;
             overflow-y:auto;
+            overflow-x:hidden;
+
             background-color:#FAFAFA;
             display:flex;
             flex-direction:column;
-            // --------------------------
-            position: relative;
             .classify{
                 background-color:#fff;
                 height:60%;
@@ -176,8 +192,8 @@ html,body{
                         a{
                             display:block;
                             img{
-                                height:1rem;
-                                height:1rem;
+                                height:2rem;
+                                height:2rem;
                             }
                             span{
                                 display:block;
@@ -203,12 +219,12 @@ html,body{
                 .billcarousel{
                     overflow:auto;
                     ul{
-                        width:12rem;
+                        width:20rem;
                         height:3rem;
                         li{
                             float:left;
                             img{
-                                width:3.5rem;
+                                width:6rem;
                             }
                         }
                     }
@@ -228,8 +244,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:1rem;
-                                    height:1rem;
+                                    height:2rem;
+                                    height:2rem;
                                 }
                                 span{
                                     display:block;
@@ -253,7 +269,7 @@ html,body{
                     flex:1;
                     a{
                         img{
-                            height:3rem;
+                            height:6rem;
                             width:100%;
                         }
                     }
@@ -274,8 +290,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:1rem;
-                                    height:1rem;
+                                    height:2rem;
+                                    height:2rem;
                                 }
                                 span{
                                     display:block;
@@ -288,10 +304,10 @@ html,body{
             }
         }
         .footer{
-            background-color:#FAFAFA;
-            border-top:1px solid #B6B6B6;
-            flex:10%;
+            border-top:2px solid #B6B6B6;
+            height:10%;
             display:flex;
+            z-index:2;
             ul{
                 flex:1;
                 display:flex;
@@ -303,24 +319,26 @@ html,body{
                     a{  
                         color:#B6B6B6;
                         display: block;
-                        font-size: 0.3rem;
+                        font-size: 0.66rem;
+                        font-weight: 500;
+                        text-decoration:none;
                         span{
                             color:#B0B0B0;
                             display: block;
-                            font-size: 0.16rem;
+                            font-size: 0.32rem;
                         }
                     }
                 }
-                li:nth-child(3){
+                li:nth-child(2n){
                     a{
-                        font-size: 0.3rem;
+                        
                     }
                 }
                 .iconActive{
                     a{
-                        color:#4A2B1A;   
+                        color:#000;   
                         span{
-                        color:#4A2B1A;   
+                        color:#000;   
                         }
                     }
                     
@@ -329,3 +347,4 @@ html,body{
         }
     }
 }
+

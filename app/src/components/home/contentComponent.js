@@ -1,6 +1,6 @@
 import React from 'react';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
-import CarouselComponent from '../carousel/carousel';
+import CarouselComponent from '../tinyComponents/carousel.js';
 class contentComponent extends React.Component{
     componentDidMount(){
         console.log(66)
@@ -21,7 +21,7 @@ class contentComponent extends React.Component{
                     <h1>cake.榜单</h1>
                     <div className="billcarousel">
                         <ul>
-                            <li><Link to="/cakeDatail"><img src="./src/img/cake1.jpg" /></Link></li>
+                            <li><Link to="/cakeDatail/12"><img src="./src/img/cake1.jpg" /></Link></li>
                             <li><Link><img src="./src/img/cake2.jpg" /></Link></li>
                             <li><Link><img src="./src/img/cake3.jpg" /></Link></li>
                         </ul>
