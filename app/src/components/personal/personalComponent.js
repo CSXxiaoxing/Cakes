@@ -52,7 +52,7 @@ class personalComponent extends React.Component{
                     <div className="line"></div>
                     <div className="order">
                         <ul>
-                            <li><Icon type="check-squa"/>我的订单</li>
+                            <li><Link to = "/order"><Icon type="check-squa"/>我的订单</Link></li>
                             <li><Icon type="check-squa"/>地址管理</li>
                             <li><Icon type="check-squa"/>优惠券</li>
                             <li><Icon type="check-squa"/>余额充值</li>
