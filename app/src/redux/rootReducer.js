@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
 import home from '../components/home/homeReducer'
 
-
 //ljj
 import register from '../components/register/registerReducer';
 import login from '../components/login/loginReducer'

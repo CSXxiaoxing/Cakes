@@ -2,7 +2,10 @@ import React from 'react';
 
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import {connect} from 'react-redux';
+
 import {Icon} from 'antd';
+import LoginComponent from '../tinyComponents/LoginComponent.js';
+
 
 import './personal.scss'
 import * as personalAction from './personalAction'
@@ -78,8 +81,8 @@ class personalComponent extends React.Component{
             </div>
         )
     }
-
 }
+
 const mapStateToProps = function(state){
     return {
         data: state.personal.dataset || {}

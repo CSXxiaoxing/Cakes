@@ -38,7 +38,6 @@ class registerComponent extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    
                 </div>
                 <div className="l-cover">
 
