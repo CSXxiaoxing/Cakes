@@ -1,8 +1,14 @@
 <?php
+//	$servername = 'localhost';
+//  $username = 'root';
+//  $password = '123456';
+//  $database = 'cake';
+	
 	$servername = 'localhost';
     $username = 'root';
-    $password = '123456';
-    $database = 'cake';
+    $password = '';
+    $database = 'h5_1705';
+	
     
     // 1）连接数据库
     $conn = new mysqli($servername,$username,$password,$database);

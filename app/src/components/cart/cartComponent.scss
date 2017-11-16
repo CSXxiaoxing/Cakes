@@ -50,17 +50,20 @@
             }
         }
         .t_goodslist{
-            height:40%;
+            height:7rem;
             background-color:#fff;
-            display:flex;
-            flex-direction:column;
+            margin-bottom:0.4rem;
             .t_gh{
                 height:60%;
                 display:flex;
                 ul{
                     flex:1;
+                    position:relative;
                     li{
                         float:left;
+                        img{
+                            width:4rem;
+                        }
                     }
                     li:nth-child(2){
                         dl{
@@ -78,6 +81,9 @@
                         }
                     }
                     li:last-child{
+                        position:absolute;
+                        right: 0.3rem;
+                        top: 0;
                         width:20%;
                         height:100%;
                         text-align: center;
@@ -95,6 +101,18 @@
                             font-size:0.66rem;
                             line-height:0.4rem;
                             text-align: center;
+                        }
+                        .t_delete{
+                            i{
+                                
+                            }
+                            span{
+                                display:none;
+                                font-size:1rem;
+                                font-weight: 500;
+                                line-height: 0.3rem;
+                                color:#000;
+                            }
                         }
                         span{   
                             display:block;
@@ -127,6 +145,7 @@
                 .festival{
                     flex:1;
                     display:flex;
+                    margin-top:0.3rem;
                     ul{
                         flex:1;
                         display:flex;
@@ -154,7 +173,7 @@
                             div{
                                 background-color:#ccc;
                                 width:45%;
-                                height:80%;
+                                height:100%;
                                 text-align: center;
                                 float:right;
                                 span{

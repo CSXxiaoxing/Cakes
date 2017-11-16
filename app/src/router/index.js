@@ -31,7 +31,11 @@ export default (
             <Route path="/login" component={loginComponent}></Route>
             <Route path="/register" component={registerComponent}></Route>
             <Route path="/personal" component={personalComponent}>
+<<<<<<< HEAD
                 
+=======
+            	
+>>>>>>> c1e440d65e5f432bb1df823f739fab4845386ecb
             </Route>
             <Route path="/order" component={orderComponent}></Route>
             <Route path="/cart" component={cartComponent}></Route>
