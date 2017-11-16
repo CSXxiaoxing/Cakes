@@ -1,7 +1,12 @@
 <?php
-	$servername = 'localhost';
+	// $servername = 'localhost';
+ //    $username = 'root';
+ //    $password = '123456';
+ //    $database = 'cake';
+
+    $servername = 'localhost';
     $username = 'root';
-    $password = '123456';
+    $password = '';
     $database = 'cake';
     
     // 1）连接数据库
