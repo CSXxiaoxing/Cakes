@@ -69,6 +69,7 @@ class datagridComponent extends React.Component{
             D_i = 0;
         });    
     }
+    // props更新执行
     componentWillReceiveProps(propsType){
         let active_li = this.props.params.name;
         let at_li = $('#xq li').removeClass('pageXQ')
