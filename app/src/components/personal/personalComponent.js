@@ -10,6 +10,7 @@ import FooterComponent from '../tinyComponents/FooterComponent'
 
 class personalComponent extends React.Component{
     componentDidMount(){
+        $('.footer ul li').eq(3).addClass('iconActive');
         var cookies = document.cookie;
             if(cookies.length>0){
                 cookies = cookies.split('; ');
