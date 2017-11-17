@@ -11,15 +11,12 @@ import FooterComponent from '../tinyComponents/FooterComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import { browserHistory } from 'react-router';
 import './home.scss';
-// import './down.js';
+// import './down.js' console.log;
 class homeComponent extends React.Component{
     componentDidMount(){
         this.props.Init();
         this.props.Slide();
         $('.footer ul li').eq(0).addClass('iconActive');
-        $('.footer ul li').click(function(){
-            $(this).addClass('iconActive').siblings().removeClass('iconActive');
-        });
         // 城市定位？
         var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_=' + Math.random();
             $.getJSON(url, function(data) {
@@ -39,7 +36,11 @@ class homeComponent extends React.Component{
             })
         });
     }
-
+    componentWillReceiveProps(propsType){
+        let Obj = this.props.location.pathname;
+        let at_li = $('.footer ul li').removeClass('iconActive')
+        Obj == '/' ? at_li.eq(0).addClass('iconActive') : at_li.eq(1).addClass('iconActive')
+    }
     render(){
         return (
             <div className="box">
@@ -70,7 +71,7 @@ class homeComponent extends React.Component{
                     }
                 }.bind(this))
             }else{
-                console.log(666)
+                
                 browserHistory.push('/#/login')
                 location.reload() 
             }
@@ -79,7 +80,6 @@ class homeComponent extends React.Component{
 
 const mapStateToProps = function(state){
     var dataset  = state.home.dataset || '[]';
-    console.log(state.home.loading)
     return {
         loading: state.home.loading,
         dataset: dataset[0] || []

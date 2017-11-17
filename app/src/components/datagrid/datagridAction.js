@@ -36,14 +36,17 @@ export function Slide(){
         if (event.targetTouches.length == 1) {
             var touch = event.targetTouches[0];
             // span.style.position = "absolute";
-        span_top = $(this).offset().top;
-        span_left = $(this).offset().left;
-        start_top = touch.pageY
-        start_left = touch.pageX
+            span_top = $(this).offset().top;
+            span_left = $(this).offset().left;
+            start_top = touch.pageY
+            start_left = touch.pageX
 
-        page_left = touch.pageX
-        page_top = touch.pageY
-        // console.log(page_top)
+            page_left = touch.pageX
+            page_top = touch.pageY
+            // console.log(page_top)
+            $('#bottomLoading').css({
+                'margin-top' : $('#xq').outerHeight(),
+            })
              }
         });
 
@@ -62,13 +65,15 @@ export function Slide(){
             $('.content').bind("xialaLoading", function(){
                 
                 xialaLoading_top = (touch.pageY- page_top) >0 ? (touch.pageY- page_top) : 0;
-                if(xialaLoading_top < $('.content').innerHeight()*0.23 ){
+                if(xialaLoading_top < $('.content').innerHeight()*0.2 ){
                     $('#datagridMain')[0].style.top = xialaLoading_top + 'px';
                     if(xialaLoading_top > $('.content').innerHeight()*0.17 ){
                         $('#bottomLoading').css({
                             'display':'block',
                             'margin-bottom': -$('#bottomLoading').outerHeight(),
-                            'padding-top': $('#bottomLoading').outerHeight()*0.2
+                            
+                            'padding-top': $('#bottomLoading').outerHeight()*0.2,
+                            'z-index': 99
                         })
                     }
                 }

@@ -67,12 +67,22 @@ class datagridComponent extends React.Component{
                 )
             })
             D_i = 0;
-        });
-
-        
+        });    
+    }
+    componentWillReceiveProps(propsType){
+        let active_li = this.props.params.name;
+        let at_li = $('#xq li').removeClass('pageXQ')
+        let obj = {
+            '蛋糕' : 0,
+            '小切块' : 1,
+            '冰淇淋' : 2,
+            '鲜花' : 3,
+            '礼品' : 4,
+            '店长推荐' : 5,
+        }
+        active_li == undefined ? at_li.eq(0).addClass('pageXQ') : at_li.eq(obj[active_li]).addClass('pageXQ')
         
     }
-
     change(e){
         if(e.target.nodeName.toLocaleLowerCase() == 'a'){
             $('#xq li').removeClass('pageXQ');

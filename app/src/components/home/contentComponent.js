@@ -21,7 +21,7 @@ class contentComponent extends React.Component{
                                     
             //                     })
             //                 }
-            console.log(this.props.dataset)
+            // console.log(this.props.dataset)
             return (
                 <div>
                     <CarouselComponent/>
