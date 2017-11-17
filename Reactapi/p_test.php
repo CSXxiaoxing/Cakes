@@ -2,8 +2,8 @@
 	// 配置参数
 	$servername = 'localhost';
 	$username = 'root';
-	$password = '';
-	$database = 'h5_1705';
+	$password = '123456';
+	$database = 'cake';
 
 	// 1）连接数据库
 	$conn = new mysqli($servername,$username,$password,$database);

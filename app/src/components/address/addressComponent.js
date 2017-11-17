@@ -8,7 +8,7 @@ import './address.scss'
 import * as addressAction from './addressAction'
 import FooterComponent from '../tinyComponents/FooterComponent'
 
-class personalComponent extends React.Component{
+class addressComponent extends React.Component{
     componentDidMount(){
         var cookies = document.cookie;
             if(cookies.length>0){
@@ -28,68 +28,7 @@ class personalComponent extends React.Component{
     }
     render(){
         return (
-            <div className="box">
-                <div className="l-head">
-                </div>
-                <div className="l-content">
-                    <div className="l-info">
-                        <Icon type="apple" className='apple' />
-                        <p>尊敬的用户</p>
-                        <span className="phone"></span>
-                        <Icon type="qrcode" className='qrcode' />
-                    </div>
-                    <div className="other">
-                        <div className="youhui">
-                            <span className='heavy'>0张</span>
-                            <span>优惠券</span>
-                        </div>
-                          <div className="yue">
-                            <span className='heavy'>￥0.00</span>
-                            <span>余额</span>
-                        </div>
-                    </div>
-                    <div className="line"></div>
-                    <div className="order">
-                        <ul>
-                            <li><Icon type="check-square"/>我的订单</li>
-                            <li><Icon type="share-alt" />地址管理</li>
-                            <li><Icon type="gift" />优惠券</li>
-                            <li><Icon type="wallet" />余额充值</li>
-                            <li><Icon type="coffee" />21客会</li>
-                        </ul>
-                    </div>
-                    <div className="line"></div>
-                    <div className="order type">
-                    <ul>
-                        <li>用户反馈</li>
-                        <li>用户协议</li>
-                        <li>版本</li>
-                        <li>关于</li>
-                    </ul>
-                    </div>
-                    <div className="line"></div>
-                    <div className="tel">
-                        <ul>
-                            <li>客服电话 400 650 2121</li>
-                            <li><Icon type="phone" className="Phone"/></li>
-                        </ul>
-                    </div>
-                    <div className="bigline"></div>
-                   <p className="quit" onClick={this.quit}>退出登录</p>
-                </div>
-                <div className="l-footer">
-                <FooterComponent/>
-                 </div>
-                <div className="l-cover">
-
-                </div>
-                <div className="l-massage">
-                    <p>21Cake提醒您</p>
-                    <p className='massage'>该账号尚未注册</p>
-                    <button onClick={this.confirm.bind(this)} className="qx1">确定</button>
-                    <button onClick={this.cancel.bind(this)} className="qx2">取消</button>
-                </div>
-            </div>
+           <h1>adress</h1>
         )
     }
     quit(){
@@ -131,8 +70,8 @@ class personalComponent extends React.Component{
 }
 const mapStateToProps = function(state){
     return {
-        data: state.personal.dataset || {}
+        // data: state.address.dataset || {}
     }
 }
 
-export default connect(mapStateToProps, personalAction)(personalComponent)
+export default connect(mapStateToProps, addressAction)(addressComponent)
