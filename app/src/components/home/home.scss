@@ -1,3 +1,17 @@
+
+#bottomLoading{
+    text-align: center;
+    color: #333;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top:0px;
+    z-index: 0;
+    // padding-top: 34px;
+    // margin-bottom: -100%;
+}
+
+
 body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
     margin: 0;
     padding: 0;
@@ -75,7 +89,7 @@ html,body{
                             position:absolute;
                             left:0;
                             top:0;
-                            font-size:0.3rem;
+                            font-size:0.333rem;
                             background-color:#4A2B1A;
                             color:#fff;
 
@@ -172,8 +186,7 @@ html,body{
             flex:1;
             overflow-y:auto;
             overflow-x:hidden;
-
-            background-color:#FAFAFA;
+            background-color:#000;
             display:flex;
             flex-direction:column;
             .classify{
@@ -192,8 +205,8 @@ html,body{
                         a{
                             display:block;
                             img{
-                                height:2rem;
-                                height:2rem;
+                                height:1.5rem;
+                                height:1.5rem;
                             }
                             span{
                                 display:block;
@@ -205,11 +218,11 @@ html,body{
             }
             .billboard{
                 background-color:#fff;
-                margin-top:0.2rem;
+                margin-top:0.4rem;
                 height:60%;
                 display:flex;
                 flex-direction:column;
-                h1{
+                h2{
                     text-align:center;
                 }
                 .billcarousel::-webkit-scrollbar {
@@ -224,7 +237,7 @@ html,body{
                         li{
                             float:left;
                             img{
-                                width:6rem;
+                                width:4rem;
                             }
                         }
                     }
@@ -244,8 +257,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:2rem;
-                                    height:2rem;
+                                    height:1.5rem;
+                                    height:1.5rem;
                                 }
                                 span{
                                     display:block;
@@ -262,14 +275,14 @@ html,body{
                 height:60%;
                 display:flex;
                 flex-direction:column;
-                h1{
+                h2{
                     text-align:center;
                 }
                 .popularitytitle{
                     flex:1;
                     a{
                         img{
-                            height:6rem;
+                            height:4rem;
                             width:100%;
                         }
                     }
@@ -290,8 +303,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:2rem;
-                                    height:2rem;
+                                    height:1.5rem;
+                                    height:1.5rem;
                                 }
                                 span{
                                     display:block;
@@ -304,46 +317,7 @@ html,body{
             }
         }
         .footer{
-            border-top:2px solid #B6B6B6;
-            height:10%;
-            display:flex;
-            z-index:2;
-            ul{
-                flex:1;
-                display:flex;
-                flex-direction:row;
-                li{
-                    flex:1;
-                    float:left;
-                    text-align: center;
-                    a{  
-                        color:#B6B6B6;
-                        display: block;
-                        font-size: 0.66rem;
-                        font-weight: 500;
-                        text-decoration:none;
-                        span{
-                            color:#B0B0B0;
-                            display: block;
-                            font-size: 0.32rem;
-                        }
-                    }
-                }
-                li:nth-child(2n){
-                    a{
-                        
-                    }
-                }
-                .iconActive{
-                    a{
-                        color:#000;   
-                        span{
-                        color:#000;   
-                        }
-                    }
-                    
-                }
-            }
+            
         }
     }
 }

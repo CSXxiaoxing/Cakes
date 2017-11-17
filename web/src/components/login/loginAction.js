@@ -17,6 +17,7 @@ export function Token(api,obj){
     }
 }
 
+
 export function PersonalInformation(sql){
     return {
         types: ['BeforeRequest', 'PersonalRequested', 'RequestError'],

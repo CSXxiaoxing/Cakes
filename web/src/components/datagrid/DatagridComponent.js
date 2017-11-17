@@ -34,9 +34,9 @@ class DatagridComponent extends React.Component{
         searchValue:'',
         personal:personal,
     }
-    componentWillMount(){
-      this.setState({permission: this.state.personal.aPermission == '经理' ? 1 : 0});
-    }
+    // componentWillMount(){
+    //   this.setState({permission: this.state.personal.aPermission == '经理' ? 1 : 0});
+    // }
     componentDidMount(){
         const tableName = this.props.location.pathname.slice(1);
         this.setState({tableName:tableName});

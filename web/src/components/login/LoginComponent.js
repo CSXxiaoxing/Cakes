@@ -11,6 +11,7 @@ import * as loginAction from './loginAction'
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -24,6 +25,8 @@ class NormalLoginForm extends React.Component {
         var password = $('#password').val();
 
         this.props.Find(username).then(res=>{
+
+
             if(res[0].length == '0'){
                 alert('请输入正确的账户密码')
             }else{
@@ -64,7 +67,6 @@ class NormalLoginForm extends React.Component {
             </FormItem>
             <FormItem>
                 
-
                 <Button type="primary" htmlType="submit" className="login-form-button" onClick={this.find.bind(this)} >
                     登录
                 </Button>
@@ -82,7 +84,6 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 
 const mapStateToProps = function(state){
-    // var dataset  =  state.datagrid.dataset || []
     return {
         personal: state.login.personal || {}
     }

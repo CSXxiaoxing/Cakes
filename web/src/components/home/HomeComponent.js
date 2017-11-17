@@ -15,7 +15,8 @@ const SubMenu = Menu.SubMenu;
 const a='/';
 
 let personal;
-(function getCookie(){
+let aId;
+function getCookie(){
     let cookies = document.cookie.split('; ');
     cookies.forEach(item =>{
         let temp = item.split('=');
@@ -24,11 +25,14 @@ let personal;
         }
     });
     return personal;
-})()
+}
+getCookie()
+personal ? personal : hashHistory.push('/login');
+personal ? aId= `?aId=${personal.aId}` : null;
 const menu = (
   <Menu>
     <Menu.Item key="20">
-        <Link to={'/admin_edit?aId='+personal.aId}>修改个人信息</Link>
+        <Link to={'/admin_edit'+aId}>修改个人信息</Link>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item key="21">
@@ -50,7 +54,8 @@ class HomeComponent extends React.Component {
 		this.setState({ collapsed });
 	}
   componentWillMount(){
-    this.setState({permission: this.state.personal.aPermission == '经理' ? 1 : 0});
+    this.setState({permission: (getCookie()).aPermission == '经理' ? 1 : 0});
+
   }
   componentWillReceiveProps(nextProps){
       this.setState({pathName:nextProps.location.pathname.slice(1)});
