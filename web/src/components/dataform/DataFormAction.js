@@ -40,3 +40,11 @@ export function Save(sql){
         }
     }
 }
+export function Upload(fd){
+
+    return {
+        types: ['BeforeRequest', 'Upload', 'RequestError'],
+        url: 'doAction.php',
+        data:fd
+    }
+}

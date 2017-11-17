@@ -11,9 +11,7 @@ import * as loginAction from './loginAction'
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
-    componentDidMount(){
-        // console.log(this.props,111)
-    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -27,7 +25,8 @@ class NormalLoginForm extends React.Component {
         var password = $('#password').val();
 
         this.props.Find(username).then(res=>{
-            console.log(res[0],123)
+
+
             if(res[0].length == '0'){
                 alert('请输入正确的账户密码')
             }else{
@@ -35,10 +34,12 @@ class NormalLoginForm extends React.Component {
                     alert('密码输入错误')
                 }else{
                     this.props.Token('http://localhost:888/token.php',{username,password}).then(res=>{
-                        console.log(res[0])
                         document.cookie = 'token ='+res[0];
-                        // alert('登录成功')
-                        // hashHistory.push('/')
+                        const sql = `select * from admin_list where username='${username}' and password='${password}'`;
+                        this.props.PersonalInformation(sql).then(res =>{
+                            document.cookie = 'user =' + JSON.stringify(res[0]);
+                            hashHistory.push('/goods_list');
+                        });
                     })
                 }
             }
@@ -48,31 +49,26 @@ class NormalLoginForm extends React.Component {
         const { getFieldDecorator } = this.props.form;
         return (
         <div id="LoginDL">
-        <h1>后台管理系统登录</h1>
-        <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form onSubmit={this.handleSubmit} className="login-form" className="loginForm">
+            <h1>后台管理系统登录</h1>
             <FormItem>
                 {getFieldDecorator('userName', {
-                    rules: [{ required: true, message: 'Please input your username!' }],
+                    rules: [{ required: true, message: '请输入你的登录账号!' }],
                 })(
-                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="请输入你的登录账号" />
                 )}
             </FormItem>
             <FormItem>
                 {getFieldDecorator('password', {
-                    rules: [{ required: true, message: 'Please input your Password!' }],
+                    rules: [{ required: true, message: '请输入你的登录密码!' }],
                 })(
-                    <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+                    <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="请输入你的登录密码" />
                 )}
             </FormItem>
             <FormItem>
                 
-
-
-
-
                 <Button type="primary" htmlType="submit" className="login-form-button" onClick={this.find.bind(this)} >
-                    Log in
-                
+                    登录
                 </Button>
             </FormItem>
         </Form>
@@ -88,10 +84,8 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 
 const mapStateToProps = function(state){
-    var dataset  =  state.datagrid.dataset || []
-    console.log(dataset)
     return {
-        // data: state.login.dataset || {}
+        personal: state.login.personal || {}
     }
 }
 
