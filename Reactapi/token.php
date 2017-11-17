@@ -6,8 +6,8 @@
 	
 	$servername = 'localhost';
     $username = 'root';
-    $password = '';
-    $database = 'h5_1705';
+    $password = '123456';
+    $database = 'cake';
 	
     
     // 1）连接数据库

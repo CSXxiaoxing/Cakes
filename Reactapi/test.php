@@ -16,7 +16,7 @@
     $servername = 'localhost';
     $username = 'root';
     $password = '123456';
-    $database = 'gg';
+    $database = 'cake';
     
     
     
