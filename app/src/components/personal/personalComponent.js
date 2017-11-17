@@ -29,14 +29,15 @@ class personalComponent extends React.Component{
     render(){
         return (
             <div className="box">
-                <div className="l-head">
-                </div>
+
                 <div className="l-content">
-                    <div className="l-info">
-                        <Icon type="apple" className='apple' />
-                        <p>尊敬的用户</p>
-                        <span className="phone"></span>
-                        <Icon type="qrcode" className='qrcode' />
+                    <div className="l-head">
+                        <div className="l-info">
+                            <Icon type="apple" className='apple' />
+                            <p>尊敬的用户</p>
+                            <span className="phone"></span>
+                            <Icon type="qrcode" className='qrcode' />
+                        </div>
                     </div>
                     <div className="other">
                         <div className="youhui">
@@ -51,8 +52,8 @@ class personalComponent extends React.Component{
                     <div className="line"></div>
                     <div className="order">
                         <ul>
-                        <li><Link to="/order"><Icon type="check-square"/>我的订单</Link></li>
-                            <li><Icon type="share-alt" />地址管理</li>
+                            <li><Link to="/order"><Icon type="check-square"/>我的订单</Link></li>
+                            <li><Link to="/address"><Icon type="share-alt" />地址管理</Link></li>
                             <li><Icon type="gift" />优惠券</li>
                             <li><Icon type="wallet" />余额充值</li>
                             <li><Icon type="coffee" />21客会</li>
@@ -105,6 +106,7 @@ class personalComponent extends React.Component{
     confirm(){
         $('.l-cover').hide();
         $('.l-massage').hide();
+        console.log(666)
          var cookies = document.cookie;
         if(cookies.length>0){
             cookies = cookies.split('; ');
@@ -121,7 +123,7 @@ class personalComponent extends React.Component{
                     var date = new Date();
                     date.setDate(date.getDate()-7);
                     document.cookie = "token="+res[0][0].token+";expires="+date.toString();
-                     location.href = '/#/login'
+                    location.href = '/#/login'
                     })
                 }
             }.bind(this))
