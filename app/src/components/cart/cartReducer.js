@@ -21,6 +21,9 @@ export default function StudentReducer(state = {}, action){
             break;
         case 'TD_Requested':
             reState.loading = false;
+            if(action.dataset){
+                break;
+            }
             reState.dataset = action.dataset;
             break;
         default:
