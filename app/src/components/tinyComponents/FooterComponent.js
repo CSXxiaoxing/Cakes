@@ -12,6 +12,7 @@ class FooterComponent extends React.Component{
                     <li><Link to="/datagrid"><Icon type="appstore-o" /><span>分类</span></Link></li>
                     <li><Link to="/cart"><Icon type="shopping-cart" /><span>购物车</span></Link></li>
                     <li><Link onClick={this.filter}><Icon type="user"/><span>我</span></Link></li>
+
                 </ul>
             </div>
         )
