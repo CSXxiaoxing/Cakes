@@ -11,10 +11,11 @@ import FooterComponent from '../tinyComponents/FooterComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import { browserHistory } from 'react-router';
 import './home.scss';
-
+// import './down.js';
 class homeComponent extends React.Component{
     componentDidMount(){
         this.props.Init();
+        this.props.Slide();
         $('.footer ul li').eq(0).addClass('iconActive');
         $('.footer ul li').click(function(){
             $(this).addClass('iconActive').siblings().removeClass('iconActive');
@@ -44,25 +45,22 @@ class homeComponent extends React.Component{
             <div className="box">
                 <CoverComponent/>
                 <HeaderComponent/>
+                <div id="bottomLoading">
+                    <Icon type="loading" />
+                    <p>正在刷新...</p>
+                </div>
                 <div className="content">
+                <SpinnerComponent loading={this.props.loading}/>
                     <div>{this.props.children}</div>
                 </div>
-
-                <div className="footer">
-                    <ul>
-                        <li><Link to="/"><Icon type="home" /><span>首页</span></Link></li>
-                        <li><Link to="/datagrid"><Icon type="appstore-o" /><span>分类</span></Link></li>
-                        <li><Link><Icon type="shopping-cart" /><span>购物车</span></Link></li>
-                        <li ><Link onClick={this.filter}><Icon type="user"/><span>我</span></Link></li>
-                    </ul>
-                </div>
-
+                <FooterComponent/>
             </div>
         )
     }
     filter(){
         var cookies = document.cookie;
             if(cookies.length>0){
+                
                 cookies = cookies.split('; ');
                 cookies.forEach(function(cookie){
                     var temp = cookie.split('=');
@@ -81,6 +79,7 @@ class homeComponent extends React.Component{
 
 const mapStateToProps = function(state){
     var dataset  = state.home.dataset || '[]';
+    console.log(state.home.loading)
     return {
         loading: state.home.loading,
         dataset: dataset[0] || []

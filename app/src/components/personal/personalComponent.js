@@ -106,6 +106,7 @@ class personalComponent extends React.Component{
     confirm(){
         $('.l-cover').hide();
         $('.l-massage').hide();
+        console.log(666)
          var cookies = document.cookie;
         if(cookies.length>0){
             cookies = cookies.split('; ');
@@ -122,7 +123,7 @@ class personalComponent extends React.Component{
                     var date = new Date();
                     date.setDate(date.getDate()-7);
                     document.cookie = "token="+res[0][0].token+";expires="+date.toString();
-                     location.href = '/#/login'
+                    location.href = '/#/login'
                     })
                 }
             }.bind(this))
