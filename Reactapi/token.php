@@ -1,10 +1,10 @@
 <?php
 
     //jjj
-//	$servername = 'localhost';
-//  $username = 'root';
-//  $password = '123456';
-//  $database = 'cake';
+	$servername = 'localhost';
+     $username = 'root';
+     $password = '123456';
+     $database = 'cake';
 	// pyd
 
 
@@ -13,23 +13,19 @@
  //    $password = '123456';
  //    $database = 'cake';
 
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'cake';
-
+    // $servername = 'localhost';
+    // $username = 'root';
 	
-
 	// $servername = 'localhost';
  //    $username = 'root';
  //    $password = '';
  //    $database = 'h5_1705';
 
 	//tzj
-     $servername = 'localhost';
-     $username = 'root';
-     $password = '';
-     $database = 'cake';
+     // $servername = 'localhost';
+     // $username = 'root';
+     // $password = '';
+     // $database = 'cake';
     
     // 1）连接数据库
     $conn = new mysqli($servername,$username,$password,$database);

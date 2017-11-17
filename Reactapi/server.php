@@ -6,7 +6,7 @@
 	function connect(){
 		$severname = 'localhost';
 		$username = 'root';
-		$password = '';
+		$password = '123456';
 		$dbname = 'cake';
 		$conn = new mysqli($severname,$username,$password,$dbname);
 		if($conn->connect_error){
