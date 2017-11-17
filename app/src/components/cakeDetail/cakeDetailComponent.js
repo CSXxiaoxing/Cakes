@@ -4,11 +4,11 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as cakeDatailAction from './cakeDetailAction';
-import DetailComponent from '../tinyComponents/DetailComponent.js';
+import DetailComponent from '../tinyComponents/DetailComponent';
+import CoverComponent from '../tinyComponents/CoverComponent'
 import './cakeDetail.scss';
 import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
-
 	componentDidMount(){
 		var cookies = document.cookie;
         if(cookies.length>0){
@@ -42,6 +42,7 @@ class cakeDatailComponent extends React.Component{
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
+                    <CoverComponent/>
 	                <div className="p_head">
 	                    <DetailComponent/>
 	                </div>
@@ -126,9 +127,6 @@ class cakeDatailComponent extends React.Component{
 	                			</ul>
 					        	
 					        </div>
-					       
-					       
-					       
 					        <div className="tab-content clear">
 					        	<p className="detailsPrice">￥{parseInt(data.gPrice*1.8)} <Icon type="close" className="close" onClick={this.close}/></p>
 					        	<img src="src/img/18.jpg"/>
@@ -187,7 +185,6 @@ class cakeDatailComponent extends React.Component{
      }
     }
     tab(e){
-
     	var $tab = $('.tab');
     	var $content = $('.tab-content');
     	var idx = $(e.target).index();
