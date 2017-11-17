@@ -8,4 +8,9 @@ export default {
 	  admin_list:'管理员列表',
 	  admin_edit:'管理员编辑',
 	  admin_add:'管理员添加',
+	  order_list:'订单列表',
+	  order_detalis:'订单详情',
+	  user_list:'用户列表',
+	  user_add:'用户添加',
+	  user_edit:'用户编辑',
 	}

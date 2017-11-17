@@ -4,7 +4,6 @@ export function ajaxMiddleware(middlewareAPI) {
     return function(dispatch){
         return function(action){
             const {types, method = "post", url, data} = action;
-
             if (!url || !method) {
                 return dispatch(action)
             }

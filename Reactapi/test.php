@@ -15,8 +15,13 @@
 
     $servername = 'localhost';
     $username = 'root';
+<<<<<<< HEAD
     $password = '';
     $database = 'gg';
+=======
+    $password = '123456';
+    $database = 'cake';
+>>>>>>> 6823643672f2545fabd096d4536d6233ed88255c
     
     
     

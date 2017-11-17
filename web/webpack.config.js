@@ -65,6 +65,10 @@ module.exports = {
       }]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+           jQuery: "jquery",
+           $: "jquery"
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new ProgressBarPlugin(),
         new ExtractTextPlugin('styles.css'),//提取出来的样式放在style.css文件中
@@ -72,9 +76,13 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': '"development"'
             }
+        }),
+        new webpack.ProvidePlugin({
+           jQuery: "jquery",
+           $: "jquery"
         })    
     ],
     devServer: {
         stats: 'errors-only'
-    }   
+    }
 };

@@ -1,16 +1,20 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : tong
+Source Server         : localhost_3306
 Source Server Version : 50714
 Source Host           : localhost:3306
-Source Database       : cake
+Source Database       : h5_1705
 
 Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
+<<<<<<< HEAD
 Date: 2017-11-16 20:21:06
+=======
+Date: 2017-11-15 21:53:33
+>>>>>>> 6823643672f2545fabd096d4536d6233ed88255c
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -18,8 +22,13 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for goodslist
 -- ----------------------------
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `goodslist`;
 CREATE TABLE `goodslist` (
+=======
+DROP TABLE IF EXISTS `goods_list`;
+CREATE TABLE `goods_list` (
+>>>>>>> 6823643672f2545fabd096d4536d6233ed88255c
   `gId` int(11) NOT NULL AUTO_INCREMENT,
   `gNameZH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `gNameEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -35,11 +44,16 @@ CREATE TABLE `goodslist` (
   `isPutaway` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `key` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`gId`)
+<<<<<<< HEAD
 ) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+=======
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+>>>>>>> 6823643672f2545fabd096d4536d6233ed88255c
 
 -- ----------------------------
 -- Records of goodslist
 -- ----------------------------
+<<<<<<< HEAD
 INSERT INTO `goodslist` VALUES ('1', '芒果奶油蛋糕', 'Mango Cream Cake', '蛋糕', '人气', '不使用罐头水果和植混奶油,坚持应季凯特鲜切芒果', '芒果,百香果酱 \r\n', '198.00', '1.0磅,2.0磅,3.0磅,5.0磅', './src/img/b001_1.jpg&./src/img/b001_2.jpg&./src/img/b001_3.jpg&./src/img/b001_4.jpg&./src/img/b001_5.jpg&./src/img/last.jpg', './src/img/b001.jpg', '不使用罐头水果和植混奶油&坚持应季凯特鲜切芒果&新西兰纯乳脂奶油&21cake配方芒果百香果慕斯夹心', '上架', '1');
 INSERT INTO `goodslist` VALUES ('2', '深艾尔', 'Dark Ale', '蛋糕', '新品', '四种精酿啤酒,搭配酸樱桃果酱,风味独特', '帝国世涛,樱桃果酱,樱桃果酱', '198.00', '1.0磅,2.0磅,3.0磅,5.0磅', './src/img/b002_1.jpg&./src/img/b002_2.jpg&./src/img/b002_3.jpg&./src/img/b002_4.jpg&./src/img/b002_5.jpg&./src/img/b002_6.jpg&./src/img/b002_7.jpg&./src/img/b002_8.jpg&./src/img/last.jpg', './src/img/b002.jpg', '深色烈性艾尔啤酒风味慕斯&搭配酸樱桃果酱、巧克力甘纳许&使用四种啤酒&罗斯福10号修道院,分水岭野人帝国世涛&林德曼樱桃酸啤&喜力淡色拉格', '上架', '2');
 INSERT INTO `goodslist` VALUES ('3', '百利甜情人', 'Bailey‘s Love Triangle', '蛋糕', '人气', '爱尔兰百利甜酒,新西兰奶油,云南玫瑰甘露', '爱尔兰百利甜酒,鲜切凯特芒切片,当日空运云南玫瑰', '198.00', '1.0磅,2.0磅,3.0磅,5.0磅', './src/img/b003_1.jpg&./src/img/b003_2.jpg&./src/img/b003_3.jpg&./src/img/last.jpg', './src/img/b003.jpg', 'Bailey’s Love Triangel／百利甜情人(含酒)&爱尔兰百利甜酒,新西兰奶油,云南玫瑰甘露&Just Baileys, light cream and you. The flavours may bevelvetty subtle, but the chemistry is as electric as a first kiss.', '上架', '3');
@@ -80,4 +94,7 @@ INSERT INTO `goodslist` VALUES ('37', '抹茶和栗', 'Matcha & Chestnut Mousse'
 INSERT INTO `goodslist` VALUES ('38', '真爱如初', '', '鲜花', '', '', '雪山玫瑰，深紫勿忘我', '198.00', '束', './src/img/b038_1.jpg&./src/img/b038_2.jpg&./src/img/b038_3.jpg&./src/img/b038_4.jpg&./src/img/b038_5.jpg&./src/img/b038_6.jpg&./src/img/b038_7.jpg&./src/img/b038_8.jpg', './src/img/b038.jpg', '用一袭白裙装扮你那无瑕的身姿，&向一抹白云倾诉对你的思念，&用一捧鲜花证明我不变的心。', '上架', '38');
 INSERT INTO `goodslist` VALUES ('39', '恋香--精品玫瑰礼盒', '', '鲜花', '', '', '香槟玫瑰', '288.00', '束', './src/img/b039_1.jpg&./src/img/b039_2.jpg&./src/img/b039_3.jpg&./src/img/b039_4.jpg&./src/img/b039_5.jpg&./src/img/b039_6.jpg', './src/img/b039.jpg', '微风伴着花香，&吹来爱的气息。&用一颗真心轻轻爱你，&温柔的话只说给你听', '上架', '39');
 INSERT INTO `goodslist` VALUES ('40', '柔情似水', '', '鲜花', '', '', '香槟玫瑰,紫色勿忘我', '288.00', '束', './src/img/b040_1.jpg&./src/img/b040_2.jpg&./src/img/b040_3.jpg&./src/img/b040_4.jpg&./src/img/b040_5.jpg&./src/img/b040_6.jpg', './src/img/b040.jpg', '柔情似水，佳期如梦，忍顾鹊桥归路', '上架', '40');
+=======
+INSERT INTO `goods_list` VALUES ('1', '芒果奶油蛋糕', 'Mango Cream Cake', '蛋糕', '人气', '不使用罐头水果和植混奶油,坚持应季凯特鲜切芒果', '芒果,百香果酱 \r\n', '198.00', '1.0磅,2.0磅,3.0磅,5.0磅', './src/img/b001_1.jpg&./src/img/b001_2.jpg&./src/img/b001_3.jpg&./src/img/b001_4.jpg&./src/img/b001_5.jpg&./src/img/b001_6.jpg', './src/img/b001.jpg', '不使用罐头水果和植混奶油&坚持应季凯特鲜切芒果&新西兰纯乳脂奶油&21cake配方芒果百香果慕斯夹心', '上架', '1');
+>>>>>>> 6823643672f2545fabd096d4536d6233ed88255c
 SET FOREIGN_KEY_CHECKS=1;

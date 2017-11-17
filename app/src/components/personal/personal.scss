@@ -1,0 +1,160 @@
+#app .box .l-massage .qx1{
+    width:50%;
+}
+#app .box .l-massage .qx2{
+    width:50%;
+    float:right;
+    left:3.8rem;
+}
+
+.box{
+    height:100%;
+    position:relative;
+    
+    .l-content{
+        .l-head{
+        height:30%;
+        width:100%;
+        opacity:.5;
+        background:url(../../img/background.jpg) -20px;
+        // position:absolute;
+        z-index:99;
+        .l-info{
+            width:80%;
+            height:1.2rem;
+            background:#fff;
+            // margin:2rem 1rem 0;
+            position:relative;
+            z-index:100;
+            top:2.3rem;
+            left:1rem;
+            p{
+                position:absolute;
+                left:3.15rem;
+                color:#000;
+                font-size:.35rem;
+                top:.15rem;
+            }
+            .apple{
+                border:.01rem solid #fff;
+                position:absolute;
+                top:-.2rem;
+                background:#fff;
+                left:.2rem;
+                font-size:1.2rem;
+                border-radius:50%;
+            }
+             .qrcode{
+                position:absolute;
+                right:.3rem;
+                font-size:.5rem;
+                top:.4rem;
+            }
+            .phone{
+                position:absolute;
+                top:.25rem;
+                display:block;
+                width:100%;
+                text-align:center;
+                line-height:1.2rem;
+                font-size:.35rem;
+
+            }
+        }
+    }
+        height:90%;
+          // padding:2rem 1rem; 
+        overflow:auto;
+        
+        .other{
+            // margin-top:1.3rem;
+            background:#fff;
+            width:100%;
+            height:1.5rem;
+            .youhui{
+                border-right:.01rem solid #ddd;
+            }
+            .youhui,.yue{
+                padding:.2rem;
+                width:50%;
+                float:left;
+                text-align:center;
+                font-size:.3rem;
+                color:#ccc;
+                span{
+                    display:block;
+                }
+                .heavy{
+                    color:#000;
+                    font-weight:600;
+                    font-size:.35rem;
+                }
+            }
+        }
+        .line{
+            border:.16rem solid #eee;
+        }
+        .bigline{
+            border:.32rem solid #eee;
+        }
+        .order{
+            li{
+                padding:.25rem;
+                font-size:.3rem;
+                border-bottom:.01rem solid #ccc;
+                margin-left:.8rem;
+                position:relative;
+                color:#000;
+                i{
+                    font-size:.5rem;
+                    position:absolute;
+                    left:-.7rem;
+                    padding:.2rem;
+                    top:.05rem;
+                    color:#ccc;
+                    font-size:.4rem;
+                    // background:#000;
+                }
+        
+            }
+        }
+        .type{
+            li{
+                padding:.25rem;
+                font-size:.3rem;
+                border-bottom:.01rem solid #ccc;
+                margin-left:.2rem;
+                position:relative;
+            }
+        }
+        .tel{
+           
+            ul{
+                overflow:hidden;
+
+                li{
+                    width:20%;
+                    padding:.2rem;
+                    float:left;
+                    font-size:.35rem;
+                    text-align:center;
+                    height:100%;
+                    border-left:.01rem solid #ccc;
+                     &:first-child{
+                        width:80%;
+                        text-align: center;
+                        height:100%;
+
+                    }
+                    .Phone{
+                        font-size:.7rem;
+                    }
+                }
+            }
+        }
+        .quit{
+            padding:.3rem;
+            text-align:center;
+        }
+    }
+}

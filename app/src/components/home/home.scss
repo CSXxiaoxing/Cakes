@@ -1,0 +1,324 @@
+
+#bottomLoading{
+    text-align: center;
+    color: #333;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top:0px;
+    z-index: 0;
+    // padding-top: 34px;
+    // margin-bottom: -100%;
+}
+
+
+body,h1,h2,h3,h4,p,ul,li,ol,dl,dd,dt{
+    margin: 0;
+    padding: 0;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.fl{
+    float:left;
+}
+html,body{
+    font-style: '微软雅黑';
+    height:100%;
+    color:#666;
+}
+#app{
+    height:100%;
+    // display:flex;
+    .box{
+        height: 100%;
+        overflow:hidden;
+        font-size: 0.4rem;
+        display: flex;
+        flex-direction:column;
+        .cover{
+            display:flex;
+            flex-direction:column;
+            display:none;
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,0.5);
+            // filter:Alpha(opacity=50);
+            position:fixed;
+            z-index:1000;
+            .citylist{
+                overflow:hidden;
+                width:80%;
+                height:50%;
+                background-color:#fff;
+                z-index:2000;
+                position:absolute;
+                top:25%;
+                left:10%;
+                display:flex;
+                flex-direction:column;
+                .headline{
+                    height:20%;
+                    h3{
+                        padding:0.4rem 0.4rem;
+                    }
+                }
+                ul{
+                    height:50%;
+                    width:90%;
+                    margin-left:0.6rem;
+                    li{
+                        width:23%;
+                        padding:0.15rem;
+                        float:left;
+                        text-align: center;
+                        margin-top:0.6rem;
+                        position:relative;
+                        border:0.05rem solid #fff;
+                        span:first-child{
+                            display:none;
+                            position:absolute;
+                            left:0;
+                            top:0;
+                            font-size:0.333rem;
+                            background-color:#4A2B1A;
+                            color:#fff;
+
+                        }
+                    }
+                    
+                    .coverActive{
+                        box-sizing:border-box;
+                        border:0.05rem solid #4A2B1A;
+                        span:first-child{
+                            display:block;
+                        }
+                        
+                    }
+                    li:nth-child(4){
+                        padding:0 none!important;
+                        }
+                }
+                .hint{
+
+                    color:red;
+                }
+                .btn{
+                    height:20%;
+                    text-align: center;
+                    button{
+                        width:30%;
+                        height:60%;
+                        margin-top:0.4rem;
+                        background-color:#000;
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        .header{
+            height:6%;
+            display:flex;
+            ul{
+                flex:1;
+                display:flex;
+                flex-direction:row;
+                li{
+                    flex:1;
+                    float:left;
+                    a{  
+                        margin:0.08rem;
+                        margin-top:0.2rem;              
+                        text-align: center;
+                        display:block;
+                        position:relative;
+                        i{
+                            display:block;
+                            color:#4A2B1A;
+                            font-size: 0.6rem;
+                        }
+                        span{
+                            position:absolute;
+                            right:-0.8rem;
+                            top:0;
+                            color:#000; 
+                        }
+                    }
+                }
+                li:first-child{
+                    a{
+                        float:left;
+                    }
+                }
+                li:last-child{
+                    a{
+                        float:right;
+                        position:relative;
+                        margin-right: 0.2rem;
+                        i:last-child{
+                            display:block;
+                            position:absolute;
+                            top:-0.1rem;
+                            right:-0.1rem;
+                            background-color:red;
+                            border-radius:100%;
+                            width:0.4rem;
+                            height:0.4rem;
+                            line-height: 0.4rem;
+                            font-size: 0.3rem;
+                            color:#fff;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .content{
+            flex:1;
+            overflow-y:auto;
+            overflow-x:hidden;
+            background-color:#000;
+            display:flex;
+            flex-direction:column;
+            .classify{
+                background-color:#fff;
+                height:60%;
+                border-bottom:1px solid #B6B6B6;
+                ul{
+                    overflow:hidden;
+                    width:100%;
+                    display:flex;
+                    flex-direction:row;
+                    li{
+                        float:left;
+                        flex:1;
+                        text-align: center;
+                        a{
+                            display:block;
+                            img{
+                                height:1.5rem;
+                                height:1.5rem;
+                            }
+                            span{
+                                display:block;
+                                color:#666;
+                            }
+                        }
+                    }
+                }
+            }
+            .billboard{
+                background-color:#fff;
+                margin-top:0.4rem;
+                height:60%;
+                display:flex;
+                flex-direction:column;
+                h2{
+                    text-align:center;
+                }
+                .billcarousel::-webkit-scrollbar {
+                    /*隐藏滚轮*/
+                    display: none;
+                    }
+                .billcarousel{
+                    overflow:auto;
+                    ul{
+                        width:20rem;
+                        height:3rem;
+                        li{
+                            float:left;
+                            img{
+                                width:4rem;
+                            }
+                        }
+                    }
+                }
+                .billist{
+                    overflow:auto;
+                    height:20%;
+                   ul{
+                        width:100%;
+                        display:flex;
+                        flex-direction:row;
+                        text-align: center;
+                        li{
+                            flex:1;
+                            float:left;
+                            a{
+                                
+                                display:block;
+                                img{
+                                    height:1.5rem;
+                                    height:1.5rem;
+                                }
+                                span{
+                                    display:block;
+                                    color:#666;
+                                }
+                            }
+                        }
+                    } 
+                }  
+            }
+            .popularity{
+                background-color:#fff;
+                margin-top:0.2rem;
+                height:60%;
+                display:flex;
+                flex-direction:column;
+                h2{
+                    text-align:center;
+                }
+                .popularitytitle{
+                    flex:1;
+                    a{
+                        img{
+                            height:4rem;
+                            width:100%;
+                        }
+                    }
+                    
+                }
+                .billist{
+                    overflow:auto;
+                    height:20%;
+                   ul{
+                        width:100%;
+                        display:flex;
+                        flex-direction:row;
+                        text-align: center;
+                        li{
+                            flex:1;
+                            float:left;
+                            a{
+                                
+                                display:block;
+                                img{
+                                    height:1.5rem;
+                                    height:1.5rem;
+                                }
+                                span{
+                                    display:block;
+                                    color:#666;
+                                }
+                            }
+                        }
+                    } 
+                }  
+            }
+        }
+        .footer{
+            
+        }
+    }
+}
+
