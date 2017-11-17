@@ -57,6 +57,7 @@
     "http-proxy-middleware": "0.17.3",
     "image-webpack-loader": "^3.3.0",
     "jest": "20.0.4",
+    "jquery": "^3.2.1",
     "json-loader": "0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
