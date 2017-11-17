@@ -13,7 +13,7 @@ var dataset;
 var arr=[];
 const mapStateToProps = function(state){
     dataset  = state.cart.dataset || []
-    // console.log(dataset)
+    console.log(state.cart.loading)
     return {
         loading: state.cart.loading,
         dataset: dataset || []
@@ -52,19 +52,19 @@ class cartComponent extends React.Component{
                         $this.prev().children('i').hide();
                         $this.prev().children('span').show();  
                     }                    
-                    // const gId = $this.props.params.id;
-                    var gId = arr[idx].gId; 
-                    var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}' `;
-                    $pop.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
-                        if(res[0].length !==0 ){
-                            console.log(res)
-                            var gNewNb = num;
+                    // // const gId = $this.props.params.id;
+                    // var gId = arr[idx].gId; 
+                    // var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}' `;
+                    // $pop.props.T_select('http://localhost:888/addgoodsnum.php',sql).then(res =>{
+                    //     if(res[0].length !==0 ){
+                    //         console.log(res)
+                    //         var gNewNb = num;
                                 
-                            var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
+                    //         var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
 
-                            $pop.props.T_updata('http://localhost:888/Datagrid.php',update);
-                        }
-                    });
+                    //         $pop.props.T_updata('http://localhost:888/addgoodsnum.php',update);
+                    //     }
+                    // });
                 });
                 $(this).prev().click(function(event) { 
                     var price = $this.parent().prev().find(' dl dd span').text();
@@ -83,7 +83,7 @@ class cartComponent extends React.Component{
                     var gId = arr[idx].gId;
                     var gPicture = $pop.props.dataset.gPicture;       
                     var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}'`;
-                    $pop.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
+                    $pop.props.T_select('http://localhost:888/Datagrid.php',sql).then(res =>{
                         if(res[0].length !==0 ){
                             var gNewNb = num;
                             var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
@@ -209,14 +209,16 @@ class cartComponent extends React.Component{
         }
     }
     order(){
-        // var insert = `insert into list (id) values ('10122')`;
-        //         $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert);
+        const username = 13420173021;
+
         $this.props.dataset[0].map(function(obj,index){
             console.log(obj)
-            const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum,key) values ('${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gNb}','${obj.gPicture}','${obj.gPrice}','${obj.gSpec}','${obj.gWare}','${obj.username}','2001/11/11','111','11')`;
-            $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert);
-
+            const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum,\`key\`) values ('${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gNb}','${obj.gPicture}','${obj.gPrice}','${obj.gSpec}','${obj.gWare}','${obj.username}','2001/11/11','111','${obj.gId}')`;
+            $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert)
+            const tdelete = `delete from cake_car where username = '${username}' and gId = '${obj.gId}'`
+            $this.props.T_Tadd('http://localhost:888/Datagrid.php',tdelete)
         })
+
     }
     // add(e){
     //     console.log($(e.target).text())

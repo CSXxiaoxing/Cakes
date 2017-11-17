@@ -9,7 +9,7 @@ export function Init(){
     }
 }
 
-export function T_add(api,sql){
+export function T_select(api,sql){
     return {
         types: ['BeforeRequest', 'TR_Requested', 'RequestError'],
         url: api,
