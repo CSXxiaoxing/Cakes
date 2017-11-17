@@ -14,17 +14,6 @@ export function ajaxMiddleware(middlewareAPI) {
             middlewareAPI.dispatch({
                 type: a,
             });
-
-            // if(url){
-            //     http[method](url,action.data).then(response => {
-            //         console.log(response)
-            //         middlewareAPI.dispatch({
-            //             type: b,
-            //             dataset: JSON.parse(response),
-            //             Dataset:response
-            //         });
-            //     })
-            // }
             if(url) {
                 return new Promise((resolve, reject) => {
                     http[method](url,action.data).then(response => {

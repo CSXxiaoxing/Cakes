@@ -34,7 +34,7 @@ class contentComponent extends React.Component{
                         </ul>
                     </div>
                     <div className="billboard">
-                        <h1>cake.榜单</h1>
+                        <h2>cake.榜单</h2>
                         <div className="billcarousel">
                             <ul>
                                 <li><Link to="/cakeDatail/1"><img src="./src/img/cake1.jpg" /></Link></li>
@@ -57,9 +57,9 @@ class contentComponent extends React.Component{
                         </div>
                     </div>
                     <div className="popularity">
-                        <h1>cake.人气</h1>
+                        <h2>cake.人气</h2>
                         <div className="popularitytitle">
-                            <Link><img src="./src/img/cake1.jpg" /></Link>
+                            <Link><img src="./src/img/b022_1.jpg" /></Link>
                         </div>
                         <div className="billist">
                             <ul>
@@ -76,9 +76,9 @@ class contentComponent extends React.Component{
                         </div>
                     </div>
                     <div className="popularity">
-                        <h1>cake.新品</h1>
+                        <h2>cake.新品</h2>
                         <div className="popularitytitle">
-                            <Link><img src="./src/img/cake1.jpg" /></Link>
+                            <Link><img src="./src/img/b037_4.jpg" /></Link>
                         </div>
                         <div className="billist">
                             <ul>

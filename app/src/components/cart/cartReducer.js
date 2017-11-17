@@ -14,8 +14,14 @@ export default function StudentReducer(state = {}, action){
             break;
         case 'TK_Requested':
             reState.loading = false;
+            if(!action.dataset){
+                break;
+            }
             reState.dataset = action.dataset;
-            console.log(action.dataset)
+            break;
+        case 'TD_Requested':
+            reState.loading = false;
+            reState.dataset = action.dataset;
             break;
         default:
             reState.loading = false;

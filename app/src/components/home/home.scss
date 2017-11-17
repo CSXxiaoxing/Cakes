@@ -186,8 +186,7 @@ html,body{
             flex:1;
             overflow-y:auto;
             overflow-x:hidden;
-
-            background-color:#FAFAFA;
+            background-color:#000;
             display:flex;
             flex-direction:column;
             .classify{
@@ -206,8 +205,8 @@ html,body{
                         a{
                             display:block;
                             img{
-                                height:2rem;
-                                height:2rem;
+                                height:1.5rem;
+                                height:1.5rem;
                             }
                             span{
                                 display:block;
@@ -219,11 +218,11 @@ html,body{
             }
             .billboard{
                 background-color:#fff;
-                margin-top:0.2rem;
+                margin-top:0.4rem;
                 height:60%;
                 display:flex;
                 flex-direction:column;
-                h1{
+                h2{
                     text-align:center;
                 }
                 .billcarousel::-webkit-scrollbar {
@@ -238,7 +237,7 @@ html,body{
                         li{
                             float:left;
                             img{
-                                width:6rem;
+                                width:4rem;
                             }
                         }
                     }
@@ -258,8 +257,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:2rem;
-                                    height:2rem;
+                                    height:1.5rem;
+                                    height:1.5rem;
                                 }
                                 span{
                                     display:block;
@@ -276,14 +275,14 @@ html,body{
                 height:60%;
                 display:flex;
                 flex-direction:column;
-                h1{
+                h2{
                     text-align:center;
                 }
                 .popularitytitle{
                     flex:1;
                     a{
                         img{
-                            height:6rem;
+                            height:4rem;
                             width:100%;
                         }
                     }
@@ -304,8 +303,8 @@ html,body{
                                 
                                 display:block;
                                 img{
-                                    height:2rem;
-                                    height:2rem;
+                                    height:1.5rem;
+                                    height:1.5rem;
                                 }
                                 span{
                                     display:block;

@@ -1,14 +1,30 @@
 <?php
+
     //jjj
 //	$servername = 'localhost';
 //  $username = 'root';
 //  $password = '123456';
 //  $database = 'cake';
 	// pyd
+
+
+	// $servername = 'localhost';
+ //    $username = 'root';
+ //    $password = '123456';
+ //    $database = 'cake';
+
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'cake';
+
+	
+
 	// $servername = 'localhost';
  //    $username = 'root';
  //    $password = '';
  //    $database = 'h5_1705';
+
 	//tzj
      $servername = 'localhost';
      $username = 'root';
