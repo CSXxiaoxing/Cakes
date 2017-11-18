@@ -13,6 +13,7 @@ export default function DatagridReducer(state = {}, action){
             break;
         case 'edit':
             reState.editData = action.data;
+            console.log(reState.editData,222222);
             break;
         default:
             reState.loading = false;

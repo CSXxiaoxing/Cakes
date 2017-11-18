@@ -76,9 +76,13 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': '"development"'
             }
+        }),
+        new webpack.ProvidePlugin({
+           jQuery: "jquery",
+           $: "jquery"
         })    
     ],
     devServer: {
         stats: 'errors-only'
-    }   
+    }
 };

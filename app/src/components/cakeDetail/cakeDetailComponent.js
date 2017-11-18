@@ -33,6 +33,9 @@ class cakeDatailComponent extends React.Component{
 		this.find();	
         console.log(this)
 	}
+    cart(){
+        
+    }
     render(){
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
@@ -42,6 +45,9 @@ class cakeDatailComponent extends React.Component{
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
+                    <div id="ZZao">
+                        <p>加入成功</p>
+                    </div>
                     <CoverComponent/>
 	                <div className="p_head">
 	                    <DetailComponent/>
@@ -181,7 +187,7 @@ class cakeDatailComponent extends React.Component{
 	            </div>
 	        )
 	     } else {
-     	return(<div></div>);
+     	return(<div id="NotData"><p>数据请求失败</p><img src="" alt="加载失败..." /></div>);
      }
     }
     tab(e){
@@ -232,6 +238,24 @@ class cakeDatailComponent extends React.Component{
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
+        var cookies = document.cookie;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
+
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] == 'token'){
+        
+                }
+            }.bind(this));
+        } else {
+
+        }
+        $('#ZZao').fadeToggle()
+        setTimeout(function(){
+            $('#ZZao').fadeToggle()
+        },1000)
+        
     	var usernameC = this.props.cake_cookies[0].username
     	const username = usernameC;
     	const gId = this.props.params.id;

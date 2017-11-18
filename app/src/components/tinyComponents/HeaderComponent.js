@@ -2,6 +2,9 @@ import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 class HeaderComponent extends React.Component{
+    componentDidMount(){
+
+    }
     render(){
         return (
             <div className="header">

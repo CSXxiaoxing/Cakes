@@ -7,10 +7,11 @@ import * as cartAction from './cartAction';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './cartComponent.scss';
 import GoBack from "../tinyComponents/goback"
-
+var  newData = [];
 var $this;
 var dataset;
 var arr=[];
+ var username;
 var mydate = new Date();
 var str = "" + mydate.getFullYear() + "/";
 str += (mydate.getMonth()+1) + "/";
@@ -22,7 +23,6 @@ Num+=Math.floor(Math.random()*10);
 } 
 const mapStateToProps = function(state){
     dataset  = state.cart.dataset || []
-    console.log(state.cart.loading)
     return {
         loading: state.cart.loading,
         dataset: dataset || []
@@ -31,10 +31,19 @@ const mapStateToProps = function(state){
 class cartComponent extends React.Component{
     componentDidMount(){
         var $pop = this;
+        var cookies = document.cookie.split('; ');
+       
+        cookies.forEach(item =>{
+            var temp = item.split('=');
+            if(temp[0]='username'){
+                username = temp[1];
+            }
+        });
         // console.log(arr)
         // console.log(dataset)
-        const username = 13432858111;
-        this.props.Init().then(res=>{
+        // const username = 13420173024;
+        const sql = `select * from cake_car where username='${username}'`;
+        this.props.Init(sql).then(res=>{
             var arr = dataset[0]
             var total = 0;
             $('.t_tprice').map(function(){
@@ -64,11 +73,16 @@ class cartComponent extends React.Component{
                     var gId = arr[idx].gId; 
                     var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}' `;
                     $pop.props.T_select('http://localhost:888/addgoodsnum.php',sql).then(res =>{
-                        if(res[0].length !==0 ){
-                            console.log(res)
+                        console.log(res,2222);
+                        if(res.length !==0 ){
                             var gNewNb = num;
                             var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
-                            $pop.props.T_updata('http://localhost:888/addgoodsnum.php',update);
+                            console.log(sql,2222);
+                            $pop.props.T_updata('http://localhost:888/addgoodsnum.php',update).then(res=>{
+                                var sql = ` select * from cake_car where username = '${username}'`;
+                                console.log(sql,2222);
+                                $pop.props.T_select('http://localhost:888/Datagrid.php',sql)
+                            });
                         }
                     });
                 });
@@ -93,21 +107,34 @@ class cartComponent extends React.Component{
                         if(res[0].length !==0 ){
                             var gNewNb = num;
                             var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
-                            $pop.props.T_updata('http://localhost:888/Datagrid.php',update);
+                            console.log(sql,2222);
+                            $pop.props.T_updata('http://localhost:888/Datagrid.php',update).then(res =>{
+                                var sql = ` select * from cake_car where username = '${username}'`;
+                                console.log(sql,2222);
+                                $pop.props.T_select('http://localhost:888/Datagrid.php',sql)
+                            }
+                            );
                         }
                     }); 
                 });
             });
         });      
     }
-    componentWillReceiveProps(){
-        // console.log(dataset)
-    }
+    componentWillReceiveProps(nextProps){
+        // console.log(nextProps);
+        nextProps.dataset.length>0 ? newData =  nextProps.dataset : '';   
+  }
     render(){
         $this = this;
-        if(this.props.dataset.length){
+        
+        this.props.dataset.length>0 ? newData =  this.props.dataset : '';
+        // console.log(newData);
+        if(newData.length){
             return (
                 <div className="t_cart">
+                <div id="ZZao">
+                        <p>下单成功</p>
+                    </div>
                 <SpinnerComponent loading={this.props.loading}/>
                     <div className="t_header">
                         <GoBack/>
@@ -119,7 +146,7 @@ class cartComponent extends React.Component{
                             <img src="./src/img/limit.png" alt="" />
                         </div>
                         {
-                            this.props.dataset[0].map(function(obj,index){
+                            newData[0].map(function(obj,index){
                                 return(
                                         <div className="t_goodslist" key={index + 'kk'}>
                                             <div className="t_gh">
@@ -212,18 +239,34 @@ class cartComponent extends React.Component{
                 </div>
             )
         }else{
-            return(<div>jkhkjhkjhkh</div>)
+            return(<div id="NotData"><p>数据请求失败</p><img src="" alt="加载失败..." /></div>)
         }
     }
     order(){
-        const username = 13420173021;
+        var cookies = document.cookie;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
 
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] == 'token'){
+    
+                }
+            }.bind(this));
+        } else {
+
+        }
+        $('#ZZao').fadeToggle()
+        setTimeout(function(){
+            $('#ZZao').fadeToggle()
+        },1000)
         $this.props.dataset[0].map(function(obj,index){
-            console.log(obj)
+            // console.log(obj)
             const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum,\`key\`) values ('${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gNb}','${obj.gPicture}','${obj.gPrice}','${obj.gSpec}','${obj.gWare}','${obj.username}','${str}','${Num}','${obj.gId}')`;
             $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert)
             const tdelete = `delete from cake_car where username = '${username}' and gId = '${obj.gId}'`
-            $this.props.T_Tadd('http://localhost:888/Datagrid.php',tdelete)
+            $this.props.T_Tadd('http://localhost:888/Datagrid.php',tdelete);
+            hashHistory.push('/order');
         })
 
     }
@@ -239,7 +282,7 @@ class cartComponent extends React.Component{
     //         const gPrice = $('.t_tprice').text();
     //         const gWare = $('.t_gWare').text();
     //         const gNb = 1 ;
-    //         const gPicture = $this.props.dataset.gPicture;       
+    //         const gPicture = $newData.gPicture;       
     //         const sql = ` select * from cake_car where username = '${username}' and gId = gId`;
     //         $this.props.T_add('http://localhost:888/Datagrid.php',sql).then(res =>{
     //             if(res[0].length !==0 ){

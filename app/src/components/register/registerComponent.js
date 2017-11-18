@@ -69,6 +69,10 @@ class registerComponent extends React.Component{
                     $('.l-cover').show()
                     $('.l-massage').show()
                     $('.massage').text('注册成功')
+                    setTimeout(function(){
+                    hashHistory.push("/login")
+                        
+                    },1500)
                 }
             })
             // console.log(this.props.dataset[0].length)

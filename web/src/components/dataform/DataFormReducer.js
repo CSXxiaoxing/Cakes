@@ -16,6 +16,10 @@ export default function DataFormReducer(state = {}, action){
             reState.loading = false;
             reState.Save = action.dataset;
             break;
+        case 'Upload':
+            reState.loading = false;
+            reState.Upload = action.dataset;
+            break;
         case 'add':
         console.log(33333);
             reState.addStatus = true;

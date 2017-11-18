@@ -1,10 +1,10 @@
-export function Init(){
+export function Init(sql){
     return {
         types: ['BeforeRequest', 'TC_Requested', 'RequestError'],
         url: 'Datagrid.php',
         method : "post",
         data: {
-            select:  `select * from cake_car` 
+            select: sql
         }
     }
 }

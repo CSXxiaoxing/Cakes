@@ -6,11 +6,11 @@ body{
     background: url('../../img/a1.gif');
 }
 h1 {
-    margin: 30px;
-    color: #fff;
+    // margin: 30px;
+    color: #333;
     text-align: center;
     font-family:Georgia;
-    display: none;
+    // display: none;
 }
 
 #app{
@@ -21,8 +21,8 @@ h1 {
     width: 100%;
     height: 100%;
 }
-form {
-    height: 200px;
+.loginForm {
+    height: 230px;
     width: 400px;
     position: absolute;
     border: 1px solid #000;

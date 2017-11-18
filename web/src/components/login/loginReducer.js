@@ -1,3 +1,4 @@
+
 export default function StudentReducer(state = {}, action){
     var reState = JSON.parse(JSON.stringify(state));
     switch(action.type){
@@ -7,6 +8,10 @@ export default function StudentReducer(state = {}, action){
         case 'DategridRequested':
             reState.loading = false;
             reState.dataset = action.dataset;
+            break;
+        case 'PersonalRequested':
+            reState.loading = false;
+            reState.personal = action.dataset[0];
             break;
         default:
             reState.loading = false;
