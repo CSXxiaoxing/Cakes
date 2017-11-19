@@ -34,7 +34,5 @@ export default (
             </Route>
             <Route path="/order" component={orderComponent}></Route>
             <Route path="/cart" component={cartComponent}></Route>
-          
-            
         </div>
 )

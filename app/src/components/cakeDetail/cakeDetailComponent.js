@@ -4,11 +4,11 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as cakeDatailAction from './cakeDetailAction';
-import DetailComponent from '../tinyComponents/DetailComponent.js';
+import DetailComponent from '../tinyComponents/DetailComponent';
+import CoverComponent from '../tinyComponents/CoverComponent'
 import './cakeDetail.scss';
 import {Icon} from 'antd';
 class cakeDatailComponent extends React.Component{
-
 	componentDidMount(){
 		var cookies = document.cookie;
         if(cookies.length>0){
@@ -33,6 +33,9 @@ class cakeDatailComponent extends React.Component{
 		this.find();	
         console.log(this)
 	}
+    cart(){
+        
+    }
     render(){
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
@@ -42,6 +45,10 @@ class cakeDatailComponent extends React.Component{
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
+                    <div id="ZZao">
+                        <p>加入成功</p>
+                    </div>
+                    <CoverComponent/>
 	                <div className="p_head">
 	                    <DetailComponent/>
 	                </div>
@@ -126,9 +133,6 @@ class cakeDatailComponent extends React.Component{
 	                			</ul>
 					        	
 					        </div>
-					       
-					       
-					       
 					        <div className="tab-content clear">
 					        	<p className="detailsPrice">￥{parseInt(data.gPrice*1.8)} <Icon type="close" className="close" onClick={this.close}/></p>
 					        	<img src="src/img/18.jpg"/>
@@ -183,11 +187,10 @@ class cakeDatailComponent extends React.Component{
 	            </div>
 	        )
 	     } else {
-     	return(<div></div>);
+     	return(<div id="NotData"><p>数据请求失败</p><img src="" alt="加载失败..." /></div>);
      }
     }
     tab(e){
-
     	var $tab = $('.tab');
     	var $content = $('.tab-content');
     	var idx = $(e.target).index();
@@ -235,6 +238,24 @@ class cakeDatailComponent extends React.Component{
         this.props.Find('http://localhost:888/Datagrid.php',sql);
     }
     add(e){
+        var cookies = document.cookie;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
+
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] == 'token'){
+        
+                }
+            }.bind(this));
+        } else {
+
+        }
+        $('#ZZao').fadeToggle()
+        setTimeout(function(){
+            $('#ZZao').fadeToggle()
+        },1000)
+        
     	var usernameC = this.props.cake_cookies[0].username
     	const username = usernameC;
     	const gId = this.props.params.id;

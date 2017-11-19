@@ -1,5 +1,4 @@
 export function Init(sql){
-    console.log(sql);
     return {
         types: ['BeforeRequest', 'Requested', 'RequestError'],
         url: 'Datagrid.php',

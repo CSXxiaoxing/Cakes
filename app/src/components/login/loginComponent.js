@@ -92,11 +92,11 @@ class loginComponent extends React.Component{
                     $('.massage').text('密码输入错误')
                 }else{
                     this.props.Token('http://localhost:888/token.php',{username,password}).then(res=>{
-                        console.log(res[0])
                         // $.cookie('cookieName', 'cookieValue', { expires: 7 })
                         // var date = new Date();
                         // date.setDate(date.getDate()+7);
-                        document.cookie = 'token ='+res[0]
+                        document.cookie = 'token ='+res[0];
+                        document.cookie = 'username ='+username;
                         $('.l-cover').show()
                         $('.l-massage').show()
                         $('.massage').text('登录成功,正在跳转页面')

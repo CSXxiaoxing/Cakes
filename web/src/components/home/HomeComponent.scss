@@ -5,6 +5,7 @@
 	color:#00CA79;
 	font-size:18px;
 	border-bottom:1px solid #00CA79;
+	overflow:hidden;
 	// background:#19B5FE;
 }
 .ant-menu.ant-menu-dark .ant-menu-item-selected {
@@ -18,4 +19,10 @@ a{
 }
 .home{
 	padding:12px 110px 12px 0;
+}
+.menushow{
+	display:block;
+}
+.menuhidden{
+	display:none;
 }

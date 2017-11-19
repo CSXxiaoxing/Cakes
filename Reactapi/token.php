@@ -1,14 +1,31 @@
 <?php
-//	$servername = 'localhost';
-//  $username = 'root';
-//  $password = '123456';
-//  $database = 'cake';
-	
+
+    //jjj
 	$servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'h5_1705';
+     $username = 'root';
+     $password = '';
+     $database = 'cake';
+	// pyd
+
+
+	// $servername = 'localhost';
+ //    $username = 'root';
+ //    $password = '123456';
+ //    $database = 'cake';
+
+    // $servername = 'localhost';
+    // $username = 'root';
 	
+	// $servername = 'localhost';
+ //    $username = 'root';
+ //    $password = '';
+ //    $database = 'h5_1705';
+
+	//tzj
+     // $servername = 'localhost';
+     // $username = 'root';
+     // $password = '';
+     // $database = 'cake';
     
     // 1）连接数据库
     $conn = new mysqli($servername,$username,$password,$database);

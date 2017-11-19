@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel} from 'antd';
+import './sass/cover.scss';
 class CoverComponent extends React.Component{
     render(){
         return (
