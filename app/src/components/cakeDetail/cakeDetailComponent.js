@@ -33,6 +33,26 @@ class cakeDatailComponent extends React.Component{
 		this.find();	
         console.log(this)
 	}
+    cart(){
+        var cookies = document.cookie;
+        var pdpd = false;
+        if(cookies.length>0){
+            cookies = cookies.split('; ');
+
+            cookies.forEach(function(cookie){
+                var temp = cookie.split('=');
+                if(temp[0] == 'token'){
+    
+                }
+            }.bind(this));
+        } else {
+
+        }
+        $('#ZZao').fadeToggle()
+        setTimeout(function(){
+            $('#ZZao').fadeToggle()
+        },1000)
+    }
     render(){
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
@@ -42,6 +62,9 @@ class cakeDatailComponent extends React.Component{
     		const gMaterials = data.gMaterials.split(',');
 	        return (
 	            <div className="p_box">
+                    <div id="ZZao">
+                        <p>加入成功</p>
+                    </div>
 	                <div className="p_head">
 	                    <DetailComponent/>
 	                </div>
@@ -179,11 +202,11 @@ class cakeDatailComponent extends React.Component{
 					    </div>
 	                </div>
 	                <a onClick={this.select}>立即购买</a>
-	                <a onClick={this.add.bind(this)} className="active">加入购物车</a></div>
+	                <a onClick={this.add.bind(this)} className="active" onClick={this.cart}>加入购物车</a></div>
 	            </div>
 	        )
 	     } else {
-     	return(<div></div>);
+     	return(<div id="NotData"><p>数据请求失败</p><img src="" alt="加载失败..." /></div>);
      }
     }
     tab(e){

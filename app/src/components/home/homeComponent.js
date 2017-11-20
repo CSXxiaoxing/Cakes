@@ -16,6 +16,7 @@ class homeComponent extends React.Component{
     componentDidMount(){
         this.props.Init();
         this.props.Slide();
+
         $('.footer ul li').eq(0).addClass('iconActive');
         // 城市定位？
         var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_=' + Math.random();

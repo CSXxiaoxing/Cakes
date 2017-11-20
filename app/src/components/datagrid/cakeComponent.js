@@ -11,6 +11,7 @@ var datagrid_SetList = 14;
 var datagrid_SetinitID = 0;
 const mapStateToProps = function(state){
     var cakeData = state.datagrid.dataset || [];
+    
     return {
         loading: state.datagrid.loading,
         dataset: cakeData[0] || []
