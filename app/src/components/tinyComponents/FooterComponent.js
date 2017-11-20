@@ -9,11 +9,9 @@ class FooterComponent extends React.Component{
     componentDidMount(){
 
         if(cookies.length>0){
-            // console.log(cookies.split('; '))
             if(!cookies.split){
-                return false;
+                return false ;
             }
-            
             cookies = cookies.split('; ');
             FooterLogin = '/login';
             cookies.forEach(function(cookie){

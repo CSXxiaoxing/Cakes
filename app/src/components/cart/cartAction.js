@@ -1,15 +1,15 @@
-export function Init(){
+export function Init(sql){
     return {
         types: ['BeforeRequest', 'TC_Requested', 'RequestError'],
         url: 'Datagrid.php',
         method : "post",
         data: {
-            select:  `select * from cake_car` 
+            select: sql
         }
     }
 }
 
-export function T_add(api,sql){
+export function T_select(api,sql){
     return {
         types: ['BeforeRequest', 'TR_Requested', 'RequestError'],
         url: api,
@@ -43,3 +43,5 @@ export function Edit(){
         types: ['a']
     }
 }
+
+

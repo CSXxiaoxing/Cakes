@@ -16,10 +16,13 @@ export function Init(cakeType){
 }
 
 export function Slide(){
+
+
+    //回到顶部
     $('.header').click(function(e){
          $('.content').animate({scrollTop:0},1000);
-        console.log(this)
     })
+    
     // 滑动-滑动push->路由
     var cakeValue = ['/datagrid/cc/蛋糕', '/datagrid/cc/小切块', '/datagrid/cc/冰淇淋', '/datagrid/cc/鲜花', '/datagrid/cc/礼品', '/datagrid/cc/店长推荐']
 

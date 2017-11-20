@@ -17,10 +17,13 @@ export default function StudentReducer(state = {}, action){
             if(!action.dataset){
                 break;
             }
-            reState.dataset = action.dataset;
+            // reState.dataset = action.dataset;
             break;
         case 'TD_Requested':
             reState.loading = false;
+            if(action.dataset){
+                break;
+            }
             reState.dataset = action.dataset;
             break;
         default:

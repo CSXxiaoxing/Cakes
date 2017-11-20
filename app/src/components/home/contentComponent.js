@@ -27,10 +27,10 @@ class contentComponent extends React.Component{
                     <CarouselComponent/>
                     <div className="classify">
                         <ul>
-                            <li><Link><img src="./src/img/cake1.jpg" /><span>蛋糕</span></Link></li>
-                            <li><Link><img src="./src/img/cake2.jpg" /><span>冰淇淋</span></Link></li>
-                            <li><Link><img src="./src/img/cake3.jpg" /><span>小切块</span></Link></li>
-                            <li><Link><img src="./src/img/cake4.jpg" /><span>定制</span></Link></li>
+                            <li><Link to="/datagrid"><img src="./src/img/cake1.jpg" /><span>蛋糕</span></Link></li>
+                            <li><Link to="/datagrid/cc/冰淇淋"><img src="./src/img/cake2.jpg" /><span>冰淇淋</span></Link></li>
+                            <li><Link to="/datagrid/cc/小切块"><img src="./src/img/cake3.jpg" /><span>小切块</span></Link></li>
+                            <li><Link to='/datagrid/cc/鲜花'><img src="./src/img/cake4.jpg" /><span>定制</span></Link></li>
                         </ul>
                     </div>
                     <div className="billboard">
