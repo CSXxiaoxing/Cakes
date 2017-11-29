@@ -1,4 +1,5 @@
 import React from 'react';
+import baseurl from '../../../../app/src/libs/baseurl.js';
 
 export default class UploadComponent extends React.Component {
   static propTypes = {
@@ -17,7 +18,7 @@ export default class UploadComponent extends React.Component {
     fd.append("upload", 1);
     /* 把文件添加到表单里 */
     fd.append("upfile", this.refs.upfile.files[0]);
-    ajax.open("post", "http://localhost:888/doAction.php", true);
+    ajax.open("post", baseurl + "doAction.php", true);
     ajax.onload = function () {
       console.log(ajax.responseText);
         this.setState({upfilePath:ajax.responseText});

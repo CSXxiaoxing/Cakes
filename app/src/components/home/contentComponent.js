@@ -9,19 +9,6 @@ class contentComponent extends React.Component{
     }
     render(){
         if(typeof(this.props.dataset) == 'object'){
-            // const data = this.props.dataset[0];
-            // const gIntro = data[0].gIntro.split('&');
-            // const gDetalispic = data[0].gDetalispic.split('&');
-            // const gMaterials = data[0].gMaterials.split(',');
-            // {
-            //                     gDetalispic.map(function(item,index){
-            //                         return(
-            //                             <li><Link><img src={item} /><span>蛋糕</span></Link></li>
-            //                             )
-                                    
-            //                     })
-            //                 }
-            // console.log(this.props.dataset)
             return (
                 <div>
                     <CarouselComponent/>

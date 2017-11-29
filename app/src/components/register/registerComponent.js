@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import './register.scss';
 import * as registerAction from './registerAction.js';
 import LoginComponent from '../tinyComponents/LoginComponent.js';
+import baseurl from '../../libs/baseurl';
 class registerComponent extends React.Component{
     componentDidMount(){
         var arr = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
@@ -57,7 +58,7 @@ class registerComponent extends React.Component{
             console.log(666)
             var username = $('.username').val()
             const sql = ` select * from user_list where username = '${username}'`
-            this.props.Select('http://localhost:888/Datagrid.php',sql).then(res=>{
+            this.props.Select(baseurl + '/Datagrid.php',sql).then(res=>{
                 if(res[0].length > 0){
                         // alert('该帐户已经存在')
                     $('.l-cover').show()
@@ -94,7 +95,7 @@ class registerComponent extends React.Component{
         var username = $('.username').val()
         var password = $('.password').val()
         const sql = `insert into user_list (username, password) values ('${username}','${password}')`;
-        this.props.Init('http://localhost:888/Datagrid.php',sql)
+        this.props.Init(baseurl + '/Datagrid.php',sql)
         
     }
     judge(e){

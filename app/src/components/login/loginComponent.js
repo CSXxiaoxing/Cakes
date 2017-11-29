@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router'
 import './login.scss'
 import * as loginAction from './loginAction'
 import LoginComponent from '../tinyComponents/LoginComponent'
+import baseurl from '../../libs/baseurl';
 
 class loginComponent extends React.Component{
    
@@ -79,7 +80,7 @@ class loginComponent extends React.Component{
         var password = $('.password').val()
         console.log(password)
         const sql = ` select * from user_list where username = '${username}'`
-        this.props.Find('http://localhost:888/Datagrid.php',sql).then(res=>{
+        this.props.Find(baseurl + 'Datagrid.php',sql).then(res=>{
             console.log(res[0])
             if(res[0].length == '0'){
                 $('.l-cover').show()
@@ -91,7 +92,7 @@ class loginComponent extends React.Component{
                     $('.l-massage').show()
                     $('.massage').text('密码输入错误')
                 }else{
-                    this.props.Token('http://localhost:888/token.php',{username,password}).then(res=>{
+                    this.props.Token(baseurl + 'token.php',{username,password}).then(res=>{
                         // $.cookie('cookieName', 'cookieValue', { expires: 7 })
                         // var date = new Date();
                         // date.setDate(date.getDate()+7);

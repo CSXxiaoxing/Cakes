@@ -7,6 +7,7 @@ import {Icon} from 'antd';
 import './personal.scss'
 import * as personalAction from './personalAction'
 import FooterComponent from '../tinyComponents/FooterComponent'
+import baseurl from '../../libs/baseurl';
 
 class personalComponent extends React.Component{
     componentDidMount(){
@@ -19,7 +20,7 @@ class personalComponent extends React.Component{
                     if(temp[0] === 'token'){
                         console.log(temp[1])
                         const sql = `select * from user_list where token = '${temp[1]}'`
-                        this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+                        this.props.init(baseurl + 'Datagrid.php',sql).then(res=>{
                         console.log(res[0])
                         $('.phone').text(res[0][0].username)
                         })
@@ -116,7 +117,7 @@ class personalComponent extends React.Component{
                 if(temp[0] === 'token'){
                     console.log(temp[1])
                     const sql = `select * from user_list where token = '${temp[1]}'`
-                    this.props.Get('http://localhost:888/Datagrid.php',sql).then(res=>{
+                    this.props.Get(baseurl + 'Datagrid.php',sql).then(res=>{
                     console.log(res[0][0].token)
                     // var date=new Date();
                     // date.setTime(date.getTime()-30*60*1000); 

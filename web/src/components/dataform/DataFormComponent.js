@@ -1,3 +1,4 @@
+import baseurl from '../../../../app/src/libs/baseurl.js';
 import React from 'react';
 import * as DataFromAction from './DataFormAction.js';
 import SpinnerComponent from '../spinner/spinner';
@@ -101,7 +102,7 @@ class App extends React.Component {
     } else if (data == "detalis") {
         fd.append("upfile", this.refs.detalis.files[0]);
     }
-    ajax.open("post", "http://localhost:888/doAction.php", true);
+    ajax.open("post", baseurl + "doAction.php", true);
     ajax.onload = function () {
         if(data == 'main'){
             this.setState({upfilePath:ajax.responseText});

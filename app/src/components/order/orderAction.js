@@ -1,7 +1,8 @@
+import baseurl from '../../libs/baseurl';
 export function Init(){
     return {
         types: ['BeforeRequest', 'Requested', 'RequestError'],
-        url: 'http://localhost:88/home'
+        url: baseurl + '/home'
     }
 }
 

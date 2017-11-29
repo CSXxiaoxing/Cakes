@@ -1,7 +1,7 @@
-//http://visionmedia.github.io/superagent/
+import baseurl from '../libs/baseurl.js';
 import request from 'superagent'
 
-const LOCAL_SERVER = 'http://10.3.137.239:888/';
+const LOCAL_SERVER = baseurl;
 
 const DEV_SERVER = '';
 const PRO_SERVER = '';

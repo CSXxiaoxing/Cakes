@@ -6,7 +6,10 @@ import SpinnerComponent from '../spinner/spinner';
 import * as cartAction from './cartAction';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
 import './cartComponent.scss';
-import GoBack from "../tinyComponents/goback"
+import GoBack from "../tinyComponents/goback";
+import baseurl from '../../libs/baseurl';
+
+
 var  newData = [];
 var $this;
 var dataset;
@@ -29,12 +32,7 @@ const mapStateToProps = function(state){
 }
 class cartComponent extends React.Component{
     componentDidMount(){
-        if(newData.length>0){
-            $('.empty').hide();
-        }else{
-            console.log(66)
-            $('.empty').show();
-        }
+        console.log(baseurl)
         var $pop = this;
         var cookies = document.cookie.split('; ');
         cookies.forEach(item =>{
@@ -47,6 +45,11 @@ class cartComponent extends React.Component{
         this.props.Init(sql);
 
         this.props.Init(sql).then(res=>{
+            if($('.t_goodslist')){
+                $('.empty').hide();
+            }else{
+                $('.empty').show();
+            }
             var arr = dataset[0]
             var total = 0;
             $('.t_tprice').map(function(){
@@ -88,12 +91,12 @@ class cartComponent extends React.Component{
                         $('.btn_sure').click(function(event) {
                             var gId = newData[0][idx].gId; 
                             var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}' `;
-                            $pop.props.T_select('http://localhost:888/Datagrid.php',sql).then(res =>{
+                            $pop.props.T_select(baseurl + 'Datagrid.php',sql).then(res =>{
                                 if(res.length !==0 ){
                                     var update = `delete from cake_car where username = '${username}' and gId = '${gId}'`;
-                                    $pop.props.T_updata('http://localhost:888/Datagrid.php',update).then(res=>{
+                                    $pop.props.T_updata(baseurl + 'Datagrid.php',update).then(res=>{
                                         var sql = ` select * from cake_car where username = '${username}'`;
-                                        $pop.props.T_select('http://localhost:888/Datagrid.php',sql)
+                                        $pop.props.T_select(baseurl + 'Datagrid.php',sql)
                                     });
                                 }
                             });
@@ -244,13 +247,13 @@ class cartComponent extends React.Component{
             var num = $(this).text()
             var gId = newData[0][idx].gId; 
             var sql = ` select * from cake_car where username = '${username}' and gId = '${gId}' `;
-            $this.props.T_select('http://localhost:888/Datagrid.php',sql).then(res =>{
+            $this.props.T_select(baseurl + 'Datagrid.php',sql).then(res =>{
                 if(res.length !==0 ){
                     var gNewNb = num;
                     var update = `update cake_car set gNb = '${gNewNb}'  where username = '${username}' and gId = '${gId}'`;
-                    $this.props.T_updata('http://localhost:888/Datagrid.php',update).then(res=>{
+                    $this.props.T_updata(baseurl + 'Datagrid.php',update).then(res=>{
                         var sql = ` select * from cake_car where username = '${username}'`;
-                        $this.props.T_select('http://localhost:888/Datagrid.php',sql)
+                        $this.props.T_select(baseurl + 'Datagrid.php',sql)
                     });
                 }
             });
@@ -261,7 +264,7 @@ class cartComponent extends React.Component{
             cookies.forEach(function(cookie){
                 var temp = cookie.split('=');
                 if(temp[0] == 'token'){
-    
+
                 }
             }.bind(this));
         } else {
@@ -273,13 +276,13 @@ class cartComponent extends React.Component{
         setTimeout(function(){
             $('#ZZao').fadeToggle()
         },1000)
-        // $this.props.dataset[0].map(function(obj,index){
-        //     const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum,\`key\`) values ('${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gNb}','${obj.gPicture}','${obj.gPrice}','${obj.gSpec}','${obj.gWare}','${obj.username}','${str}','${Num}','${obj.gId}')`;
-        //     $this.props.T_Tadd('http://localhost:888/Datagrid.php',insert)
-        //     const tdelete = `delete from cake_car where username = '${username}' and gId = '${obj.gId}'`
-        //     $this.props.T_Tadd('http://localhost:888/Datagrid.php',tdelete);
-        //     hashHistory.push('/order');
-        // })
+        $this.props.dataset[0].map(function(obj,index){
+            const insert = `insert into order_list (gId,gNameEN,gNameZH,gNb,gPicture,gTotal,gSpec,gWare,username,gTime,gNum,\`key\`) values ('${obj.gId}','${obj.gNameEN}','${obj.gNameZH}','${obj.gNb}','${obj.gPicture}','${obj.gPrice}','${obj.gSpec}','${obj.gWare}','${obj.username}','${str}','${Num}','${obj.gId}')`;
+            $this.props.T_Tadd(baseurl + 'Datagrid.php',insert)
+            const tdelete = `delete from cake_car where username = '${username}' and gId = '${obj.gId}'`
+            $this.props.T_Tadd(baseurl + 'Datagrid.php',tdelete);
+            hashHistory.push('/order');
+        })
     }
     
 }

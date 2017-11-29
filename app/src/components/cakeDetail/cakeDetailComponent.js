@@ -8,6 +8,8 @@ import DetailComponent from '../tinyComponents/DetailComponent';
 import CoverComponent from '../tinyComponents/CoverComponent'
 import './cakeDetail.scss';
 import {Icon} from 'antd';
+import baseurl from '../../libs/baseurl';
+
 class cakeDatailComponent extends React.Component{
 	componentDidMount(){
 		var cookies = document.cookie;
@@ -17,7 +19,7 @@ class cakeDatailComponent extends React.Component{
                 var temp = cookie.split('=');
                 if(temp[0] === 'token'){
                     const sql = `select * from user_list where token = '${temp[1]}'`
-                    this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+                    this.props.init(baseurl +'Datagrid.php',sql).then(res=>{
 //                  var usernameC = res[0][0].username;
                     })
                 }
@@ -235,7 +237,7 @@ class cakeDatailComponent extends React.Component{
     find(e){
     	var id = this.props.params.id;
         const sql = ` select * from goods_list  where gId = '${id}'`;
-        this.props.Find('http://localhost:888/Datagrid.php',sql);
+        this.props.Find(baseurl +'Datagrid.php',sql);
     }
     add(e){
         var cookies = document.cookie;
@@ -267,16 +269,16 @@ class cakeDatailComponent extends React.Component{
     	const gNb = 1 ;
     	const gPicture = this.props.dataset.gPicture;   	
     	const sql = ` select * from cake_car where (username = '${username}' and gId = '${gId}')`;
-        this.props.p_car('http://localhost:888/Datagrid.php',sql).then(res =>{
+        this.props.p_car(baseurl +'Datagrid.php',sql).then(res =>{
         	if(res[0].length !==0 ){
         		const gNewNb = res[0][0].gNb*1+1;
         		const update = `update cake_car set gNb = '${gNewNb}'  where (username = '${username}' and gId = '${gId}')`;
-        		this.props.p_updatecar('http://localhost:888/Datagrid.php',update);
+        		this.props.p_updatecar(baseurl +'Datagrid.php',update);
         	}
         	else if(res[0].length ==0){
         		console.log(88);
     			const insert = `insert into cake_car (username,gId,gNameEN,gNameZH,gSpec,gPrice,gWare,gNb,gPicture) values ('${username}','${gId}','${gNameEN}','${gNameZH}','${gSpec}','${gPrice}','${gWare}','${gNb}','${gPicture}')`;
-        		this.props.p_addcar('http://localhost:888/Datagrid.php',insert);
+        		this.props.p_addcar(baseurl +'Datagrid.php',insert);
         	}
         });
     }

@@ -6,6 +6,7 @@ import * as orderAction from './orderAction';
 import DetailComponent from '../tinyComponents/DetailComponent.js';
 import './order.scss';
 import {Icon} from 'antd';
+import baseurl from '../../libs/baseurl';
 class orderComponent extends React.Component{
 	componentDidMount(){
 		
@@ -17,11 +18,11 @@ class orderComponent extends React.Component{
                 if(temp[0] === 'token'){
                     console.log(temp[1])
                     const sql = `select * from user_list where token = '${temp[1]}'`
-                    this.props.init('http://localhost:888/Datagrid.php',sql).then(res=>{
+                    this.props.init(baseurl + 'Datagrid.php',sql).then(res=>{
 	                    var username = res[0][0].username;
 	                    console.log(username)
 				      	const sql = ` select * from order_list where username='${username}'`;
-				        this.props.Find('http://localhost:888/Datagrid.php',sql);
+				        this.props.Find(baseurl + 'Datagrid.php',sql);
                     })
                 }
             }.bind(this))

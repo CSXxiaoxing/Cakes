@@ -7,7 +7,7 @@ import { Layout, Menu, Breadcrumb, Icon, Avatar , Dropdown, Form, Input, Button,
 import './loginJS.js'
 import './login.scss'
 import * as loginAction from './loginAction'
-
+import baseurl from '../../../../app/src/libs/baseurl.js';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
@@ -33,7 +33,7 @@ class NormalLoginForm extends React.Component {
                 if(res[0][0].password != password){
                     alert('密码输入错误')
                 }else{
-                    this.props.Token('http://localhost:888/token.php',{username,password}).then(res=>{
+                    this.props.Token(baseurl + 'token.php',{username,password}).then(res=>{
                         document.cookie = 'token ='+res[0];
                         const sql = `select * from admin_list where username='${username}' and password='${password}'`;
                         this.props.PersonalInformation(sql).then(res =>{
