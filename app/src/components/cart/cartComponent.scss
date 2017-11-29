@@ -24,7 +24,7 @@
     background: #333;
     align-items: center;
     display: none;
-    p {
+    .f_message{
         position: absolute;
         top: 50%;
         left: 50%;
@@ -33,7 +33,31 @@
         color: #fff;
         width: 100%;
         font-size: 60px;
+
     }
+    .tv_btn{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        color: #fff;
+        width: 100%;
+        font-size: 60px;
+        display: none;
+        button{
+            background-color:#000;
+            margin-top: 4rem;
+            border:none;
+            font-size: 0.6rem;
+            width: 2rem;
+            height: 1rem;
+        }
+        button:nth-child(2){
+            margin-right:1rem;
+        }
+    }
+
 }
 .t_cart{
     font-size: 0.4rem;
@@ -90,6 +114,17 @@
                 left:0.6rem;
             }
         }
+        .empty{
+            display: none;
+            height:30%;
+            img{
+                margin-left:3.5rem;
+                width: 3rem;
+            }
+            p{
+                text-align: center;
+            }
+        }
         .t_goodslist{
             height:7rem;
             background-color:#fff;
@@ -134,20 +169,21 @@
                             width:0.6rem;
                             float:left;
                             background-color:#ccc;
-                            border:none;
+                            border:none !important;
                         }
-                        .t_add{
+                        .tt_add{
                             color:#000;
                             font-weight:bold;
                             font-size:0.66rem;
                             line-height:0.4rem;
                             text-align: center;
                         }
-                        .t_delete{
+                        .tt_delete{
                             i{
                                 
                             }
                             span{
+                                border:none !important;
                                 display:none;
                                 font-size:1rem;
                                 font-weight: 500;
@@ -155,7 +191,8 @@
                                 color:#000;
                             }
                         }
-                        span{   
+                        span{
+                            border:none !important;   
                             display:block;
                             height:0.6rem;
                             width:0.6rem;
