@@ -63,7 +63,17 @@ class orderComponent extends React.Component{
 	        )
     	}
     	else{
-    		return(<div></div>)
+    		return(
+    			<div className="p_orderbox">
+    				<div className="p_orderhead">
+	                    <Link to="/personal"><Icon type="left" /></Link>
+	                    <p>我的订单</p>
+	                </div>
+	                <div className="p_ordercontent">
+	                	<p className="tips">---你还没有订单,赶紧去来一单吧---</p>
+	                </div>
+    			</div>
+    		)
     	}
         
         

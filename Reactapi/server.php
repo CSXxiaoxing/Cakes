@@ -42,33 +42,20 @@
 		
 	// }
     // 无密码测试
-//  function connect(){
-//      $severname = 'localhost';
-//      $username = 'root';
-//      $password = '';
-//      $dbname = 'cake';
-//      $conn = new mysqli($severname,$username,$password,$dbname);
-//      if($conn->connect_error){
-//          die('连接失败：' . $conn->connect_error);
-//      }
-//      $conn->set_charset('utf8');
-//      return $conn;
-//      
-//  }
+    function connect(){
+        $severname = 'localhost';
+        $username = 'root';
+        $password = '';
+        $dbname = 'cake';
+        $conn = new mysqli($severname,$username,$password,$dbname);
+        if($conn->connect_error){
+            die('连接失败：' . $conn->connect_error);
+        }
+        $conn->set_charset('utf8');
+        return $conn;
+        
+    }
 	
-	//英德测试
-	function connect(){
-		$severname = 'localhost';
-		$username = 'root';
-		$password = '';
-		$dbname = 'h5_1705';
-		$conn = new mysqli($severname,$username,$password,$dbname);
-		if($conn->connect_error){
-		    die('连接失败：' . $conn->connect_error);
-		}
-		$conn->set_charset('utf8');
-		return $conn;
-	}
 
 
 	// /**
