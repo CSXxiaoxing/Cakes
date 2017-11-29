@@ -33,9 +33,6 @@ class cakeDatailComponent extends React.Component{
 		this.find();	
         console.log(this)
 	}
-    cart(){
-        
-    }
     render(){
 	    if(this.props.dataset != ''){	    	
     		const data = this.props.dataset;
@@ -183,7 +180,7 @@ class cakeDatailComponent extends React.Component{
 					    </div>
 	                </div>
 	                <a onClick={this.select}>立即购买</a>
-	                <a onClick={this.add.bind(this)} className="active">加入购物车</a></div>
+	                <a onClick={this.add.bind(this)} className="active" onClick={this.cart}>加入购物车</a></div>
 	            </div>
 	        )
 	     } else {

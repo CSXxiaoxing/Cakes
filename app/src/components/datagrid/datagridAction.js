@@ -17,6 +17,7 @@ export function Init(cakeType){
 
 export function Slide(){
 
+
     //回到顶部
     $('.header').click(function(e){
          $('.content').animate({scrollTop:0},1000);
