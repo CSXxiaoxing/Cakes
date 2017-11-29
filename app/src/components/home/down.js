@@ -16,9 +16,9 @@ function span_move_fun(){
         // span.style.position = "absolute";
     span_top = $(this).offset().top;
     start_top = touch.pageY
-
+    
     page_top = touch.pageY
-    // console.log(page_top)
+    console.log(page_top)
          }
     });
 

@@ -12,12 +12,21 @@ export default function StudentReducer(state = {}, action){
             reState.loading = false;
             reState.dataset = action.dataset;
             break;
+        case 'TS_Requested':
+            reState.loading = false;
+            reState.dataset = action.dataset;
+            break;
         case 'TK_Requested':
             reState.loading = false;
             if(!action.dataset){
                 break;
             }
-            // reState.dataset = action.dataset;
+            break;
+        case 'TE_Requested':
+            reState.loading = false;
+            if(!action.dataset){
+                break;
+            }
             break;
         case 'TD_Requested':
             reState.loading = false;

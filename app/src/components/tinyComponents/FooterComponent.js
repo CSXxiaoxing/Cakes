@@ -7,6 +7,7 @@ var FooterLogin = '';
 var cookies = document.cookie;
 class FooterComponent extends React.Component{
     componentDidMount(){
+
         if(cookies.length>0){
             if(!cookies.split){
                 return false ;

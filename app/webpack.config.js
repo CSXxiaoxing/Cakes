@@ -78,6 +78,8 @@ module.exports = {
         })    
     ],
     devServer: {
-        stats: 'errors-only'
+        stats: 'errors-only',
+        host: '10.3.137.239'
+
     }   
 };

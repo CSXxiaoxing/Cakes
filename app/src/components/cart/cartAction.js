@@ -9,6 +9,25 @@ export function Init(sql){
     }
 }
 
+export function select(sql){
+    return {
+        types: ['BeforeRequest', 'TS_Requested', 'RequestError'],
+        url: 'Datagrid.php',
+        data:{
+            select:sql
+        }
+    }
+}
+export function t_delete(sql){
+    return {
+        types: ['BeforeRequest', 'TE_Requested', 'RequestError'],
+        url: 'Datagrid.php',
+        data:{
+            select:sql
+        }
+    }
+}
+
 export function T_select(api,sql){
     return {
         types: ['BeforeRequest', 'TR_Requested', 'RequestError'],
