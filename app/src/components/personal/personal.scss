@@ -100,19 +100,23 @@
         .order{
             li{
                 padding:.25rem;
-                font-size:.3rem;
+                font-size:.35rem;
                 border-bottom:.01rem solid #ccc;
-                margin-left:.8rem;
+                margin-left:.7rem;
                 position:relative;
                 color:#000;
+                a{
+                    color:#000;
+                }
                 i{
                     font-size:.5rem;
                     position:absolute;
-                    left:-.7rem;
+                    left:-.6rem;
                     padding:.2rem;
-                    top:.05rem;
-                    color:#ccc;
+                    top:.1rem;
+                    color:#666666;
                     font-size:.4rem;
+                    // background:#666666;
                     // background:#000;
                 }
         
@@ -121,7 +125,7 @@
         .type{
             li{
                 padding:.25rem;
-                font-size:.3rem;
+                font-size:.35rem;
                 border-bottom:.01rem solid #ccc;
                 margin-left:.2rem;
                 position:relative;
