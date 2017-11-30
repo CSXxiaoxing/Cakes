@@ -54,3 +54,13 @@ export function init(api,sql){
         }
     }
 }
+
+export function car_num(api,sql){
+    return {
+        types: ['BeforeRequest', 'p_car_num', 'RequestError'],
+        url: api,
+        data:{
+        	select:sql
+        }
+    }
+}

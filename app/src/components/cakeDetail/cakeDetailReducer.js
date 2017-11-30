@@ -20,6 +20,10 @@ export default function StudentReducer(state = {}, action){
             reState.loading = false;
             reState.cake_cookies = action.dataset[0];
             break;
+        case 'p_car_num':
+            reState.loading = false;
+            reState.car_number = action.dataset;
+            break;
         default:
             reState.loading = false;
     }

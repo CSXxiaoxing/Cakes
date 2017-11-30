@@ -34,7 +34,32 @@
         font-size: 60px;
     }
 }
-
+#car_icon{
+	position: absolute;
+	width: 1.3333rem;
+	height: 1.3333rem;
+	bottom: 3.6rem;
+	left: 0.2666rem;
+	z-index: 99;
+	background-color: #000000;
+	opacity: 0.8;
+	border-radius: 50%;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 1.3333rem;
+	font-size: 0.8666rem;
+	.car_num{
+		position: absolute;
+		right: -0.1333rem;
+		top: -0.1066rem;
+		background-color: red;
+		width: 0.6666rem;
+		height: 0.6666rem;
+		font-size: 0.4rem;
+		line-height: 0.6666rem;
+		border-radius: 50%;
+	}
+}
 body,html,h3,p,ul,li{
 	margin: 0rem;
 	padding: 0rem;
@@ -273,7 +298,7 @@ ul,li{
         	top: 0rem;
         	width: 100%;
         	height: 0rem;
-//      	height: 355px;
+//      	height: 800px;
         	background-color: #FFFFFF;
         	box-shadow: 0rem -0.0312rem 0.0625rem 0rem rgba(0,0,0,0.1);        	
         	color: #442818;
@@ -296,7 +321,8 @@ ul,li{
 		        		}
 		        	}
 		        	img{
-		        		width: 4.6875rem;
+//		        		width: 4.6875rem;
+						width: 100%;
 		        		float: left;
 		        	}
 		        	.details-ul{
