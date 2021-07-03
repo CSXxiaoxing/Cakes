@@ -1,0 +1,16 @@
+export default {
+	  goods_list:'商品列表',
+	  goods_edit:'商品编辑',
+	  goods_add:'商品添加',
+	  class_list:'商品分类列表',
+	  class_edit:'商品分类编辑',
+	  class_add:'商品分类添加',
+	  admin_list:'管理员列表',
+	  admin_edit:'管理员编辑',
+	  admin_add:'管理员添加',
+	  order_list:'订单列表',
+	  order_detalis:'订单详情',
+	  user_list:'用户列表',
+	  user_add:'用户添加',
+	  user_edit:'用户编辑',
+	}

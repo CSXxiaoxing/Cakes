@@ -1,12 +1,44 @@
-export function Init(){
+export function Init(sql){
     return {
         types: ['BeforeRequest', 'Requested', 'RequestError'],
-        url: 'getDish'
+        url: 'Datagrid.php',
+        data:{
+            select:sql
+        },
     }
 }
 
-export function Edit(){
+export function Edit(editData){
     return {
-        types: ['a']
+        type: 'edit',
+        data:editData
+    }
+}
+
+export function ChangePage(sql){
+    return {
+        types: ['BeforeRequest', 'Requested', 'RequestError'],
+        url: 'Datagrid.php',
+        data:{
+            select:sql
+        },
+    }
+}
+export function Search(sql){
+    return {
+        types: ['BeforeRequest', 'Requested', 'RequestError'],
+        url: 'Datagrid.php',
+        data:{
+        	select:sql
+        },
+    }
+}
+export function Delete(sql){
+    return {
+        types: ['BeforeRequest', 'Requested', 'RequestError'],
+        url: 'Datagrid.php',
+        data:{
+            else:sql
+        },
     }
 }

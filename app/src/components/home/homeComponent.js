@@ -4,63 +4,86 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 
 import SpinnerComponent from '../spinner/spinner';
 import * as homeAction from './homeAction';
-import CarouselComponent from './carousel';
+import contentComponent from './contentComponent';
+import CoverComponent from '../tinyComponents/CoverComponent';
+import HeaderComponent from '../tinyComponents/HeaderComponent';
+import FooterComponent from '../tinyComponents/FooterComponent';
 import { Layout, Menu, Breadcrumb, Icon, Carousel} from 'antd';
+import { browserHistory } from 'react-router';
 import './home.scss';
-
+// import './down.js' console.log;
 class homeComponent extends React.Component{
     componentDidMount(){
         this.props.Init();
-    }
+        this.props.Slide();
 
+        $('.footer ul li').eq(0).addClass('iconActive');
+        // 城市定位？
+        var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_=' + Math.random();
+            $.getJSON(url, function(data) {
+                var city = data.Isp.slice(3,-11);
+                $('.city').text(`${city}`)
+            });
+        $('.header ul li').eq(0).click(function(){
+            var text;
+            $('.cover').show();
+            $('.list li').click(function(){
+                $(this).addClass('coverActive').siblings().removeClass('coverActive');
+                text = $(this).children().eq(1).text();
+            })
+            $('.cover .btn').click(function(){
+                $('.cover').hide();
+                $('.header ul li span').text(text);
+            })
+        });
+    }
+    componentWillReceiveProps(propsType){
+        let Obj = this.props.location.pathname;
+        let at_li = $('.footer ul li').removeClass('iconActive')
+        Obj == '/' ? at_li.eq(0).addClass('iconActive') : at_li.eq(1).addClass('iconActive')
+    }
     render(){
-        console.log(this.props.children)
         return (
             <div className="box">
-                <div className="header">
-                    <ul>
-                        <li><Link to="/personal"><Icon type="environment" /></Link></li>
-                        <li><Link><Icon type="star" /></Link></li>
-                        <li><Link><Icon type="message" /></Link></li>
-                    </ul>
+                <CoverComponent/>
+                <HeaderComponent/>
+                <div id="bottomLoading">
+                    <Icon type="loading" />
+                    <p>正在刷新...</p>
                 </div>
                 <div className="content">
-                    <img src="./src/img/cake3.jpg" />
-                    <div className="classify">
-                        <ul>
-                            <li><Link to="/personal"><img src="./src/img/cake1.jpg" /><span>蛋糕</span></Link></li>
-                            <li><Link><img src="./src/img/cake2.jpg" /><span>冰淇淋</span></Link></li>
-                            <li><Link><img src="./src/img/cake3.jpg" /><span>小切块</span></Link></li>
-                            <li><Link><img src="./src/img/cake4.jpg" /><span>定制</span></Link></li>
-                        </ul>
-                    </div>
-                    <div className="billboard">
-                        <h1>cake.榜单</h1>
-                        <div><img src="./src/img/cake4.jpg" /></div>
-                        <ul>
-                            <li><Link to="/personal"><img src="./src/img/cake1.jpg" /><span>蛋糕</span></Link></li>
-                            <li><Link><img src="./src/img/cake2.jpg" /><span>冰淇淋</span></Link></li>
-                            <li><Link><img src="./src/img/cake3.jpg" /><span>小切块</span></Link></li>
-                        </ul>
-                    </div>
+                <SpinnerComponent loading={this.props.loading}/>
+                    <div>{this.props.children}</div>
                 </div>
-                <div className="footer">
-                    <ul>
-                        <li><Link to="/personal"><Icon type="home" /><span>首页</span></Link></li>
-                        <li><Link><Icon type="appstore-o" /><span>分类</span></Link></li>
-                        <li><Link><Icon type="home" /><span>购物车</span></Link></li>
-                        <li><Link><Icon type="user"  /><span>我</span></Link></li>
-                    </ul>
-                </div>
+                <FooterComponent/>
             </div>
         )
+    }
+    filter(){
+        var cookies = document.cookie;
+            if(cookies.length>0){
+                
+                cookies = cookies.split('; ');
+                cookies.forEach(function(cookie){
+                    var temp = cookie.split('=');
+                    if(temp[0] == 'token'){
+                                browserHistory.push('/#/personal')
+                                location.reload() 
+                    }
+                }.bind(this))
+            }else{
+                
+                browserHistory.push('/#/login')
+                location.reload() 
+            }
     }
 }
 
 const mapStateToProps = function(state){
+    var dataset  = state.home.dataset || '[]';
     return {
         loading: state.home.loading,
-        dataset: state.home.dataset || {}
+        dataset: dataset[0] || []
     }
 }
 

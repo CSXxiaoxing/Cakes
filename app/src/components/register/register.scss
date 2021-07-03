@@ -1,0 +1,118 @@
+// <<<<<<< HEAD
+// #app .box{
+//     height:100%;
+//     position:relative;
+//     .l-cover{
+//         display:none;
+//         position:absolute;
+//         height:100%;
+//         background:#000;
+//         width:100%;
+//         opacity:.3;
+//         top:0;
+//     }
+//     .l-massage{
+//         overflow:hidden;
+//         display:none;
+//         text-align:center;
+//         width:7.5rem;
+//         height:4rem;
+//         position:absolute;
+//         top:7rem;
+//         background:#fff;
+//         opacity:.9;
+//         left:1.3rem;
+//         border-radius:.2rem;
+//         button{
+//             position:absolute;
+//             width:100%;
+//             bottom:0;
+//             left:0;
+//             font-size:.3rem;
+//             color:#fff;
+//             font-weight:900;
+//             padding:.2rem .5rem;
+//             background:#ddd;
+//             color:#337ab7;
+//             height:1rem;
+            
+//         }
+//         .massage{
+//             width:100%;
+//             text-align:center;
+//             position:absolute;
+//             top:1.2rem;
+//             color:#000; 
+//             font-size:.4rem;
+//             background:#fff;
+//         }
+//         p{
+//             // border-radius:.2rem;
+//             position:absolute;
+//             top:0;
+//             padding:.3rem;
+//             background:#337ab7;
+//             color:#fff;
+//         }
+//     }
+// }
+
+// =======
+// >>>>>>> ljj
+#app .box .content{
+    background-color:#fff;
+    .l-loginbox{
+        position:relative;
+        padding:.5rem .7rem;
+        label{
+            position:relative;
+            .yes{
+                display:none;
+                position:absolute;
+                // display:block;
+                width:.4rem;
+                height:.4rem;
+                right:.2rem;
+                top:.1rem;
+                // background:url(./img/pass.png)
+                img{
+                    display:block;
+                    width:.4rem;
+                    height:.4rem;
+                }
+            }
+            .code{
+                position:absolute;
+                right:.2rem;
+                top:-.3rem;
+                font-size:.35rem;
+                background:#ccc;
+                padding:.1rem .2rem;
+            }
+        }
+        input{
+            font-size:.35rem;
+            width:100%;
+            height:1rem;
+            border:none;
+            border-bottom: .01rem solid #D5D5D5;
+            outline: none;
+            color: #442818;
+        }
+        button{
+             width:100%;
+            height:1.2rem;
+            background-color: #442818;
+            color:#fff;
+            font-size:.4rem;
+            margin-top:1rem;
+        }
+        .errmsg{
+            display:block;
+            position: absolute;
+            bottom:2rem;
+            color:#FF714D;
+            font-size:.35rem;
+        }
+    }
+}
